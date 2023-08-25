@@ -9,14 +9,20 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _1_two_sum();
+        _167_two_sum_2_input_array_is_sorted();
+    }
 
+    private static void _167_two_sum_2_input_array_is_sorted() {
+        _167_two_sum_2_input_array_is_sorted.Solution solution = new _167_two_sum_2_input_array_is_sorted.Solution();
+        System.out.println(Arrays.toString(solution.twoSum(new int[]{2, 7, 11, 15}, 9)));
+        System.out.println(Arrays.toString(solution.twoSum(new int[]{2, 3, 4}, 6)));
+        System.out.println(Arrays.toString(solution.twoSum(new int[]{-1, 0}, -1)));
     }
 
     private static void _1_two_sum() {
         _1_two_sum.Solution solution = new _1_two_sum.Solution();
-        int[] nums   = {2, 7, 11, 15};
-        int   target = 9;
+        int[]               nums     = {2, 7, 11, 15};
+        int                 target   = 9;
         System.out.println(Arrays.toString(solution.twoSum(nums, target)));
     }
 

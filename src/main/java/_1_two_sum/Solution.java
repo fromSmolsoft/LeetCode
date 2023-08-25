@@ -28,8 +28,8 @@ public class Solution {
     /** Efficient 0(n) solution */
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> mapNums = new HashMap<>();
-
         int numbLength = nums.length;
+
         for (int i = 0; i < numbLength; i++) {
             int complement = target - nums[i];
             if (mapNums.containsKey(complement)) {
@@ -40,6 +40,7 @@ public class Solution {
         }
         return new int[]{};
     }
+
 
     /** Brute force O(n^2) solution */
     public int[] twoSumBruteForce(int[] nums, int target) {
