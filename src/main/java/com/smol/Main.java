@@ -9,8 +9,15 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _1480RunningSumOf1dArray();
+        _1_two_sum();
 
+    }
+
+    private static void _1_two_sum() {
+        _1_two_sum.Solution solution = new _1_two_sum.Solution();
+        int[] nums   = {2, 7, 11, 15};
+        int   target = 9;
+        System.out.println(Arrays.toString(solution.twoSum(nums, target)));
     }
 
 
@@ -19,5 +26,6 @@ public class Main {
         Solution solution = new Solution();
         System.out.println(Arrays.toString(solution.runningSum(input)));
     }
+
 
 }
