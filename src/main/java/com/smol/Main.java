@@ -9,7 +9,12 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _412_FizzBuzz();
+        _1342_NumberOfStepsToReduceNumberToZero();
+    }
+
+    private static void _1342_NumberOfStepsToReduceNumberToZero() {
+        solutions._1342_NumberOfStepsToReduceNumberToZero solution = new solutions._1342_NumberOfStepsToReduceNumberToZero();
+        System.out.println(solution.numberOfSteps(14));
     }
 
     private static void _412_FizzBuzz() {
