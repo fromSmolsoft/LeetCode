@@ -1,6 +1,7 @@
 package com.smol;
 
 import _1480sum_of_1d_array.Solution;
+import solutions.ListNode;
 
 import java.util.Arrays;
 
@@ -9,7 +10,17 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _1342_NumberOfStepsToReduceNumberToZero();
+        _876_MiddleOfLinkedList();
+    }
+
+    private static void _876_MiddleOfLinkedList() {
+        //input
+        ListNode head  = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode head2 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))));
+        //output
+        solutions._876_MiddleOfLinkedList solution = new solutions._876_MiddleOfLinkedList();
+        System.out.println(solution.middleNode(head).val);
+        System.out.println(solution.middleNode(head2).val);
     }
 
     private static void _1342_NumberOfStepsToReduceNumberToZero() {
