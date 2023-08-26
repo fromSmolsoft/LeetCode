@@ -9,7 +9,14 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _1672_RichestCustomerWealth();
+        _412_FizzBuzz();
+    }
+
+    private static void _412_FizzBuzz() {
+        int input = 15;
+
+        solutions._412_FizzBuzz solution = new solutions._412_FizzBuzz();
+        System.out.println((solution.fizzBuzz(input)).toString());
     }
 
     private static void _1672_RichestCustomerWealth() {
