@@ -9,7 +9,15 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _167_two_sum_2_input_array_is_sorted();
+        _1672_RichestCustomerWealth();
+    }
+
+    private static void _1672_RichestCustomerWealth() {
+        int[][] input = new int[][]{{1, 2, 3}, {3, 2, 1}};
+
+        solutions._1672_RichestCustomerWealth solution = new solutions._1672_RichestCustomerWealth();
+        System.out.println(solution.maximumWealth(input));
+
     }
 
     private static void _167_two_sum_2_input_array_is_sorted() {
