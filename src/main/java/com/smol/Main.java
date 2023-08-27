@@ -10,7 +10,14 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _876_MiddleOfLinkedList();
+        _383_RansomNote();
+    }
+
+    private static void _383_RansomNote() {
+        solutions._383_RansomNote solution = new solutions._383_RansomNote();
+        System.out.println("Expected:true , output:" + solution.canConstruct("aa", "aab"));
+        System.out.println("Expected:false, output:" + solution.canConstruct("aa", "ab"));
+        System.out.println("Expected:false, output:" + solution.canConstruct("fihjjjjei", "hjibagacbhadfaefdjaeaebgi"));
     }
 
     private static void _876_MiddleOfLinkedList() {
