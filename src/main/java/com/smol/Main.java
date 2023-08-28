@@ -10,7 +10,10 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        _383_RansomNote();
+    }
+
+    private static void _225_ImplementStackUsingQueues() {
+        //tested via test class
     }
 
     private static void _383_RansomNote() {
