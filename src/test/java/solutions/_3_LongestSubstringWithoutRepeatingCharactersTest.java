@@ -46,4 +46,11 @@ class _3_LongestSubstringWithoutRepeatingCharactersTest {
         assertEquals(9, length);
 
     }
+    @Test
+    void test5() {
+        String s      = "abcabcdefg";
+        int    length = substringWithoutRepeatingCharacters.lengthOfLongestSubstring(s);
+        assertEquals(7, length);
+
+    }
 }
