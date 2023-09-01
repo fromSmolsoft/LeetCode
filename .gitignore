@@ -39,4 +39,9 @@ bin/
 .vscode/
 
 ### Mac OS ###
-.DS_Store
+.DS_Store!/.idea/gradle.xml
+.idea/uiDesigner.xml
+.idea/state.xml
+.idea/gradle.xml
+
+
