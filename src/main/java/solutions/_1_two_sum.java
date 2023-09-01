@@ -1,4 +1,4 @@
-package _1_two_sum;
+package solutions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ import java.util.Map;
  * -109 <= target <= 109 <p>
  * Only one valid answer exists. <p>
  */
-public class Solution {
+public class _1_two_sum {
 
     /** Efficient 0(n) solution */
     public int[] twoSum(int[] nums, int target) {

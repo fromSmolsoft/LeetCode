@@ -1,17 +1,17 @@
-package solutions._225_ImplementStackUsingQueues;
+package solutions;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import solutions._225_ImplementStackUsingQueues;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MyStackTest {
-    MyStack obj = new MyStack();
+class _225_ImplementStackUsingQueuesTest {
+    _225_ImplementStackUsingQueues obj = new _225_ImplementStackUsingQueues();
 
     @BeforeEach
     void setUp() {
-       obj = new MyStack();
+       obj = new _225_ImplementStackUsingQueues();
         obj.push(1);
         obj.push(2);
     }

@@ -1,4 +1,4 @@
-package _167_two_sum_2_input_array_is_sorted;
+package solutions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +39,7 @@ import java.util.Map;
  * -1000 <= target <= 1000
  * The tests are generated such that there is exactly one solution.
  */
-public class Solution {
+public class _167_two_sum_2_input_array_is_sorted {
 
     /** faster, simple */
     public int[] twoSum(int[] numbers, int target) {

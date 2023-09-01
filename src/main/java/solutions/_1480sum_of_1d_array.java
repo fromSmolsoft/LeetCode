@@ -1,6 +1,6 @@
-package _1480sum_of_1d_array;
+package solutions;
 
-public class Solution {
+public class _1480sum_of_1d_array {
     /**
      * 1480. Running Sum of 1d Array
      * Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
