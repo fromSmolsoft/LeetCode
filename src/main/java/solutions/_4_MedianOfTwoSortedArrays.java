@@ -41,22 +41,20 @@ public class _4_MedianOfTwoSortedArrays {
         int   kMax   = nums1.length;
         int   l      = 0;
         int   lMax   = nums2.length;
-        for (int i = 0; i < max; i++) {
-            if (k < kMax && l < lMax) {
-                if (nums1[k] < nums2[l]) {
-                    merged[i] = nums1[k];
-                    k++;
-                } else {
-                    merged[i] = nums2[l];
-                    l++;
-                }
-            } else if (k < kMax) {
-                merged[i] = nums1[k];
-                k++;
-            } else if (l < lMax) {
-                merged[i] = nums2[l];
-                l++;
+
+        int i = 0;
+        while (k < kMax && l < lMax) {
+            if (nums1[k] < nums2[l]) {
+                merged[i++] = nums1[k++];
+            } else {
+                merged[i++] = nums2[l++];
             }
+        }
+        while (k < kMax) {
+            merged[i++] = nums1[k++];
+        }
+        while (l < lMax) {
+            merged[i++] = nums2[l++];
         }
         return max % 2 == 0 ? (double) (merged[max / 2 - 1] + merged[max / 2]) / 2 : merged[max / 2];
     }
