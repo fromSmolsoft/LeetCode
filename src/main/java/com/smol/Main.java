@@ -1,7 +1,10 @@
 package com.smol;
 
-import _1480sum_of_1d_array.Solution;
-import solutions.ListNode;
+import solutions._1480sum_of_1d_array;
+import solutions._167_two_sum_2_input_array_is_sorted;
+import solutions._1_two_sum;
+import solutions._876_MiddleOfLinkedList.ListNode;
+import solutions._876_MiddleOfLinkedList._876_MiddleOfLinkedList;
 
 import java.util.Arrays;
 
@@ -10,7 +13,12 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
+
+
+
     }
+
+
 
     private static void _225_ImplementStackUsingQueues() {
         //tested via test class
@@ -28,7 +36,7 @@ public class Main {
         ListNode head  = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
         ListNode head2 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))));
         //output
-        solutions._876_MiddleOfLinkedList solution = new solutions._876_MiddleOfLinkedList();
+        _876_MiddleOfLinkedList solution = new _876_MiddleOfLinkedList();
         System.out.println(solution.middleNode(head).val);
         System.out.println(solution.middleNode(head2).val);
     }
@@ -54,24 +62,24 @@ public class Main {
     }
 
     private static void _167_two_sum_2_input_array_is_sorted() {
-        _167_two_sum_2_input_array_is_sorted.Solution solution = new _167_two_sum_2_input_array_is_sorted.Solution();
-        System.out.println(Arrays.toString(solution.twoSum(new int[]{2, 7, 11, 15}, 9)));
-        System.out.println(Arrays.toString(solution.twoSum(new int[]{2, 3, 4}, 6)));
-        System.out.println(Arrays.toString(solution.twoSum(new int[]{-1, 0}, -1)));
+        _167_two_sum_2_input_array_is_sorted a167twosum2inputarrayissorted = new _167_two_sum_2_input_array_is_sorted();
+        System.out.println(Arrays.toString(a167twosum2inputarrayissorted.twoSum(new int[]{2, 7, 11, 15}, 9)));
+        System.out.println(Arrays.toString(a167twosum2inputarrayissorted.twoSum(new int[]{2, 3, 4}, 6)));
+        System.out.println(Arrays.toString(a167twosum2inputarrayissorted.twoSum(new int[]{-1, 0}, -1)));
     }
 
     private static void _1_two_sum() {
-        _1_two_sum.Solution solution = new _1_two_sum.Solution();
-        int[]               nums     = {2, 7, 11, 15};
+        _1_two_sum a1twosum = new _1_two_sum();
+        int[]      nums     = {2, 7, 11, 15};
         int                 target   = 9;
-        System.out.println(Arrays.toString(solution.twoSum(nums, target)));
+        System.out.println(Arrays.toString(a1twosum.twoSum(nums, target)));
     }
 
 
     private static void _1480RunningSumOf1dArray() {
-        int[]    input    = new int[]{1, 2, 3, 4};
-        Solution solution = new Solution();
-        System.out.println(Arrays.toString(solution.runningSum(input)));
+        int[]                input             = new int[]{1, 2, 3, 4};
+        _1480sum_of_1d_array a1480sumof1darray = new _1480sum_of_1d_array();
+        System.out.println(Arrays.toString(a1480sumof1darray.runningSum(input)));
     }
 
 
