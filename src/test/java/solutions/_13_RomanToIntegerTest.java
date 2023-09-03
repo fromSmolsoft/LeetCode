@@ -21,11 +21,12 @@ class _13_RomanToIntegerTest {
      */
     @Test
     void III() {
-        String input = "III";
-        int expected = 3;
-        int actual = obj.romanToInt(input);
+        String input    = "III";
+        int    expected = 3;
+        int    actual   = obj.romanToInt(input);
         assertEquals(expected, actual);
     }
+
     /**
      * Input: s = "LVIII";
      * Output: 58;
@@ -33,11 +34,12 @@ class _13_RomanToIntegerTest {
      */
     @Test
     void LVIII() {
-        String input = "LVIII";
-        int expected = 58;
-        int actual = obj.romanToInt(input);
+        String input    = "LVIII";
+        int    expected = 58;
+        int    actual   = obj.romanToInt(input);
         assertEquals(expected, actual);
     }
+
     /**
      * Input: s = "MCMXCIV";
      * Output: 1994;
@@ -45,9 +47,33 @@ class _13_RomanToIntegerTest {
      */
     @Test
     void MCMXCIV() {
-        String input = "MCMXCIV";
-        int expected = 1994;
-        int actual = obj.romanToInt(input);
+        String input    = "MCMXCIV";
+        int    expected = 1994;
+        int    actual   = obj.romanToInt(input);
+        assertEquals(expected, actual);
+    }
+    /**
+     * Input: s = "CDXLIV";
+     * Output: 1994;
+     * Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+     */
+    @Test
+    void CDXLIV() {
+        String input    = "CDXLIV";
+        int    expected = 444;
+        int    actual   = obj.romanToInt(input);
+        assertEquals(expected, actual);
+    }
+
+    /**
+     * Input: s = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMCMXCIX";
+     * Output: 99999;
+     */
+    @Test
+    void longNumber() {
+        String input    = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMCMXCIX";
+        int    expected = 99999;
+        int    actual   = obj.romanToInt(input);
         assertEquals(expected, actual);
     }
 }

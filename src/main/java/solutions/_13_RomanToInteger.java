@@ -54,8 +54,12 @@ import java.util.Map;
  */
 public class _13_RomanToInteger {
 
+    /**
+     * Runtime 4ms Beats 75.88%of users with Java <p>
+     * Memory 43.63MB Beats 64.29%of users with Java <p>
+     */
     public int romanToInt(String s) {
-
+        //create hashmap fo roman numerals
         Map<Character, Integer> map = new HashMap<>();
         map.put('I', 1);
         map.put('V', 5);
@@ -64,13 +68,14 @@ public class _13_RomanToInteger {
         map.put('C', 100);
         map.put('D', 500);
         map.put('M', 1000);
-
-
+        // initialize helper variables
+        int length   = s.length();
         int previous = 0;
         int result   = 0;
-//fixme
-        for (char c : s.toCharArray()) {
-            int value = map.get(c);
+        //iterate through the string from end to start
+        for (int i = length - 1; i >= 0; i--) {
+            int value = map.get(s.charAt(i));
+            //compare current and previous values
             if (previous <= value) {
                 result += value;
             } else {
@@ -79,8 +84,6 @@ public class _13_RomanToInteger {
             }
             previous = value;
         }
-
         return result;
-
     }
 }

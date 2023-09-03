@@ -1,6 +1,3 @@
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
@@ -15,6 +12,7 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+.idea/sonarlint/
 
 ### Eclipse ###
 .apt_generated
@@ -44,4 +42,10 @@ bin/
 .idea/state.xml
 .idea/gradle.xml
 
+### Gradle ###
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### Other ###
 
