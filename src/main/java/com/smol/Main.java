@@ -14,11 +14,9 @@ public class Main {
     public static void main(String[] args) {
 
 
-
-
     }
 
-
+    // Methods ===
 
     private static void _225_ImplementStackUsingQueues() {
         //tested via test class
@@ -71,7 +69,7 @@ public class Main {
     private static void _1_two_sum() {
         _1_two_sum a1twosum = new _1_two_sum();
         int[]      nums     = {2, 7, 11, 15};
-        int                 target   = 9;
+        int        target   = 9;
         System.out.println(Arrays.toString(a1twosum.twoSum(nums, target)));
     }
 

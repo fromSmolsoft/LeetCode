@@ -32,9 +32,7 @@ import java.util.Map;
  */
 public class _383_RansomNote {
 
-
     /**
-     *
      * Hashmap solution
      * 14 ms runtime 44 MB memory
      */
@@ -57,8 +55,6 @@ public class _383_RansomNote {
         }
         return true;
     }
-
-
 
 
     /**

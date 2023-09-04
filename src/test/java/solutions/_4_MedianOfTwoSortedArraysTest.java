@@ -6,14 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class _4_MedianOfTwoSortedArraysTest {
-    //    int a[] = new int[]{1, 2, 3, 4, 5};
-//    double a1 = 3d;
-//    int b[] = new int[]{10, 11, 12, 13, 14};
-//    double b1 = 12d;
-//    int c[] = new int[]{1, 2, 3, 4, 5, 10, 11, 12, 13, 14};
-//    double c1 = 7.5d;
-//    int d[] = new int[]{1, 2, 20, 21};
-//    double d1 = 11d;
     _4_MedianOfTwoSortedArrays obj;
 
     @BeforeEach

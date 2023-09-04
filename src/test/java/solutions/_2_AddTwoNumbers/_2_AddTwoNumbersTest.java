@@ -89,14 +89,5 @@ class _2_AddTwoNumbersTest {
         testIndividualNodes(actual, expectedArray);
     }
 
-    @Test
-    void addTwoNumbersHuge() {
-        //Input: l1 = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], l2 = [5,6,4]
-        ListNode l1            = getListNode(new int[]{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1});
-        ListNode l2            = getListNode(new int[]{5, 6, 4});
-        ListNode actual        = obj.addTwoNumbers(l1, l2);
-        int[]    expectedArray = {(1+5),6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
-
-    }
 
 }
