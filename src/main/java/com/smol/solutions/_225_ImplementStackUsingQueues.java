@@ -1,4 +1,4 @@
-package solutions;
+package com.smol.solutions;
 
 import java.util.Deque;
 

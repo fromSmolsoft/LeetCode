@@ -1,4 +1,4 @@
-package solutions;
+package com.smol.solutions;
 
 /**
  * <h1>4. Median of Two Sorted Arrays</h1>

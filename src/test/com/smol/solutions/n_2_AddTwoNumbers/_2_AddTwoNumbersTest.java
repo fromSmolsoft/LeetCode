@@ -1,5 +1,7 @@
-package solutions._2_AddTwoNumbers;
+package com.smol.solutions.n_2_AddTwoNumbers;
 
+import com.smol.solutions.n_2_addtwonumbers.ListNode;
+import com.smol.solutions.n_2_addtwonumbers._2_AddTwoNumbers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class _2_AddTwoNumbersTest {
 
-    _2_AddTwoNumbers obj;
+    private _2_AddTwoNumbers obj;
 
     /** Generates a ListNode from a given array */
     private static ListNode getListNode(int[] values) {
@@ -89,14 +91,5 @@ class _2_AddTwoNumbersTest {
         testIndividualNodes(actual, expectedArray);
     }
 
-    @Test
-    void addTwoNumbersHuge() {
-        //Input: l1 = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], l2 = [5,6,4]
-        ListNode l1            = getListNode(new int[]{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1});
-        ListNode l2            = getListNode(new int[]{5, 6, 4});
-        ListNode actual        = obj.addTwoNumbers(l1, l2);
-        int[]    expectedArray = {(1+5),6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
-
-    }
 
 }
