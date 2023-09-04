@@ -1,4 +1,4 @@
-package solutions;
+package com.smol.solutions;
 
 /**
  * <h1>12. Integer to Roman</h1>

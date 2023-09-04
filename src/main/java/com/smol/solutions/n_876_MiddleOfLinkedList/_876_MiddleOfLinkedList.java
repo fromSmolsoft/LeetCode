@@ -1,4 +1,4 @@
-package solutions._876_MiddleOfLinkedList;
+package com.smol.solutions.n_876_MiddleOfLinkedList;
 
 /**
  * <h1>876. Middle of the Linked List</h1>

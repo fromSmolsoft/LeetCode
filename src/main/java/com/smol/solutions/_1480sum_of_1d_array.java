@@ -1,4 +1,4 @@
-package solutions;
+package com.smol.solutions;
 
 public class _1480sum_of_1d_array {
     /**

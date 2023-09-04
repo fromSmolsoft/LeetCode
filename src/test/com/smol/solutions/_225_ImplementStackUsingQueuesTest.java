@@ -1,8 +1,7 @@
-package solutions;
+package com.smol.solutions;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import solutions._225_ImplementStackUsingQueues;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +10,7 @@ class _225_ImplementStackUsingQueuesTest {
 
     @BeforeEach
     void setUp() {
-       obj = new _225_ImplementStackUsingQueues();
+        obj = new _225_ImplementStackUsingQueues();
         obj.push(1);
         obj.push(2);
     }
@@ -38,7 +37,7 @@ class _225_ImplementStackUsingQueuesTest {
     @Test
     void empty() {
         assertFalse(obj.empty());
-        while   (!obj.empty()) {
+        while (!obj.empty()) {
             obj.pop();
         }
         assertTrue(obj.empty());

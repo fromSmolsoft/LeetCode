@@ -1,4 +1,4 @@
-package solutions._2_AddTwoNumbers;
+package com.smol.solutions.n_2_addtwonumbers;
 
 /**
  * <h1>2. Add Two Numbers</h1>

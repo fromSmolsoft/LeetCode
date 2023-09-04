@@ -1,10 +1,8 @@
 package com.smol;
 
-import solutions._1480sum_of_1d_array;
-import solutions._167_two_sum_2_input_array_is_sorted;
-import solutions._1_two_sum;
-import solutions._876_MiddleOfLinkedList.ListNode;
-import solutions._876_MiddleOfLinkedList._876_MiddleOfLinkedList;
+import com.smol.solutions.*;
+import com.smol.solutions.n_876_MiddleOfLinkedList.ListNode;
+import com.smol.solutions.n_876_MiddleOfLinkedList._876_MiddleOfLinkedList;
 
 import java.util.Arrays;
 
@@ -12,7 +10,6 @@ import java.util.Arrays;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-
 
     }
 
@@ -23,7 +20,7 @@ public class Main {
     }
 
     private static void _383_RansomNote() {
-        solutions._383_RansomNote solution = new solutions._383_RansomNote();
+        _383_RansomNote solution = new _383_RansomNote();
         System.out.println("Expected:true , output:" + solution.canConstruct("aa", "aab"));
         System.out.println("Expected:false, output:" + solution.canConstruct("aa", "ab"));
         System.out.println("Expected:false, output:" + solution.canConstruct("fihjjjjei", "hjibagacbhadfaefdjaeaebgi"));
@@ -40,21 +37,21 @@ public class Main {
     }
 
     private static void _1342_NumberOfStepsToReduceNumberToZero() {
-        solutions._1342_NumberOfStepsToReduceNumberToZero solution = new solutions._1342_NumberOfStepsToReduceNumberToZero();
+        _1342_NumberOfStepsToReduceNumberToZero solution = new _1342_NumberOfStepsToReduceNumberToZero();
         System.out.println(solution.numberOfSteps(14));
     }
 
     private static void _412_FizzBuzz() {
         int input = 15;
 
-        solutions._412_FizzBuzz solution = new solutions._412_FizzBuzz();
+        _412_FizzBuzz solution = new _412_FizzBuzz();
         System.out.println((solution.fizzBuzz(input)).toString());
     }
 
     private static void _1672_RichestCustomerWealth() {
         int[][] input = new int[][]{{1, 2, 3}, {3, 2, 1}};
 
-        solutions._1672_RichestCustomerWealth solution = new solutions._1672_RichestCustomerWealth();
+        _1672_RichestCustomerWealth solution = new _1672_RichestCustomerWealth();
         System.out.println(solution.maximumWealth(input));
 
     }

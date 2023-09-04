@@ -1,5 +1,7 @@
-package solutions._2_AddTwoNumbers;
+package com.smol.solutions.n_2_AddTwoNumbers;
 
+import com.smol.solutions.n_2_addtwonumbers.ListNode;
+import com.smol.solutions.n_2_addtwonumbers._2_AddTwoNumbers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class _2_AddTwoNumbersTest {
 
-    _2_AddTwoNumbers obj;
+    private _2_AddTwoNumbers obj;
 
     /** Generates a ListNode from a given array */
     private static ListNode getListNode(int[] values) {
