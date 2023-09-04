@@ -1,12 +1,12 @@
 package solutions;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class _12_IntegerToRomanTest {
-
 
     private _12_IntegerToRoman obj;
 
@@ -15,73 +15,34 @@ class _12_IntegerToRomanTest {
         obj = new _12_IntegerToRoman();
     }
 
-    /**
-     * Input: num = 3;
-     * Output: "III";
-     * Explanation: 3 is represented as 3 ones.
-     */
-    @Test
-    void n3() {
-        int    num      = 3;
-        String expected = "III";
 
-        String actual = obj.intToRoman(num);
-        assertEquals(expected, actual);
-    }
-
-    /**
-     * Input: num = 58;
-     * Output: "LVIII";
-     */
-    @Test
-    void n58() {
-        int    num      = 58;
-        String expected = "LVIII";
-
-        String actual = obj.intToRoman(num);
-        assertEquals(expected, actual);
-    }
-
-    /**
-     * Input: num = 1994;
-     * Output: "MCMXCIV";
-     */
-    @Test
-    void n1994() {
-        int    num      = 1994;
-        String expected = "MCMXCIV";
-
-        String actual = obj.intToRoman(num);
-        assertEquals(expected, actual);
-    }
-
-    /**
-     *
-     */
-    @Test
-    void n1900() {
-        int    num      = 1900;
-        String expected = "MCM";
-
-        String actual = obj.intToRoman(num);
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void n1500() {
-        int    num      = 1500;
-        String expected = "MD";
-
-        String actual = obj.intToRoman(num);
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void n2000() {
-        int    num      = 2000;
-        String expected = "MM";
-
-        String actual = obj.intToRoman(num);
-        assertEquals(expected, actual);
+    @ParameterizedTest
+    @CsvSource(value = {
+            "2000, MM",
+            "1994, MCMXCIV",
+            "1700, MDCC",
+            "1500, MD",
+            "1400, MCD",
+            "1100, MC",
+            "1000, M",
+            "900, CM",
+            "800, DCCC",
+            "500, D",
+            "400, CD",
+            "100, C",
+            "90, XC",
+            "60, LX",
+            "50, L",
+            "40, XL",
+            "10, X",
+            "9, IX",
+            "6, VI",
+            "5, V",
+            "4, IV",
+            "3, III",
+            "1, I"
+    })
+    void intToRoman(int num, String expected) {
+        assertEquals(expected, obj.intToRoman(num));
     }
 }
