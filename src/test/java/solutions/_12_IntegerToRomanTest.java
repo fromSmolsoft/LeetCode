@@ -7,10 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class _12_IntegerToRomanTest {
 
-    /**
-     * Runtime 3ms; Beats 98.70% of users with Java
-     * Memory 43.24MB; Beats 66.83% of users with Java
-     */
+
     private _12_IntegerToRoman obj;
 
     @BeforeEach
