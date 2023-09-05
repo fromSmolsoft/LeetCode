@@ -2,6 +2,7 @@ package com.smol.solutions;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringJoiner;
 
 /**
  * <h1>273. Integer to English Words
@@ -35,7 +36,7 @@ import java.util.Map;
 public class n273_IntegerToEnglishWords {
 
     public String numberToWords(int num) {
-        StringBuilder res = new StringBuilder();
+
 
         Map<Integer, String> dictionary = new HashMap<>();
         dictionary.put(0, "");
@@ -71,9 +72,71 @@ public class n273_IntegerToEnglishWords {
         dictionary.put(100, "Hundred");
         dictionary.put(1000, "Thousand");
         dictionary.put(1000000, "Million");
+        dictionary.put(1000000000, "Billion");
 
-        //todo
-        // logic e.g. 2000 -> 2000/1000 = 2  -> 2 = "two" + "thousand"
+        //todo bills and hundreds and thousands of mills
+        int mils = num / 1000000;
+        num %= 1000000;
+
+        //thousands
+        int     thousands  = num / 1000;
+        boolean isThousand = (thousands > 0);
+        num %= 1000;
+        int hundredsOfThousands = 0;
+        int tensOfThousands     = 0;
+
+        if (isThousand) {
+            hundredsOfThousands = thousands / 100;
+            thousands %= 100;
+            if (thousands > 19) {
+                tensOfThousands = thousands / 10;
+                thousands %= 10;
+            }
+        }
+
+        //hundreds
+        int hundreds = num / 100;
+        num %= 100;
+
+        //tens
+        int tens = 0;
+        int ones;
+        if (num > 19) {
+            tens = num / 10;
+            num %= 10;
+        }
+        ones = num;
+
+        StringJoiner res = new StringJoiner(" ");
+        if (mils > 0) {
+            res.add(dictionary.get(mils)).add(dictionary.get(1000000));
+        }
+        //thousands
+        if (isThousand) {
+            if (hundredsOfThousands > 0) {
+                res.add(dictionary.get(hundredsOfThousands)).add(dictionary.get(100));
+            }
+
+            if (tensOfThousands > 0) {
+                res.add(dictionary.get(tensOfThousands * 10));
+            }
+            if (thousands > 0) {
+                res.add(dictionary.get(thousands));
+            }
+
+            res.add(dictionary.get(1000));
+        }
+        if (hundreds > 0) {
+            res.add(dictionary.get(hundreds)).add(dictionary.get(100));
+        }
+
+        //fixme Ten Two -> twelve
+        if (tens > 0) {
+            res.add(dictionary.get(tens * 10));
+        }
+        if (ones > 0) {
+            res.add(dictionary.get(ones));
+        }
 
         return res.toString();
     }
