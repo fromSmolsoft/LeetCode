@@ -33,10 +33,9 @@ import java.util.StringJoiner;
  * <p>
  * 0 <= num <= 231 - 1
  */
-public class n273_IntegerToEnglishWords {
+public class N273_IntegerToEnglishWords {
 
     public String numberToWords(int num) {
-
 
         Map<Integer, String> dictionary = new HashMap<>();
         dictionary.put(0, "");
@@ -73,10 +72,25 @@ public class n273_IntegerToEnglishWords {
         dictionary.put(1000, "Thousand");
         dictionary.put(1000000, "Million");
         dictionary.put(1000000000, "Billion");
+        // billions
+        int bills = num / 1000000000;
+        num %= 1000000000;
 
-        //todo bills and hundreds and thousands of mills
-        int mils = num / 1000000;
+        //millions
+        int     mils      = num / 1000000;
+        boolean isMillion = (mils > 0);
         num %= 1000000;
+        int hundredsOfMills = 0;
+        int tensOfMills     = 0;
+
+        if (isMillion) {
+            hundredsOfMills = mils / 100;
+            mils %= 100;
+            if (mils > 19) {
+                tensOfMills = mils / 10;
+                mils %= 10;
+            }
+        }
 
         //thousands
         int     thousands  = num / 1000;
@@ -107,10 +121,27 @@ public class n273_IntegerToEnglishWords {
         }
         ones = num;
 
+        //String concatenation
         StringJoiner res = new StringJoiner(" ");
-        if (mils > 0) {
-            res.add(dictionary.get(mils)).add(dictionary.get(1000000));
+        //billions
+        if (bills > 0) {
+            res.add(dictionary.get(bills)).add(dictionary.get(1000000000));
         }
+
+        //millions
+        if (isMillion) {
+            if (hundredsOfMills > 0) {
+                res.add(dictionary.get(hundredsOfMills)).add(dictionary.get(100));
+            }
+            if (tensOfMills > 0) {
+                res.add(dictionary.get(tensOfMills * 10));
+            }
+            if (mils > 0) {
+                res.add(dictionary.get(mils));
+            }
+            res.add(dictionary.get(1000000));
+        }
+
         //thousands
         if (isThousand) {
             if (hundredsOfThousands > 0) {
@@ -123,14 +154,14 @@ public class n273_IntegerToEnglishWords {
             if (thousands > 0) {
                 res.add(dictionary.get(thousands));
             }
-
             res.add(dictionary.get(1000));
         }
+        //hundreds
         if (hundreds > 0) {
             res.add(dictionary.get(hundreds)).add(dictionary.get(100));
         }
 
-        //fixme Ten Two -> twelve
+        //tens
         if (tens > 0) {
             res.add(dictionary.get(tens * 10));
         }
