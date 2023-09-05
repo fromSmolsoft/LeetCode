@@ -36,8 +36,8 @@ import java.util.StringJoiner;
 public class N273_IntegerToEnglishWords {
 
     /**
-     * Runtime 5ms Beats 70.17%of users with Java <p>
-     * Memory 42.23MB Beats 7.36%of users with Java <p>
+     * Runtime 5ms,    Beats 70.17% of users with Java <p>
+     * Memory 42.23MB, Beats 8.03% of users with Java <p>
      */
     public String numberToWords(int num) {
 
@@ -45,7 +45,7 @@ public class N273_IntegerToEnglishWords {
         if (num == 0) {
             return "Zero";
         }
-
+        //dictionary
         Map<Integer, String> dictionary = new HashMap<>();
         dictionary.put(0, "");
         dictionary.put(1, "One");
@@ -126,60 +126,38 @@ public class N273_IntegerToEnglishWords {
 
         //tens
         int tens = 0;
-        int ones;
         if (num > 19) {
             tens = num / 10;
             num %= 10;
         }
-        ones = num;
+        int ones = num;
 
         //String concatenation
         StringJoiner res = new StringJoiner(" ");
         //billions
-        if (bills > 0) {
-            res.add(dictionary.get(bills)).add(dictionary.get(1000000000));
-        }
+        if (bills > 0) res.add(dictionary.get(bills)).add(dictionary.get(1000000000));
 
         //millions
         if (isMillion) {
-            if (hundredsOfMills > 0) {
-                res.add(dictionary.get(hundredsOfMills)).add(dictionary.get(100));
-            }
-            if (tensOfMills > 0) {
-                res.add(dictionary.get(tensOfMills * 10));
-            }
-            if (mils > 0) {
-                res.add(dictionary.get(mils));
-            }
+            if (hundredsOfMills > 0) res.add(dictionary.get(hundredsOfMills)).add(dictionary.get(100));
+            if (tensOfMills > 0) res.add(dictionary.get(tensOfMills * 10));
+            if (mils > 0) res.add(dictionary.get(mils));
             res.add(dictionary.get(1000000));
         }
 
         //thousands
         if (isThousand) {
-            if (hundredsOfThousands > 0) {
-                res.add(dictionary.get(hundredsOfThousands)).add(dictionary.get(100));
-            }
-
-            if (tensOfThousands > 0) {
-                res.add(dictionary.get(tensOfThousands * 10));
-            }
-            if (thousands > 0) {
-                res.add(dictionary.get(thousands));
-            }
+            if (hundredsOfThousands > 0) res.add(dictionary.get(hundredsOfThousands)).add(dictionary.get(100));
+            if (tensOfThousands > 0) res.add(dictionary.get(tensOfThousands * 10));
+            if (thousands > 0) res.add(dictionary.get(thousands));
             res.add(dictionary.get(1000));
         }
         //hundreds
-        if (hundreds > 0) {
-            res.add(dictionary.get(hundreds)).add(dictionary.get(100));
-        }
+        if (hundreds > 0) res.add(dictionary.get(hundreds)).add(dictionary.get(100));
 
         //tens
-        if (tens > 0) {
-            res.add(dictionary.get(tens * 10));
-        }
-        if (ones > 0) {
-            res.add(dictionary.get(ones));
-        }
+        if (tens > 0) res.add(dictionary.get(tens * 10));
+        if (ones > 0) res.add(dictionary.get(ones));
 
         return res.toString();
     }
