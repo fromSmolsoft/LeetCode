@@ -37,7 +37,7 @@ package com.smol.solutions;
  * <p>
  * 0 <= num <= 106
  */
-public class _1342_NumberOfStepsToReduceNumberToZero {
+public class n1342_NumberOfStepsToReduceNumberToZero {
 
     public int numberOfSteps(int num) {
         int steps = 0;

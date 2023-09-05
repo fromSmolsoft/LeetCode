@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class _225_ImplementStackUsingQueuesTest {
-    _225_ImplementStackUsingQueues obj = new _225_ImplementStackUsingQueues();
+class n225_ImplementStackUsingQueuesTest {
+    n225_ImplementStackUsingQueues obj = new n225_ImplementStackUsingQueues();
 
     @BeforeEach
     void setUp() {
-        obj = new _225_ImplementStackUsingQueues();
+        obj = new n225_ImplementStackUsingQueues();
         obj.push(1);
         obj.push(2);
     }

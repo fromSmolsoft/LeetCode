@@ -1,19 +1,18 @@
 package com.smol.solutions;
 
-import com.smol.solutions._12_IntegerToRoman;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class _12_IntegerToRomanTest {
+class n12_IntegerToRomanTest {
 
-    private _12_IntegerToRoman obj;
+    private n12_IntegerToRoman obj;
 
     @BeforeEach
     void setUp() {
-        obj = new _12_IntegerToRoman();
+        obj = new n12_IntegerToRoman();
     }
 
 

@@ -32,7 +32,7 @@ package com.smol.solutions;
  * Acceptance Rate 37.3%;
  */
 
-public class _4_MedianOfTwoSortedArrays {
+public class n4_MedianOfTwoSortedArrays {
 
     /**
      * O(m+n)

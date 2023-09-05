@@ -6,13 +6,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class _3_LongestSubstringWithoutRepeatingCharactersTest {
+class n3_LongestSubstringWithoutRepeatingCharactersTest {
 
-    _3_LongestSubstringWithoutRepeatingCharacters obj;
+    n3_LongestSubstringWithoutRepeatingCharacters obj;
 
     @BeforeEach
     void setUp() {
-        obj = new _3_LongestSubstringWithoutRepeatingCharacters();
+        obj = new n3_LongestSubstringWithoutRepeatingCharacters();
     }
 
     /**
