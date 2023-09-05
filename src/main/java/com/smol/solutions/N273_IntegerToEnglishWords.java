@@ -35,7 +35,16 @@ import java.util.StringJoiner;
  */
 public class N273_IntegerToEnglishWords {
 
+    /**
+     * Runtime 5ms Beats 70.17%of users with Java <p>
+     * Memory 42.23MB Beats 7.36%of users with Java <p>
+     */
     public String numberToWords(int num) {
+
+        //zero
+        if (num == 0) {
+            return "Zero";
+        }
 
         Map<Integer, String> dictionary = new HashMap<>();
         dictionary.put(0, "");
@@ -48,8 +57,8 @@ public class N273_IntegerToEnglishWords {
         dictionary.put(7, "Seven");
         dictionary.put(8, "Eight");
         dictionary.put(9, "Nine");
-        dictionary.put(10, "Ten");
 
+        dictionary.put(10, "Ten");
         dictionary.put(11, "Eleven");
         dictionary.put(12, "Twelve");
         dictionary.put(13, "Thirteen");
@@ -68,10 +77,13 @@ public class N273_IntegerToEnglishWords {
         dictionary.put(70, "Seventy");
         dictionary.put(80, "Eighty");
         dictionary.put(90, "Ninety");
+
         dictionary.put(100, "Hundred");
         dictionary.put(1000, "Thousand");
         dictionary.put(1000000, "Million");
         dictionary.put(1000000000, "Billion");
+
+
         // billions
         int bills = num / 1000000000;
         num %= 1000000000;

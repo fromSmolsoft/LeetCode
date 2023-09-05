@@ -16,6 +16,7 @@ class N273_IntegerToEnglishWordsTest {
 
     @ParameterizedTest
     @CsvSource(value = {
+            "0, Zero",
             "13, Thirteen",
             "21, Twenty One",
             "34, Thirty Four",
