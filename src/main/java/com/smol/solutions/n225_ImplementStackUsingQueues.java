@@ -6,7 +6,7 @@ import java.util.Deque;
  * <h1>225. Implement Stack using Queues</h1>>
  * Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).
  * <p>
- * Implement the _225_ImplementStackUsingQueues class:
+ * Implement the n225_ImplementStackUsingQueues class:
  * <p>
  * void push(int x) Pushes element x to the top of the stack.
  * int pop() Removes the element on the top of the stack and returns it.
@@ -21,13 +21,13 @@ import java.util.Deque;
  * Example 1:
  * <p>
  * Input
- * ["_225_ImplementStackUsingQueues", "push", "push", "top", "pop", "empty"]
+ * ["n225_ImplementStackUsingQueues", "push", "push", "top", "pop", "empty"]
  * [[], [1], [2], [], [], []]
  * Output
  * [null, null, null, 2, 2, false]
  * <p>
  * Explanation
- * _225_ImplementStackUsingQueues myStack = new _225_ImplementStackUsingQueues();
+ * n225_ImplementStackUsingQueues myStack = new n225_ImplementStackUsingQueues();
  * myStack.push(1);
  * myStack.push(2);
  * myStack.top(); // return 2
@@ -42,12 +42,12 @@ import java.util.Deque;
  * <p>
  * Follow-up: Can you implement the stack using only one queue?
  */
-public class _225_ImplementStackUsingQueues {
+public class n225_ImplementStackUsingQueues {
     //0ms
     //Beats 100.00%of users with Java
     Deque<Integer> stack;
 
-    public _225_ImplementStackUsingQueues() {
+    public n225_ImplementStackUsingQueues() {
         stack = new java.util.ArrayDeque<>();
     }
 

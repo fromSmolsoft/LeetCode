@@ -1,4 +1,4 @@
-package com.smol.solutions.n_2_addtwonumbers;
+package com.smol.solutions.n2_addtwonumbers;
 
 public class ListNode {
     public int      val;

@@ -1,4 +1,4 @@
-package com.smol.solutions.n_2_addtwonumbers;
+package com.smol.solutions.n2_addtwonumbers;
 
 /**
  * <h1>2. Add Two Numbers</h1>
@@ -29,7 +29,7 @@ package com.smol.solutions.n_2_addtwonumbers;
  * 0 <= Node.val <= 9
  * It is guaranteed that the list represents a number that does not have leading zeros.
  */
-public class _2_AddTwoNumbers {
+public class n2_AddTwoNumbers {
 
 
     /**

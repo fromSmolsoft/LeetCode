@@ -39,7 +39,7 @@ import java.util.Set;
  * 0 <= s.length <= 5 * 104
  * s consists of English letters, digits, symbols and spaces.
  */
-public class _3_LongestSubstringWithoutRepeatingCharacters {
+public class n3_LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring01(String s) {
         //fixme - it doesn't work in all cases

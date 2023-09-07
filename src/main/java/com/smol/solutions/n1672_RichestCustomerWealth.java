@@ -36,7 +36,7 @@ package com.smol.solutions;
  * 1 <= m, n <= 50
  * 1 <= accounts[i][j] <= 100
  */
-public class _1672_RichestCustomerWealth {
+public class n1672_RichestCustomerWealth {
 
 
 
