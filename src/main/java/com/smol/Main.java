@@ -14,12 +14,6 @@ public class Main {
     // Methods ===
 
 
-
-    private static void _1342_NumberOfStepsToReduceNumberToZero() {
-        n1342_NumberOfStepsToReduceNumberToZero solution = new n1342_NumberOfStepsToReduceNumberToZero();
-        System.out.println(solution.numberOfSteps(14));
-    }
-
     private static void _412_FizzBuzz() {
         int input = 15;
 
