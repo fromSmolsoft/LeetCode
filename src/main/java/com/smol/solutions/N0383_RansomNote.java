@@ -30,7 +30,7 @@ import java.util.Map;
  * 1 <= ransomNote.length, magazine.length <= 105
  * ransomNote and magazine consist of lowercase English letters.
  */
-public class n383_RansomNote {
+public class N0383_RansomNote {
 
     /**
      * Hashmap solution
