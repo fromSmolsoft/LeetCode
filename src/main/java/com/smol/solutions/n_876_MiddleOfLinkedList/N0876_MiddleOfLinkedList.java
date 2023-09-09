@@ -24,7 +24,7 @@ package com.smol.solutions.n_876_MiddleOfLinkedList;
  * The number of nodes in the list is in the range [1, 100].
  * 1 <= Node.val <= 100
  */
-public class _876_MiddleOfLinkedList {
+public class N0876_MiddleOfLinkedList {
     /**
      * Uses 2 pointers slow and fast.<p>
      * Slow pointer moves single node at a time, fast pointer moves two nodes at a time.<p>

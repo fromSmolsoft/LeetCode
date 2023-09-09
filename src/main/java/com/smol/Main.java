@@ -2,7 +2,7 @@ package com.smol;
 
 import com.smol.solutions.*;
 import com.smol.solutions.n_876_MiddleOfLinkedList.ListNode;
-import com.smol.solutions.n_876_MiddleOfLinkedList._876_MiddleOfLinkedList;
+import com.smol.solutions.n_876_MiddleOfLinkedList.N0876_MiddleOfLinkedList;
 
 import java.util.Arrays;
 
@@ -26,7 +26,7 @@ public class Main {
         ListNode head  = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
         ListNode head2 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))));
         //output
-        _876_MiddleOfLinkedList solution = new _876_MiddleOfLinkedList();
+        N0876_MiddleOfLinkedList solution = new N0876_MiddleOfLinkedList();
         System.out.println(solution.middleNode(head).val);
         System.out.println(solution.middleNode(head2).val);
     }
