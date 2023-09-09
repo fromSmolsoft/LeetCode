@@ -1,8 +1,6 @@
 package com.smol;
 
 import com.smol.solutions.*;
-import com.smol.solutions.n_876_MiddleOfLinkedList.ListNode;
-import com.smol.solutions.n_876_MiddleOfLinkedList.N0876_MiddleOfLinkedList;
 
 import java.util.Arrays;
 
@@ -15,21 +13,7 @@ public class Main {
 
     // Methods ===
 
-    private static void _225_ImplementStackUsingQueues() {
-        //tested via test class
-    }
 
-
-
-    private static void _876_MiddleOfLinkedList() {
-        //input
-        ListNode head  = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-        ListNode head2 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))));
-        //output
-        N0876_MiddleOfLinkedList solution = new N0876_MiddleOfLinkedList();
-        System.out.println(solution.middleNode(head).val);
-        System.out.println(solution.middleNode(head2).val);
-    }
 
     private static void _1342_NumberOfStepsToReduceNumberToZero() {
         n1342_NumberOfStepsToReduceNumberToZero solution = new n1342_NumberOfStepsToReduceNumberToZero();
@@ -56,13 +40,6 @@ public class Main {
         System.out.println(Arrays.toString(a167twosum2inputarrayissorted.twoSum(new int[]{2, 7, 11, 15}, 9)));
         System.out.println(Arrays.toString(a167twosum2inputarrayissorted.twoSum(new int[]{2, 3, 4}, 6)));
         System.out.println(Arrays.toString(a167twosum2inputarrayissorted.twoSum(new int[]{-1, 0}, -1)));
-    }
-
-    private static void _1_two_sum() {
-        n1_two_sum a1twosum = new n1_two_sum();
-        int[]      nums     = {2, 7, 11, 15};
-        int        target   = 9;
-        System.out.println(Arrays.toString(a1twosum.twoSum(nums, target)));
     }
 
 
