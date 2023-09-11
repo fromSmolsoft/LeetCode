@@ -1,15 +1,15 @@
 package com.smol.solutions.n2_AddTwoNumbers;
 
-import com.smol.solutions.n2_addtwonumbers.ListNode;
-import com.smol.solutions.n2_addtwonumbers.n2_AddTwoNumbers;
+import com.smol.solutions.N0002_addtwonumbers.ListNode;
+import com.smol.solutions.N0002_addtwonumbers.N0002_AddTwoNumbers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class n2_AddTwoNumbersTest {
+class N0002_AddTwoNumbersTest {
 
-    private n2_AddTwoNumbers obj;
+    private N0002_AddTwoNumbers obj;
 
     /** Generates a ListNode from a given array */
     private static ListNode getListNode(int[] values) {
@@ -34,7 +34,7 @@ class n2_AddTwoNumbersTest {
     @BeforeEach
     void setUp() {
 
-        obj = new n2_AddTwoNumbers();
+        obj = new N0002_AddTwoNumbers();
     }
 
     @Test

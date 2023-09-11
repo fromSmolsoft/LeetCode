@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class N273_IntegerToEnglishWordsTest {
+class N0273_IntegerToEnglishWordsTest {
 
 
     @BeforeEach
@@ -31,8 +31,8 @@ class N273_IntegerToEnglishWordsTest {
             "2147483647, Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven",
     })
     void numberToWords(int input, String expected) {
-        N273_IntegerToEnglishWords obj    = new N273_IntegerToEnglishWords();
-        String                     actual = obj.numberToWords(input);
+        N0273_IntegerToEnglishWords obj    = new N0273_IntegerToEnglishWords();
+        String                      actual = obj.numberToWords(input);
         assertEquals(expected, actual);
     }
 }

@@ -1,4 +1,4 @@
-package com.smol.solutions.n_876_MiddleOfLinkedList;
+package com.smol.solutions.N0876_MiddleOfLinkedList;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

@@ -42,7 +42,7 @@ package com.smol.solutions;
  * <p>
  * Constraints:    1 <= num <= 3999
  */
-public class n12_IntegerToRoman {
+public class N0012_IntegerToRoman {
     /**
      * Runtime 3ms; Beats 98.70% of users with Java
      * Memory 43.24MB; Beats 66.83% of users with Java

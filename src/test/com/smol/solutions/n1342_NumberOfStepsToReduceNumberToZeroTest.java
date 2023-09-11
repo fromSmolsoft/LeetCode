@@ -14,6 +14,6 @@ class n1342_NumberOfStepsToReduceNumberToZeroTest {
             "123, 12"
     })
     void test(int num, int expected) {
-        assertEquals(expected, new n1342_NumberOfStepsToReduceNumberToZero().numberOfSteps(num));
+        assertEquals(expected, new N1342_NumberOfStepsToReduceNumberToZero().numberOfSteps(num));
     }
 }

@@ -33,7 +33,7 @@ import java.util.StringJoiner;
  * <p>
  * 0 <= num <= 231 - 1
  */
-public class N273_IntegerToEnglishWords {
+public class N0273_IntegerToEnglishWords {
 
     /**
      * Runtime 5ms,    Beats 70.17% of users with Java <p>

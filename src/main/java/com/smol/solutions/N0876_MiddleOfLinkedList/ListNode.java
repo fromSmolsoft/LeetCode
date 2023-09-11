@@ -1,10 +1,12 @@
-package com.smol.solutions.n2_addtwonumbers;
+package com.smol.solutions.N0876_MiddleOfLinkedList;
 
+/** Definition for singly-linked list. */
 public class ListNode {
-    public int      val;
-    public ListNode next;
 
-    public ListNode() {}
+   public int      val;
+    ListNode next;
+
+    ListNode() {}
 
     public ListNode(int val) {this.val = val;}
 

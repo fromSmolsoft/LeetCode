@@ -18,7 +18,7 @@ package com.smol.solutions;
  * s consists of only lowercase English letters.
  * 1 <= k <= 104
  */
-public class N541_ReverseStringII {
+public class N0541_ReverseStringII {
 
     /**
      * Runtime 1ms, Beats 87.01%of users with Java <p>

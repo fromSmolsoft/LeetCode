@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class N541_ReverseStringIITest {
+class N0541_ReverseStringIITest {
 
     @DisplayName("Reverse String II")
     @ParameterizedTest
@@ -20,7 +20,7 @@ class N541_ReverseStringIITest {
 
     })
     void reverseStr(int k, String s, String expected) {
-        N541_ReverseStringII obj = new N541_ReverseStringII();
+        N0541_ReverseStringII obj = new N0541_ReverseStringII();
         System.out.println("input   : " + s);
         assertEquals(expected, obj.reverseStr(s, k));
     }

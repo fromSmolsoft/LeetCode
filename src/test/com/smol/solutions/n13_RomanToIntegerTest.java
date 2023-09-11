@@ -7,12 +7,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class n13_RomanToIntegerTest {
-    private n13_RomanToInteger obj;
+    private N0013_RomanToInteger obj;
 
     @BeforeEach
     void setUp() {
 
-        obj = new n13_RomanToInteger();
+        obj = new N0013_RomanToInteger();
     }
 
     @ParameterizedTest

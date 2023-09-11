@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class n4_MedianOfTwoSortedArraysTest {
-    n4_MedianOfTwoSortedArrays obj;
+class n0004_MedianOfTwoSortedArraysTest {
+    N0004_MedianOfTwoSortedArrays obj;
 
     @BeforeEach
     void setUp() {
-        obj = new n4_MedianOfTwoSortedArrays();
+        obj = new N0004_MedianOfTwoSortedArrays();
 
     }
 

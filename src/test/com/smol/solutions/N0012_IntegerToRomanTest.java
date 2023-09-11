@@ -6,13 +6,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class n12_IntegerToRomanTest {
+class N0012_IntegerToRomanTest {
 
-    private n12_IntegerToRoman obj;
+    private N0012_IntegerToRoman obj;
 
     @BeforeEach
     void setUp() {
-        obj = new n12_IntegerToRoman();
+        obj = new N0012_IntegerToRoman();
     }
 
 
