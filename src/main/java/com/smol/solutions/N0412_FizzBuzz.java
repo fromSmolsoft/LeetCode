@@ -2,7 +2,7 @@ package com.smol.solutions;
 
 import java.util.List;
 
-public class n412_FizzBuzz {
+public class N0412_FizzBuzz {
 
     /**
      * 412. Fizz Buzz
