@@ -21,13 +21,6 @@ public class Main {
         System.out.println((solution.fizzBuzz(input)).toString());
     }
 
-    private static void _1672_RichestCustomerWealth() {
-        int[][] input = new int[][]{{1, 2, 3}, {3, 2, 1}};
-
-        n1672_RichestCustomerWealth solution = new n1672_RichestCustomerWealth();
-        System.out.println(solution.maximumWealth(input));
-
-    }
 
     private static void _167_two_sum_2_input_array_is_sorted() {
         n167_two_sum_2_input_array_is_sorted a167twosum2inputarrayissorted = new n167_two_sum_2_input_array_is_sorted();
