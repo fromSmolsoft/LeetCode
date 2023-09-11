@@ -1,6 +1,6 @@
 package com.smol.solutions;
 
-public class n1480sum_of_1d_array {
+public class N1480sum_of_1d_array {
     /**
      * 1480. Running Sum of 1d Array
      * Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
@@ -21,11 +21,9 @@ public class n1480sum_of_1d_array {
      * -10^6 <= nums[i] <= 10^6
      */
     public int[] runningSum(int[] nums) {
-
         for (int i = 1; i < nums.length; i++) {
             nums[i] += nums[i - 1];
         }
         return nums;
     }
-
 }
