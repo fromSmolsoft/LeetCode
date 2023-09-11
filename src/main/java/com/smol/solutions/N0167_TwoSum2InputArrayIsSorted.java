@@ -39,7 +39,7 @@ import java.util.Map;
  * -1000 <= target <= 1000
  * The tests are generated such that there is exactly one solution.
  */
-public class n167_two_sum_2_input_array_is_sorted {
+public class N0167_TwoSum2InputArrayIsSorted {
 
     /** faster, simple */
     public int[] twoSum(int[] numbers, int target) {
