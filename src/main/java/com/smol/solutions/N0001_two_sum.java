@@ -23,7 +23,7 @@ import java.util.Map;
  * -109 <= target <= 109 <p>
  * Only one valid answer exists. <p>
  */
-public class n1_two_sum {
+public class N0001_two_sum {
 
     /** Efficient 0(n) solution */
     public int[] twoSum(int[] nums, int target) {

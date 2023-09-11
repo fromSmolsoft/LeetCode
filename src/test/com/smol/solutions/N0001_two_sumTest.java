@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class n1_two_sumTestTest {
+class N0001_two_sumTest {
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -22,7 +22,7 @@ class n1_two_sumTestTest {
         String[] expected        = expectedArray.split(";");
         int[]    expectedNumbers = Arrays.stream(expected).mapToInt(Integer::parseInt).toArray();
 
-        assertEquals(Arrays.toString(expectedNumbers), Arrays.toString(new n1_two_sum().twoSum(nums, targetInt)));
+        assertEquals(Arrays.toString(expectedNumbers), Arrays.toString(new N0001_two_sum().twoSum(nums, targetInt)));
     }
 
 }
