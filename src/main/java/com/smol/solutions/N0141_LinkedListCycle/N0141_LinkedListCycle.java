@@ -37,17 +37,53 @@ public class N0141_LinkedListCycle {
 
 
     /**
-     * Runtime 3ms, Beats 15.24%of users with Java
-     * Memory 43.47MB, Beats 62.33%of users with Java
+     * <h1>Two pointers</h1>
+     * fast solution    <p>
+     * "Floyd's Cycle-Finding" Algorithm ("hare and tortoise" algorithm)<p>
+     * Two pointers slow and fast   <p>
+     * Slow pointer moves single node at a time, fast pointer moves two nodes at a time.    <p>
+     * Slow pointer reaches the middle of the list at the time fast pointer reaches the end.    <p>
+     * <p>
+     * Runtime 0ms, Beats 100.00%of users with Java     <p>
+     * Memory  43.46MB, Beats 62.33%of users with Java  <p>
+     * <p>
+     * Determines whether a linked list has a cycle.
+     * @param head the head of the linked list
+     * @return true if the linked list has a cycle, false otherwise
      */
     public boolean hasCycle(ListNode head) {
+        ListNode slowPointer = head;
+        ListNode fastPointer = head;
+        // Floyd's Cycle-Finding Algorithm (hare and tortoise algorithm)
+        while (fastPointer != null && fastPointer.next != null) {
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+            if (slowPointer == fastPointer) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * <h1>HashSet / Hash Table solution</h1>
+     * intuitive, easy to understand but slow solution <p>
+     * <p>
+     * Runtime 3ms, Beats 15.24%of users with Java <p>
+     * Memory 42.96MB, Beats 96.28% users with Java <p>
+     * <p>
+     * Determines whether a linked list has a cycle.
+     * @param head the head of the linked list
+     * @return true if the linked list has a cycle, false otherwise
+     */
+    public boolean hasCycle01(ListNode head) {
         boolean       hasCycle = false;
         Set<ListNode> set      = new HashSet<>();
-        while (head != null) {
+        while (!hasCycle && head != null) {
             hasCycle = !set.add(head);
-            if (hasCycle) break;
             head = head.next;
         }
         return hasCycle;
     }
+
 }
