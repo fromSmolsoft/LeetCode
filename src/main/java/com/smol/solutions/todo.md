@@ -4,8 +4,9 @@
 
 - [x] 0344 Reverse String
 - [x] 2810 Faulty Keyboard
-- [ ] 0202 Happy Number
-
+- [x] 0202 Happy Number
+- [ ] 0258 Add Digits
+- [ ] 0263 Ugly Number
 
 ## Medium
 
