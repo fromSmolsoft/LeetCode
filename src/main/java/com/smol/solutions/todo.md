@@ -4,6 +4,8 @@
 
 - [x] 0344 Reverse String
 - [x] 2810 Faulty Keyboard
+- [ ] 0202 Happy Number
+
 
 ## Medium
 
