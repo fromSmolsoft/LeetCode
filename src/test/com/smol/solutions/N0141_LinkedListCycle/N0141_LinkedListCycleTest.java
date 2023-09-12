@@ -12,7 +12,8 @@ class N0141_LinkedListCycleTest {
     @CsvSource(value = {
             "true,  1,  3;2;0;0;-4",
             "true,  0,  1;2",
-            "false, -1, 1"
+            "false, -1, 1",
+            "true,  6,  3;2;0;-4;10;-35;220"
     })
     void hasCycle(boolean expected, int pos, String listValues) {
 
@@ -21,7 +22,7 @@ class N0141_LinkedListCycleTest {
         ListNode tail      = head;
         ListNode cycleNode = null;
 
-        for (int i = 1; i < values.length; i++) {
+        for (int i = 0; i < values.length; i++) {
             //Create new node
             ListNode node = new ListNode(values[i]);
             //assign new node to current tail.next
@@ -37,6 +38,7 @@ class N0141_LinkedListCycleTest {
         head.next = null;
         //get result from tested method
         boolean actual = new N0141_LinkedListCycle().hasCycle(result);
+
         //actual test
         Assertions.assertEquals(expected, actual);
     }

@@ -1,5 +1,8 @@
 package com.smol.solutions.N0141_LinkedListCycle;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * <h1>141. Linked List Cycle</h1>
  * Easy<p>
@@ -33,12 +36,18 @@ package com.smol.solutions.N0141_LinkedListCycle;
 public class N0141_LinkedListCycle {
 
 
+    /**
+     * Runtime 3ms, Beats 15.24%of users with Java
+     * Memory 43.47MB, Beats 62.33%of users with Java
+     */
     public boolean hasCycle(ListNode head) {
-
-        //todo
-        // iterate over the list until we reach the end
-        // check if there is a cycle in the list that points back to any node withing list
-
-        return false;
+        boolean       hasCycle = false;
+        Set<ListNode> set      = new HashSet<>();
+        while (head != null) {
+            hasCycle = !set.add(head);
+            if (hasCycle) break;
+            head = head.next;
+        }
+        return hasCycle;
     }
 }
