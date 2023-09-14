@@ -21,5 +21,7 @@ class N0345_ReverseVowelsOfStringTest {
     void reverseVowels(String s, String expected) {
         N0345_ReverseVowelsOfString obj = new N0345_ReverseVowelsOfString();
         assertEquals(expected, obj.reverseVowels(s));
+        assertEquals(expected, obj.reverseVowels01(s));
+
     }
 }

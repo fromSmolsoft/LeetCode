@@ -1,19 +1,13 @@
 package com.smol.solutions;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class N0012_IntegerToRomanTest {
-
-    private N0012_IntegerToRoman obj;
-
-    @BeforeEach
-    void setUp() {
-        obj = new N0012_IntegerToRoman();
-    }
 
 
     @ParameterizedTest
@@ -43,6 +37,23 @@ class N0012_IntegerToRomanTest {
             "1, I"
     })
     void intToRoman(int num, String expected) {
-        assertEquals(expected, obj.intToRoman(num));
+        N0012_IntegerToRoman obj = new N0012_IntegerToRoman();
+
+        Method[] method = N0012_IntegerToRoman.class.getDeclaredMethods();
+
+       try {
+            for (Method m : method) {
+                if (m.getName().startsWith("intToRoman")) {
+                    System.out.printf("method: " + m.getName());
+                    String actual = (String) m.invoke(obj, num);
+                    System.out.printf("->expected: %s, actual: %s\n", expected, actual);
+                    assertEquals(expected, actual);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+//        assertEquals(expected, obj.intToRoman(num));
+
     }
 }

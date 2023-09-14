@@ -16,5 +16,6 @@ class N202_HappyNumberTest {
     })
     void isHappy(int n, boolean expected) {
         assertEquals(expected, new N202_HappyNumber().isHappy(n));
+        assertEquals(expected, new N202_HappyNumber().isHappy01(n));
     }
 }

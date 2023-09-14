@@ -1,19 +1,15 @@
 package com.smol.solutions;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class N0003_LongestSubstringWithoutRepeatingCharactersTest {
 
-    N0003_LongestSubstringWithoutRepeatingCharacters obj;
 
-    @BeforeEach
-    void setUp() {
-        obj = new N0003_LongestSubstringWithoutRepeatingCharacters();
-    }
 
     /**
      * Example 1: Input: s = "abcabcbb", Output: 3, Explanation: The answer is "abc", with the length of 3. <p>
@@ -28,7 +24,24 @@ class N0003_LongestSubstringWithoutRepeatingCharactersTest {
             "abcabcbblkajdlajsdaldjaldjlagruqbbc, 9",
             "abcabcdefg, 7"
     })
-    void lengOFLongestSubstringTest(String s, int length) {
-        assertEquals(length, obj.lengthOfLongestSubstring(s));
+    void lenghtOFLongestSubstringTest(String s, int length) {
+        N0003_LongestSubstringWithoutRepeatingCharacters obj = new N0003_LongestSubstringWithoutRepeatingCharacters();
+
+        Method[] methods = N0003_LongestSubstringWithoutRepeatingCharacters.class.getDeclaredMethods();
+        for (Method method : methods) {
+            try{
+                if (method.getName().startsWith("lengthOfLongestSubstring")) {
+                    System.out.printf("method: " + method.getName());
+                    int actual = (int) method.invoke(obj, s);
+                    System.out.printf("->expected: %d, actual: %d\n", length, actual);
+                    assertEquals(length, actual);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+//        assertEquals(length, obj.lengthOfLongestSubstring(s));
+
     }
 }

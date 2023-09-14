@@ -23,5 +23,6 @@ class N0541_ReverseStringIITest {
         N0541_ReverseStringII obj = new N0541_ReverseStringII();
         System.out.println("input   : " + s);
         assertEquals(expected, obj.reverseStr(s, k));
+        assertEquals(expected, obj.reverseStr02(s, k));
     }
 }

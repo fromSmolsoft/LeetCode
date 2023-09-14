@@ -31,8 +31,9 @@ class N0273_IntegerToEnglishWordsTest {
             "2147483647, Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven",
     })
     void numberToWords(int input, String expected) {
-        N0273_IntegerToEnglishWords obj    = new N0273_IntegerToEnglishWords();
-        String                      actual = obj.numberToWords(input);
-        assertEquals(expected, actual);
+        N0273_IntegerToEnglishWords obj = new N0273_IntegerToEnglishWords();
+        
+        assertEquals(expected, obj.numberToWords(input));
+        assertEquals(expected, obj.numberToWords01(input));
     }
 }

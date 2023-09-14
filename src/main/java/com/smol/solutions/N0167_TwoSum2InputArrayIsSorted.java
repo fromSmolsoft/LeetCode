@@ -1,8 +1,5 @@
 package com.smol.solutions;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * <h1>167. Two Sum II - Input Array Is Sorted</h1>
  * Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 < numbers.length.
@@ -86,19 +83,5 @@ public class N0167_TwoSum2InputArrayIsSorted {
         return result;
     }
 
-    /** slow, complicated */
-    public int[] twoSum01(int[] numbers, int target) {
-        Map<Integer, Integer> numsMap    = new HashMap<>();
-        int                   numbLength = numbers.length;
 
-        for (int i = 1; i < numbLength; i++) {
-            int complement = target - numbers[i];
-            if (numsMap.containsKey(complement)) {
-                return new int[]{numsMap.get(complement) + 1, i + 1};
-            } else {
-                numsMap.put(numbers[i], i);
-            }
-        }
-        return new int[]{};
-    }
 }
