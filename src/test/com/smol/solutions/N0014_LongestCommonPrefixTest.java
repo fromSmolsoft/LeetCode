@@ -18,5 +18,6 @@ class N0014_LongestCommonPrefixTest {
         expected = expected == null ? "" : expected; //if string is null make it into empty string
         String[] strings = strs.split(";"); //split string
         Assertions.assertEquals(expected, new N0014_LongestCommonPrefix().longestCommonPrefix(strings));
+        Assertions.assertEquals(expected, new N0014_LongestCommonPrefix().longestCommonPrefix01(strings));
     }
 }
