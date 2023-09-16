@@ -8,7 +8,7 @@
 - [ ] 0258 Add Digits
 - [ ] 0263 Ugly Number
 
-## Medium
+## Mediummerg
 
 - [ ] 2539 Count the Number of Good Subsequences
 - [ ] 2370 Longest Ideal Subsequence
