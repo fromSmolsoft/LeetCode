@@ -15,7 +15,8 @@ class N0383_RansomNoteTest {
             "fihjjjjei, hjibagacbhadfaefdjaeaebgi, false"
     })
     void canConstruct(String ransomNote, String magazine, boolean expected) {
-        N0383_RansomNote solution = new N0383_RansomNote();
-        assertEquals(expected, solution.canConstruct(ransomNote, magazine));
+        N0383_RansomNote obj = new N0383_RansomNote();
+        assertEquals(expected, obj.canConstruct(ransomNote, magazine));
+        assertEquals(expected, obj.canConstructASCII(ransomNote, magazine));
     }
 }

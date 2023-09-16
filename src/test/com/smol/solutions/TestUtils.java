@@ -1,6 +1,7 @@
 package com.smol.solutions;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class TestUtils {
 
@@ -11,8 +12,12 @@ public class TestUtils {
     }
 
 
-    public String[] convertStringToIntStringArray(String s, String delimiter) {
+    public String[] convertStringToStringArray(String s, String delimiter) {
         String[] strings = s.split(delimiter);
         return strings;
+    }
+
+    public List<String> convertStringToList(String s, String delimiter) {
+        return List.of(s.split(delimiter));
     }
 }
