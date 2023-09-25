@@ -12,7 +12,6 @@ public class TestUtils {
         return Arrays.stream(strings).mapToInt(Integer::parseInt).toArray();
     }
 
-
     public String[] convertStringToStringArray(String s, String delimiter) {
         if (s == null) return new String[]{};
         return s.split(delimiter);
