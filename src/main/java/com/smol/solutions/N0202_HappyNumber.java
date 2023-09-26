@@ -29,7 +29,7 @@ import java.util.Set;
  * Constraints:     <p>
  * 1 <= n <= 2³¹ - 1        <p>
  */
-public class N202_HappyNumber {
+public class N0202_HappyNumber {
 
 
     /**

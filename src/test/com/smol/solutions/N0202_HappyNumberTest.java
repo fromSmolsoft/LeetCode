@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class N202_HappyNumberTest {
+class N0202_HappyNumberTest {
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -15,7 +15,7 @@ class N202_HappyNumberTest {
             "99, false"
     })
     void isHappy(int n, boolean expected) {
-        assertEquals(expected, new N202_HappyNumber().isHappy(n));
-        assertEquals(expected, new N202_HappyNumber().isHappy01(n));
+        assertEquals(expected, new N0202_HappyNumber().isHappy(n));
+        assertEquals(expected, new N0202_HappyNumber().isHappy01(n));
     }
 }

@@ -1,6 +1,6 @@
 package com.smol.solutions;
 
-public class N1480sum_of_1d_array {
+public class N1480_SumOf1DArray {
     /**
      * 1480. Running Sum of 1d Array
      * Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).

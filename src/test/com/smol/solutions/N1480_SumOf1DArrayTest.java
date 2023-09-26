@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class N1480sum_of_1d_arrayTest {
+class N1480_SumOf1DArrayTest {
 
     TestUtils utils = new TestUtils();
 
@@ -16,9 +16,9 @@ class N1480sum_of_1d_arrayTest {
     })
     void runningSumTest(String nums, String expected) {
         int[]                numsArray     = utils.convertStringToIntArray(nums, ";");
-        int[]                expectedArray = utils.convertStringToIntArray(expected, ";");
-        N1480sum_of_1d_array obj           = new N1480sum_of_1d_array();
-        int[]                actualArray   = obj.runningSum(numsArray);
+        int[]              expectedArray = utils.convertStringToIntArray(expected, ";");
+        N1480_SumOf1DArray obj           = new N1480_SumOf1DArray();
+        int[]              actualArray   = obj.runningSum(numsArray);
 
 
         Assertions.assertArrayEquals(expectedArray, actualArray);
