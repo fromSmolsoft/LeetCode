@@ -21,8 +21,8 @@ class N0026_RemoveDuplicatesFromSortedArrayTest {
             "5;         0,1,2,3,4,,,,,;     0,0,1,1,1,2,2,3,3,4;"
     })
     void removeDuplicates(int exp1, String exp2, String input) throws InvocationTargetException, IllegalAccessException {
-        int[] nums         = utils.convertStringToIntArray(input, ",");
-        int[] expectedNums = utils.convertStringToIntArray(exp2, ",");
+        int[] nums         = utils.StringToIntArray(input, ",");
+        int[] expectedNums = utils.StringToIntArray(exp2, ",");
         int[] numsTemp     = Arrays.copyOf(nums, nums.length);
 
         for (Method m : methods) {

@@ -50,7 +50,7 @@ class N0021_MergeTwoSortedListsTest {
     private ListNode covertIntToListNode(String inp1) {
         ListNode prehead = new ListNode(-1);
         ListNode tail    = prehead;
-        int[]    values  = utils.convertStringToIntArray(inp1, ";");
+        int[]    values  = utils.StringToIntArray(inp1, ";");
 
         for (int i : values) {
             tail.next = new ListNode(i);

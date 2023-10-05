@@ -16,8 +16,8 @@ class N1672_RichestCustomerWealthTest {
         N1672_RichestCustomerWealth obj   = new N1672_RichestCustomerWealth();
         TestUtils                   utils = new TestUtils();
         //todo make it work with j>2 in array [i][j]
-        int[]                       nums1 = utils.convertStringToIntArray(input1, ";");
-        int[]                       nums2 = utils.convertStringToIntArray(input2, ";");
+        int[]                       nums1 = utils.StringToIntArray(input1, ";");
+        int[]                       nums2 = utils.StringToIntArray(input2, ";");
         int[][]                     nums  = new int[][]{nums1, nums2};
         assertEquals(obj.maximumWealth(nums), expected);
     }

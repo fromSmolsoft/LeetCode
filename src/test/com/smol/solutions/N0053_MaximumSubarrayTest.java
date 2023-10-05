@@ -16,7 +16,7 @@ class N0053_MaximumSubarrayTest {
             "23; 5,4,-1,7,8"
     })
     void maxSubArray(int exp, String numbers) {
-        int[] nums   = utils.convertStringToIntArray(numbers, ",");
+        int[] nums   = utils.StringToIntArray(numbers, ",");
         int   actual = obj.maxSubArray(nums);
         Assertions.assertEquals(exp, actual);
     }

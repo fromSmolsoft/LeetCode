@@ -19,7 +19,7 @@ class N1512_NumberOfGoodPairsTest {
             "0;     1,2,3"
     })
     void numIdenticalPairs(int exp, String inp) {
-        int[] input  = utils.convertStringToIntArray(inp, ",");
+        int[] input  = utils.StringToIntArray(inp, ",");
 
         int   actual = obj.numIdenticalPairs(input);
         Assertions.assertEquals(exp, actual);

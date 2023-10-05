@@ -16,8 +16,8 @@ class N0977_SquaresOfSortedArrayTest {
             "4,9,9,49,121; -7,-3,2,3,11"
     })
     void sortedSquares(String exp, String nums) {
-        int[] expected = utils.convertStringToIntArray(exp, ",");
-        int[] numbers  = utils.convertStringToIntArray(nums, ",");
+        int[] expected = utils.StringToIntArray(exp, ",");
+        int[] numbers  = utils.StringToIntArray(nums, ",");
         int[] actual;
 
 

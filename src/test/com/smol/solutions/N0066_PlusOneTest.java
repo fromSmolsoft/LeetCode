@@ -20,8 +20,8 @@ class N0066_PlusOneTest {
             "2,0,0;     1,9,9",
     })
     void plusOne(String exp, String inp) {
-        int[] input    = utils.convertStringToIntArray(inp, ",");
-        int[] expected = utils.convertStringToIntArray(exp, ",");
+        int[] input    = utils.StringToIntArray(inp, ",");
+        int[] expected = utils.StringToIntArray(exp, ",");
         int[] actual   = obj.plusOne(input);
 
         Assertions.assertArrayEquals(expected, actual, "act:" + Arrays.toString(actual));

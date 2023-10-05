@@ -20,7 +20,7 @@ class N0022_GenerateParenthesesTest {
         TestUtils                 utils = new TestUtils();
         N0022_GenerateParentheses obj   = new N0022_GenerateParentheses();
 
-        List<String> expectedStrings = List.of(utils.convertStringToStringArray(expected, ";"));
+        List<String> expectedStrings = List.of(utils.StringToStringArray(expected, ";"));
         List<String> actual;
 
         Method[] methods = N0022_GenerateParentheses.class.getDeclaredMethods();
