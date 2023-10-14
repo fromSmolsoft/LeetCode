@@ -15,8 +15,8 @@ class N1480_SumOf1DArrayTest {
             "3;1;2;10;1, 3;4;6;16;17"
     })
     void runningSumTest(String nums, String expected) {
-        int[]                numsArray     = utils.convertStringToIntArray(nums, ";");
-        int[]              expectedArray = utils.convertStringToIntArray(expected, ";");
+        int[]                numsArray     = utils.StringToIntArray(nums, ";");
+        int[]              expectedArray = utils.StringToIntArray(expected, ";");
         N1480_SumOf1DArray obj           = new N1480_SumOf1DArray();
         int[]              actualArray   = obj.runningSum(numsArray);
 

@@ -4,20 +4,22 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class N0053_MaximumSubarrayTest {
+class N0169_MajorityElementTest {
 
     TestUtils             utils = new TestUtils();
-    N0053_MaximumSubarray obj   = new N0053_MaximumSubarray();
+    N0169_MajorityElement obj   = new N0169_MajorityElement();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
-            "6; -2,1,-3,4,-1,2,1,-5,4",
-            "1; 1",
-            "23; 5,4,-1,7,8"
+            /*exp nums*/
+            "3; 3,2,3",
+            "2; 2,2,1,1,1,2,2",
     })
-    void maxSubArray(int exp, String numbers) {
-        int[] nums   = utils.StringToIntArray(numbers, ",");
-        int   actual = obj.maxSubArray(nums);
+    void majorityElement(int exp, String sNums) {
+
+        int [] nums = utils.StringToIntArray(sNums, ",");
+        int actual = obj.majorityElement(nums);
         Assertions.assertEquals(exp, actual);
+
     }
 }

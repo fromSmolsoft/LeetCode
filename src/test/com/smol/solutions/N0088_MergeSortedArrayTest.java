@@ -22,9 +22,9 @@ class N0088_MergeSortedArrayTest {
     })
     void merge(String exp, String numbers1, int m, String numbers2, int n) {
         //transform String params into arrays;
-        int[] expected = utils.convertStringToIntArray(exp, ",");
-        int[] nums1    = utils.convertStringToIntArray(numbers1, ",");
-        int[] nums2    = utils.convertStringToIntArray(numbers2, ",");
+        int[] expected = utils.StringToIntArray(exp, ",");
+        int[] nums1    = utils.StringToIntArray(numbers1, ",");
+        int[] nums2    = utils.StringToIntArray(numbers2, ",");
         int[] actual   = Arrays.copyOf(nums1, m + n);
 
         N0088_MergeSortedArray obj = new N0088_MergeSortedArray();

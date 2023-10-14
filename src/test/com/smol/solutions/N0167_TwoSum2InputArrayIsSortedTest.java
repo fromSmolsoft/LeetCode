@@ -20,8 +20,8 @@ class N0167_TwoSum2InputArrayIsSortedTest {
     void twoSum(int target, String numbers, String expected) throws InvocationTargetException, IllegalAccessException {
         N0167_TwoSum2InputArrayIsSorted obj = new N0167_TwoSum2InputArrayIsSorted();
 
-        int[] inputs        = utils.convertStringToIntArray(numbers, "\\|");
-        int[] expectedArray = utils.convertStringToIntArray(expected, "\\|");
+        int[] inputs        = utils.StringToIntArray(numbers, "\\|");
+        int[] expectedArray = utils.StringToIntArray(expected, "\\|");
         int[] actual        = obj.twoSum(inputs, target);
 
         Method[] methods = N0167_TwoSum2InputArrayIsSorted.class.getDeclaredMethods();

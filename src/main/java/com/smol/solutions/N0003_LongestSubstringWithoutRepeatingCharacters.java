@@ -41,29 +41,6 @@ import java.util.Set;
  */
 public class N0003_LongestSubstringWithoutRepeatingCharacters {
 
-    public int lengthOfLongestSubstring01(String s) {
-        //fixme - it doesn't work in all cases
-        char           current;
-        int            max = 0;
-        int            j   = 0;
-        Set<Character> set = new HashSet<>();
-        for (int i = 0; i < s.length(); i++) {
-            current = s.charAt(i);
-            if (set.add(current)) {
-                // continue looping
-            } else {
-                int temp = set.size();
-                if (temp > max) {
-                    max = temp;
-                }
-                set.remove(s.charAt(j++));
-                set.add(current);
-            }
-        }
-        max = Math.max(max, set.size());
-        return max;
-    }
-
     /**
      * Runtime  7ms
      * Beats 55.43%of users with Java <p>
