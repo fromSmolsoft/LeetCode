@@ -28,7 +28,6 @@ package com.smol.solutions;
  */
 public class N0238_ProductOfArrayExceptSelf {
 
-
     /**
      * <pre>
      * Runtime 1ms,     Beats 100.00%
@@ -51,6 +50,44 @@ public class N0238_ProductOfArrayExceptSelf {
         }
 
         return result;
+    }
+
+
+    /**
+     * <h1>Brute force</h1>
+     */
+    public int[] productExceptSelfBF(int[] nums) {
+        int n     = nums.length;
+        int ans[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            int pro = 1;
+            for (int j = 0; j < n; j++) {
+                if (i == j) continue;
+                pro *= nums[j];
+            }
+            ans[i] = pro;
+        }
+
+        return ans;
+    }
+
+    /**
+     * <h1>Divide the product</h1>
+     * - not applicable since desc. disallow it, but useful to mention at interview
+     */
+    public int[] productExceptSelfD(int[] nums) {
+        int n     = nums.length;
+        int ans[] = new int[n];
+        int pro   = 1;
+        for (int i : nums) {
+            pro *= i;
+        }
+
+        for (int i = 0; i < n; i++) {
+            ans[i] = pro / nums[i];
+        }
+        return ans;
     }
 
 }

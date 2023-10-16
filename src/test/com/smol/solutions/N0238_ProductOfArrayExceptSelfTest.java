@@ -39,14 +39,27 @@ class N0238_ProductOfArrayExceptSelfTest {
 
     })
     void productExceptSelf(String sExp, String sInp) {
-        int[] exp = utils.StringToIntArray(sExp, ",");
-        int[] inp = utils.StringToIntArray(sInp, ",");
-        int[] act = obj.productExceptSelf(inp);
+        int[]  exp = utils.StringToIntArray(sExp, ",");
+        int[]  inp = utils.StringToIntArray(sInp, ",");
+        int[]  act;
+        String message;
 
-        String message = "\nexp " + Arrays.toString(exp)
-                         + "\nact " + Arrays.toString(act)
-                         + "\n";
+        act = obj.productExceptSelf(inp);
+        message = "\nexp " + Arrays.toString(exp)
+                  + "\nact " + Arrays.toString(act)
+                  + "\n";
+        Assertions.assertArrayEquals(exp, act, message);
 
+        act = obj.productExceptSelfBF(inp);
+        message = "\nexp " + Arrays.toString(exp)
+                  + "\nact " + Arrays.toString(act)
+                  + "\n";
+        Assertions.assertArrayEquals(exp, act, message);
+
+        act = obj.productExceptSelfBF(inp);
+        message = "\nexp " + Arrays.toString(exp)
+                  + "\nact " + Arrays.toString(act)
+                  + "\n";
         Assertions.assertArrayEquals(exp, act, message);
 
     }
