@@ -68,11 +68,71 @@ import java.util.List;
 public class N0068_TextJustification {
 
     public List<String> fullJustify(String[] words, int maxWidth) {
+        // test to be failed (TDD)
+        //   List<String> l = new ArrayList<String>();
+        //   l.add("What   must   be");
+        //   l.add("acknowledgment  ");
+        //   l.add("shall be        ");
+        //   return l;
+
+        int currWidth = 0, minspaces = 0;
+        int firstWord = 0, lastWord = 0;
+
+        StringBuilder line      = new StringBuilder();
+        List<String>  justified = new ArrayList<>();
+
+        for (int i = 0; i < words.length; i++) {
+            //if enough width left for current word
+            if (currWidth + words[i].length() + minspaces < maxWidth) {
+                minspaces = lastWord - firstWord;
+                lastWord = i + 1;
+                currWidth += words[i].length();
+            } else {//if curr. word can't fit maxWidth of line
+
+                int wordCount  = lastWord - firstWord;  //words count on current line including current
+                int spaceWitdh = maxWidth - currWidth;  //space to fill the line
+                int between    = 0;
+                int extra      = 0;
+
+                if (wordCount != 0) {
+                    between = spaceWitdh / wordCount;
+                    extra = spaceWitdh % wordCount;
+                }
+
+
+                //append first word, space and extra space
+                line.append(words[firstWord]);
+                line.append(" ".repeat(between + extra));
+                spaceWitdh -= between;
+
+                //append middle words fixme when only 1 mid word
+                for (int j = firstWord + 1; j < lastWord-1; j++) {
+                    line.append(words[j]).append(" ".repeat(between));
+                    spaceWitdh -= between;
+                }
+                //append last word
+                line.append(words[lastWord-1]).append(" ".repeat(spaceWitdh));
+
+                //reset pointers
+                firstWord = i;
+                lastWord = i + 1;
+                justified.add(line.toString());
+                line = new StringBuilder();
+                minspaces = 1;
+            }
+
+
+        }
+        return justified;
+    }
+
+
+    public List<String> fullJustify02(String[] words, int maxWidth) {
         List<String> lines = new ArrayList<String>();
-        int          index = 0;
+        int index = 0;
         while (index < words.length) {
             int count = words[index].length();
-            int last  = index + 1;
+            int last = index + 1;
             while (last < words.length) {
                 if (words[last].length() + count + 1 > maxWidth) break;
                 //plus one for the space, if its a perfect fit it will fit
@@ -84,7 +144,7 @@ public class N0068_TextJustification {
             int diff = last - index - 1;
             // if last line or number of words in the line is 1, left-justified
             if (last == words.length || diff == 0) {
-                for (int i = index + 1; i < last; i++) {
+                for (int i = index+1; i < last; i++) {
                     builder.append(" ");
                     builder.append(words[i]);
                 }
@@ -94,12 +154,12 @@ public class N0068_TextJustification {
             } else {
                 // middle justified
                 int spaces = (maxWidth - count) / diff;
-                int r      = (maxWidth - count) % diff;
-                for (int i = index + 1; i < last; i++) {
-                    for (int k = spaces; k > 0; k--) {
+                int r = (maxWidth - count) % diff;
+                for (int i = index+1; i < last; i++) {
+                    for(int k=spaces; k > 0; k--) {
                         builder.append(" ");
                     }
-                    if (r > 0) {
+                    if(r > 0) {
                         builder.append(" ");
                         r--;
                     }
@@ -113,5 +173,29 @@ public class N0068_TextJustification {
         return lines;
     }
 
+
+    public List<String> fullJustify03(String[] words, int maxWidth) {
+        List<String> res = new ArrayList<>();
+        int i=0;
+        while (i<words.length){
+            int width=0, I=i;
+            while (I<words.length && width+words[I].length()+(I-i)<=maxWidth)
+                width+=words[I++].length();
+            int space=1, extra=0;
+            if (I-i!=1 && I!=words.length){
+                space=(maxWidth-width)/(I-i-1);
+                extra=(maxWidth-width)%(I-i-1);
+            }
+            StringBuilder line= new StringBuilder(words[i++]);
+            while (i<I){
+                for (int s= space; s>0; s--) line.append(" ");
+                if (extra-->0) line.append(" ");
+                line.append(words[i++]);
+            }
+            for (int s= maxWidth-line.length(); s>0; s--) line.append(" ");
+            res.add(line.toString());
+        }
+        return res;
+    }
 
 }
