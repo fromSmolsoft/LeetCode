@@ -1,4 +1,4 @@
-package com.smol.solutions.n0021_merge2sortedlists;
+package com.smol.solutions.N0021_merge2sortedlists;
 
 import com.smol.solutions.TestUtils;
 import org.junit.jupiter.api.Assertions;

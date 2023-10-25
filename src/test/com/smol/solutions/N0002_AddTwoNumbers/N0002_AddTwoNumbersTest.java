@@ -1,4 +1,4 @@
-package com.smol.solutions.n2_AddTwoNumbers;
+package com.smol.solutions.N0002_AddTwoNumbers;
 
 import com.smol.solutions.N0002_addtwonumbers.ListNode;
 import com.smol.solutions.N0002_addtwonumbers.N0002_AddTwoNumbers;
