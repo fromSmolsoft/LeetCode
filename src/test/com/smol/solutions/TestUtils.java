@@ -36,6 +36,7 @@ public class TestUtils {
     }
 
     public List<String> StringToStringList(String s, String delimiter) {
+        if (s == null || s.isEmpty()) return new ArrayList<>();
         return List.of(s.split(delimiter, -1));
 
     }
@@ -47,6 +48,7 @@ public class TestUtils {
      * @return list of strings
      */
     public List<String> StringToStringList(String s, String delimiter, int removeQuotes) {
+        if (s == null || s.isEmpty()) return new ArrayList<>();
         String[] split = StringToStringArray(s, delimiter);
         removeQuotesStrArr(split);
         return List.of(split);
