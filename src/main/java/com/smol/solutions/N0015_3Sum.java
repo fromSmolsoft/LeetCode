@@ -45,7 +45,7 @@ import java.util.List;
 public class N0015_3Sum {
 
     /**
-     * Todo, too slow, too many nesting, meeds optimalization
+     * Todo, too slow, needs optimization
      * <pre>
      * Runtime 38ms Beats 41.50% of users with Java
      * Memory 50.46MB Beats 71.52% of users with Java
