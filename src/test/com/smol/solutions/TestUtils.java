@@ -16,7 +16,7 @@ public class TestUtils {
         }
     }
 
-    public int[] StringToIntArray(String s, String delimiter) {
+    public static int[] StringToIntArray(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new int[]{};
         String[] strings = s.split(delimiter, -1);
         int      l       = strings.length;
@@ -30,12 +30,12 @@ public class TestUtils {
         return result;
     }
 
-    public String[] StringToStringArray(String s, String delimiter) {
+    public static String[] StringToStringArray(String s, String delimiter) {
         if (s == null) return new String[]{};
         return s.split(delimiter, -1);
     }
 
-    public List<String> StringToStringList(String s, String delimiter) {
+    public static List<String> StringToStringList(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new ArrayList<>();
         return List.of(s.split(delimiter, -1));
 
@@ -47,14 +47,14 @@ public class TestUtils {
      * @param removeQuotes  any value triggers removal of either single or double quotes
      * @return list of strings
      */
-    public List<String> StringToStringList(String s, String delimiter, int removeQuotes) {
+    public static List<String> StringToStringList(String s, String delimiter, int removeQuotes) {
         if (s == null || s.isEmpty()) return new ArrayList<>();
         String[] split = StringToStringArray(s, delimiter);
         removeQuotesStrArr(split);
         return List.of(split);
     }
 
-    public List<Integer> StringToIntList(String s, String delimiter) {
+    public static List<Integer> StringToIntList(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new ArrayList<>();
         String[]      strings = s.split(delimiter, -1);
         int           l       = strings.length;
