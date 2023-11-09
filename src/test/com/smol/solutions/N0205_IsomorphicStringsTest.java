@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0205_IsomorphicStringsTest {
 
-    private N0205_IsomorphicStrings obj = new N0205_IsomorphicStrings();
+    private final N0205_IsomorphicStrings obj = new N0205_IsomorphicStrings();
 
     /**
      * <pre>
@@ -40,11 +40,18 @@ class N0205_IsomorphicStringsTest {
     void isIsomorphic(boolean exp, String s, String t) {
         boolean act;
         act = obj.isIsomorphicHM(s, t);
-        Assertions.assertEquals(exp, act, "\ns= " + s +
+        Assertions.assertEquals(exp, act, "HashMap " +
+                                          "\ns= " + s +
                                           "\nt= " + t +
                                           "\n");
-       act = obj.isIsomorphic(s, t);
-        Assertions.assertEquals(exp, act, "\ns= " + s +
+        act = obj.isIsomorphicM(s, t);
+        Assertions.assertEquals(exp, act, "Array map of ASCII " +
+                                          "\ns= " + s +
+                                          "\nt= " + t +
+                                          "\n");
+        act = obj.isIsomorphicA(s, t);
+        Assertions.assertEquals(exp, act, "Single array map " +
+                                          "\ns= " + s +
                                           "\nt= " + t +
                                           "\n");
     }
