@@ -33,15 +33,27 @@ class N0290_WordPatternTest {
      */
     @ParameterizedTest
     @CsvSource(value = {
-            "true, abba, dog cat cat dog",
-            "false, abba, dog cat cat fish",
-            "false, aaaa, dog cat cat dog",
-            "true,  zaaz, dog cat cat dog",
-            "false, abba,  dog dog dog dog"
+            " repeat chars …, true,  abba, dog cat cat dog",
+            " repeat chars …, true,  zaaz, dog cat cat dog",
+            " repeat chars …, false, abba, dog cat cat fish",
+
+            " unique ch.& w…, true,  abcd, dog cat bird mouse",
+            " unique chars …, false, abcd, dog cat dog mouse",
+            " unique words …, false, abad, dog cat bird mouse",
+
+            " same ch.& w. …, true,  aaaa, dog dog dog dog",
+            " same words   …, false, abba, dog dog dog dog",
+            " same char    …, false, aaaa, dog cat cat dog",
+
+            " short pattern…, false, aaa,  aa aa aa aa",
+            " long pattern …, false, aaaa, aa aa aa",
+            " single ch.& w…, true,  h,  unit",
+            " single word  …, false, he, unit",
+            " single char  …, false, a,  unit dog",
     })
-    void wordPattern(boolean exp, String pattern, String s) {
-        String message = "\n" +
-                         "pattern - string" +
+    void wordPattern(String desc, boolean exp, String pattern, String s) {
+        String message = "\n" + desc +
+                         "\npattern - string" +
                          "\n" + pattern + " - " + s +
                          "\n";
         boolean act;

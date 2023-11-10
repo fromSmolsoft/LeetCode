@@ -37,36 +37,50 @@ import java.util.Set;
  */
 public class N0290_WordPattern {
 
+    /**
+     * <h2>Without Hashmap</h2>
+     * ! Proof of concept, might require an optimization !
+     */
     public boolean wordPattern(String pattern, String s) {
+        // init
         int[] chars = new int[26];
         Set<String> seen = new HashSet<>();
         String[] words = new String[26];
         int j = 0;
+        int wordCount = 0;
 
+        // pattern iteration
         for (int i = 0; i < pattern.length(); i++) {
-            //prepare new word
+            if (i != wordCount) return false;
+            // Prepare next word by sub-string iteration
             StringBuilder newWord = new StringBuilder();
             while (j < s.length() && s.charAt(j) != ' ') newWord.append(s.charAt(j++));
+            String nWord = newWord.toString();
+            wordCount++;
 
+            int cIndex = pattern.charAt(i) - 97;
 
-            if (chars[pattern.charAt(i) - 97] == 0 &&
-                !seen.contains(newWord.toString())) {
-                chars[pattern.charAt(i) - 97] = i + 1;
-                words[pattern.charAt(i) - 97] = newWord.toString();
-                seen.add(newWord.toString());
+            // if char  &&  word were not seen
+            if (chars[cIndex] == 0 && !seen.contains(nWord)) {
+                // Save char && word
+                chars[cIndex] = i + 1;
+                words[cIndex] = nWord;
+                seen.add(nWord);
 
-            }else if (chars[pattern.charAt(i) - 97] != 0){
+                // if char was seen but word was not seen
+            } else if (chars[cIndex] != 0 && !seen.contains(nWord)) return false;
 
+                // if char was not seen but word was seen
+            else if ((chars[cIndex] == 0 && seen.contains(nWord))) return false;
 
-            } else if (!newWord.toString().equals(words[pattern.charAt(i) - 97])) {
-                return false;
-            }
+                // if word doesn't equal
+            else if (!nWord.equals(words[cIndex])) return false;
 
-
+            // fill in the white spaces
             while (j < s.length() && s.charAt(j) == ' ') j++;
         }
-
-        return true;
+        // if full string was processed == true / false
+        return j >= s.length() - 1;
     }
 
     public boolean wordPatternHM(String pattern, String str) {
@@ -74,7 +88,7 @@ public class N0290_WordPattern {
         if (words.length != pattern.length())
             return false;
         Map index = new HashMap();
-        for (Integer i=0; i<words.length; ++i)
+        for (Integer i = 0; i < words.length; ++i)
             if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
                 return false;
         return true;
