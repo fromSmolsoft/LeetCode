@@ -48,6 +48,7 @@ class N0290_WordPatternTest {
             " short pattern…, false, aaa,  aa aa aa aa",
             " long pattern …, false, aaaa, aa aa aa",
             " single ch.& w…, true,  h,  unit",
+            " single ch.& w…, true,  a,  a",
             " single word  …, false, he, unit",
             " single char  …, false, a,  unit dog",
     })

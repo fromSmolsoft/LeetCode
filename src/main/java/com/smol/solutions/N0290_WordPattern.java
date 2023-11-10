@@ -38,8 +38,17 @@ import java.util.Set;
 public class N0290_WordPattern {
 
     /**
-     * <h2>Without Hashmap</h2>
-     * ! Proof of concept, might require an optimization !
+     * <h2>Without Hashmap</h2>     *
+     *
+     * ! Proof of concept, might require an optimization ! <p>
+     * Doesn't use Java prebuilt HashMap <p>
+     * Fast enough <p>
+     *
+     * <pre>
+     *
+     * Runtime 1ms      Beats 83.74% Java
+     * Memory 40.58MB   Beats 24.97%  Java
+     * </pre>
      */
     public boolean wordPattern(String pattern, String s) {
         // init
@@ -47,16 +56,15 @@ public class N0290_WordPattern {
         Set<String> seen = new HashSet<>();
         String[] words = new String[26];
         int j = 0;
-        int wordCount = 0;
 
         // pattern iteration
         for (int i = 0; i < pattern.length(); i++) {
-            if (i != wordCount) return false;
+
+            if (j >= s.length()) return false;
             // Prepare next word by sub-string iteration
             StringBuilder newWord = new StringBuilder();
             while (j < s.length() && s.charAt(j) != ' ') newWord.append(s.charAt(j++));
             String nWord = newWord.toString();
-            wordCount++;
 
             int cIndex = pattern.charAt(i) - 97;
 
@@ -80,7 +88,7 @@ public class N0290_WordPattern {
             while (j < s.length() && s.charAt(j) == ' ') j++;
         }
         // if full string was processed == true / false
-        return j >= s.length() - 1;
+        return j == s.length();
     }
 
     public boolean wordPatternHM(String pattern, String str) {
