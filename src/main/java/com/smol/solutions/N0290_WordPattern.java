@@ -38,16 +38,13 @@ import java.util.Set;
 public class N0290_WordPattern {
 
     /**
-     * <h2>Without Hashmap</h2>     *
-     *
+     * <h2>Without Hashmap</h2>
      * ! Proof of concept, might require an optimization ! <p>
      * Doesn't use Java prebuilt HashMap <p>
-     * Fast enough <p>
-     *
+     * Fast <p>
      * <pre>
-     *
-     * Runtime 1ms      Beats 83.74% Java
-     * Memory 40.58MB   Beats 24.97%  Java
+     * Runtime 1ms      Beats 100% Java
+     * Memory 40.58MB   Beats 24.66%  Java
      * </pre>
      */
     public boolean wordPattern(String pattern, String s) {
@@ -60,7 +57,9 @@ public class N0290_WordPattern {
         // pattern iteration
         for (int i = 0; i < pattern.length(); i++) {
 
+            //if string is too short to reach end of the pattern (= not enough words)
             if (j >= s.length()) return false;
+
             // Prepare next word by sub-string iteration
             StringBuilder newWord = new StringBuilder();
             while (j < s.length() && s.charAt(j) != ' ') newWord.append(s.charAt(j++));
@@ -69,17 +68,18 @@ public class N0290_WordPattern {
             int cIndex = pattern.charAt(i) - 97;
 
             // if char  &&  word were not seen
-            if (chars[cIndex] == 0 && !seen.contains(nWord)) {
-                // Save char && word
-                chars[cIndex] = i + 1;
-                words[cIndex] = nWord;
-                seen.add(nWord);
+            if (chars[cIndex] == 0) {
+                if (!seen.contains(nWord)) {
+                    // Save char && word
+                    chars[cIndex] = i + 1;
+                    words[cIndex] = nWord;
+                    seen.add(nWord);
+
+                    // if char was not seen but word was seen
+                } else return false;
 
                 // if char was seen but word was not seen
             } else if (chars[cIndex] != 0 && !seen.contains(nWord)) return false;
-
-                // if char was not seen but word was seen
-            else if ((chars[cIndex] == 0 && seen.contains(nWord))) return false;
 
                 // if word doesn't equal
             else if (!nWord.equals(words[cIndex])) return false;
