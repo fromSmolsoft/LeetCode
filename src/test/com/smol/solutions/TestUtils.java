@@ -16,11 +16,34 @@ public class TestUtils {
         }
     }
 
+    /**
+     * Trims then removes specified char from each end of each string <p>
+     * - For "paired" symbols like brackets and quotes it is required to input both left and right variants <p>
+     * - Order has to follow exactly the one in the data e.g. to remove {} and []  in {[word]} params have to be: char... {,[,],} <p>
+     * - Chars are removed from both ends so e.g. single quote or letter will be removed from both ends each time they are in params
+     */
+    public static void removeCharsFromStrings(String[] strings, String... remove) {
+        for (int i = 0; i < strings.length; i++) {
+
+            String element = strings[i];
+            for (String c : remove) {
+
+                element = element.trim();
+                if (element.startsWith(c)) element = element.substring(1);
+                if (element.endsWith(c)) element = element.substring(0, element.length() - 1);
+
+            }
+
+            strings[i] = element;
+        }
+    }
+
+
     public static int[] StringToIntArray(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new int[]{};
         String[] strings = s.split(delimiter, -1);
-        int      l       = strings.length;
-        int[]    result  = new int[l];
+        int l = strings.length;
+        int[] result = new int[l];
 
         for (int i = 0; i < l; i++) {
             String temp = strings[i];
@@ -42,9 +65,9 @@ public class TestUtils {
     }
 
     /**
-     * @param s string to be split
+     * @param s            string to be split
      * @param delimiter
-     * @param removeQuotes  any value triggers removal of either single or double quotes
+     * @param removeQuotes any value triggers removal of either single or double quotes
      * @return list of strings
      */
     public static List<String> StringToStringList(String s, String delimiter, int removeQuotes) {
@@ -56,9 +79,9 @@ public class TestUtils {
 
     public static List<Integer> StringToIntList(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new ArrayList<>();
-        String[]      strings = s.split(delimiter, -1);
-        int           l       = strings.length;
-        List<Integer> result  = new ArrayList<>();
+        String[] strings = s.split(delimiter, -1);
+        int l = strings.length;
+        List<Integer> result = new ArrayList<>();
 
         for (int i = 0; i < l; i++) {
             String temp = strings[i];
