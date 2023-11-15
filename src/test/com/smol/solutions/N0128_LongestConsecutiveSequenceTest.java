@@ -35,8 +35,13 @@ class N0128_LongestConsecutiveSequenceTest {
     })
     void longestConsecutive(int exp, String sNums) {
         int[] nums = TestUtils.StringToIntArray(sNums, ",");
-        int act = obj.longestConsecutive(nums);
+        int act;
 
+
+        act = obj.longestConsecutive(nums);
+        Assertions.assertEquals(exp, act);
+
+        act = obj.longestConsecutiveHS(nums);
         Assertions.assertEquals(exp, act);
     }
 }
