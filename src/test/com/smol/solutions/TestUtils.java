@@ -20,7 +20,8 @@ public class TestUtils {
      * Trims then removes specified char from each end of each string <p>
      * - For "paired" symbols like brackets and quotes it is required to input both left and right variants <p>
      * - Order has to follow exactly the one in the data e.g. to remove {} and []  in {[word]} params have to be: char... {,[,],} <p>
-     * - Chars are removed from both ends so e.g. single quote or letter will be removed from both ends each time they are in params
+     * - Chars are removed from both ends so e.g. single quote or letter will be removed from both ends each time they are in params <p>
+     * - Some characters have to be escaped according to the Java rules  \.[]{}()<>*+-=!?^$| <p>
      */
     public static void removeCharsFromStrings(String[] strings, String... remove) {
         for (int i = 0; i < strings.length; i++) {
