@@ -50,13 +50,13 @@ class N0049_GroupAnagramsTest {
             List<String> expSubList;
 
             String[] temp = TestUtils.StringToStringArray(s, ",");
-            TestUtils.removeCharsFromStrings(temp, "[", "\"", "]", "\"");
+            TestUtils.trimStrings(temp, "[", "\"", "]", "\"");
             expSubList = Arrays.stream(temp).toList();
             exp.add(expSubList);
         }
 
         String[] inp = TestUtils.StringToStringArray(input, ",");
-        TestUtils.removeCharsFromStrings(inp, "[", "\"", "]", "\"");
+        TestUtils.trimStrings(inp, "[", "\"", "]", "\"");
 
 
         for (Method m : methods) {

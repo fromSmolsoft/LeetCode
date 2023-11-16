@@ -23,7 +23,7 @@ public class TestUtils {
      * - Chars are removed from both ends so e.g. single quote or letter will be removed from both ends each time they are in params <p>
      * - Some characters have to be escaped according to the Java rules  \.[]{}()<>*+-=!?^$| <p>
      */
-    public static void removeCharsFromStrings(String[] strings, String... remove) {
+    public static void trimStrings(String[] strings, String... remove) {
         for (int i = 0; i < strings.length; i++) {
 
             String element = strings[i];
@@ -39,7 +39,43 @@ public class TestUtils {
         }
     }
 
+    /**
+     * Trims ends then removes specified character sequences from each string <p>
+     * @param strings array of strings that have characters to be removed from.
+     * @param remove  Character sequences to be removed. Multiple sequences can be added. Certain characters must be escaped according to the Java rules  \.[]{}()<>*+-=!?^$| <p>
+     */
+    public static void RemoveSubStrings(String[] strings, String... remove) {
+        for (int i = 0; i < strings.length; i++) {
+            String element = strings[i];
+            element = element.trim();
+            for (String s : remove) {
+                element = removeSubString(element, s);
+            }
+            strings[i] = element;
+        }
+    }
 
+
+    /**
+     * Removes characters sequence (String) from a String
+     * @param from   String that has characters to be removed from.
+     * @param remove Character sequence (String) to be removed
+     * @return new String without removed characters
+     */
+    public static String removeSubString(String from, String remove) {
+        StringBuilder builder = new StringBuilder(from.length());
+        for (int i = 0; i < from.length(); i++) {
+            if (remove.indexOf(from.charAt(i)) < 0) {
+                builder.append(from.charAt(i));
+            }
+        }
+        return builder.toString();
+    }
+
+
+    /**
+     * @throws NumberFormatException - if the string does not contain a parsable integer.
+     * */
     public static int[] StringToIntArray(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new int[]{};
         String[] strings = s.split(delimiter, -1);
@@ -50,6 +86,25 @@ public class TestUtils {
             String temp = strings[i];
             if (!temp.isEmpty())
                 result[i] = Integer.parseInt(temp);
+        }
+        return result;
+    }
+
+    /**
+     * Parses values in String into character array.
+     * @param s         input String has to only include single char followed by delimiter and so on.  All leading and trailing space will be removed.
+     * @param delimiter can be multiple chars long e.g. `...`
+     */
+    public static char[] StringToCharArray(String s, String delimiter) {
+        if (s == null || s.isEmpty()) return new char[]{};
+        String[] strings = s.split(delimiter, -1);
+
+        int l = strings.length;
+        char[] result = new char[l];
+
+        for (int i = 0; i < l; i++) {
+            String temp = strings[i].trim();
+            if (!temp.isEmpty()) result[i] = temp.charAt(0);
         }
         return result;
     }
@@ -93,4 +148,6 @@ public class TestUtils {
 
 
     }
+
+
 }
