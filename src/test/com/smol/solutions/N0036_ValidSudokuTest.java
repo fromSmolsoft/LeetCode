@@ -104,7 +104,7 @@ class N0036_ValidSudokuTest {
     })
     void isValidSudoku(boolean exp, String sChars2DArray) {
         String[] lines = TestUtils.StringToStringArray(sChars2DArray, "],\\[");
-        TestUtils.RemoveSubStrings(lines, "\"", "[", "[", "\"", "\"", "]", "]", "\"");
+        TestUtils.removeSubStringsFromArray(lines, "\"", "[", "[", "\"", "\"", "]", "]", "\"");
         char[][] board = new char[lines.length][];
         for (int i = 0; i < lines.length; i++) {
             String s = lines[i];

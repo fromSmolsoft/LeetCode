@@ -44,7 +44,7 @@ public class TestUtils {
      * @param strings array of strings that have characters to be removed from.
      * @param remove  Character sequences to be removed. Multiple sequences can be added. Certain characters must be escaped according to the Java rules  \.[]{}()<>*+-=!?^$| <p>
      */
-    public static void RemoveSubStrings(String[] strings, String... remove) {
+    public static void removeSubStringsFromArray(String[] strings, String... remove) {
         for (int i = 0; i < strings.length; i++) {
             String element = strings[i];
             element = element.trim();
@@ -53,6 +53,19 @@ public class TestUtils {
             }
             strings[i] = element;
         }
+    }
+
+    /**
+     * Trims ends then removes specified character sequences from each string <p>
+     * @param from   string that have characters to be removed from.
+     * @param remove Character sequences to be removed. Multiple sequences can be added. Certain characters must be escaped according to the Java rules  \.[]{}()<>*+-=!?^$| <p>
+     */
+    public static String removeSubStrings(String from, String... remove) {
+        from = from.trim();
+        for (String s : remove) {
+            from = removeSubString(from, s);
+        }
+        return from;
     }
 
 
@@ -75,7 +88,7 @@ public class TestUtils {
 
     /**
      * @throws NumberFormatException - if the string does not contain a parsable integer.
-     * */
+     */
     public static int[] StringToIntArray(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new int[]{};
         String[] strings = s.split(delimiter, -1);
