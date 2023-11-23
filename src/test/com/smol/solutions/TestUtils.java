@@ -6,6 +6,18 @@ import java.util.List;
 public class TestUtils {
 
 
+    public static int[][] stringToMatrix(String stringMatrix,String outerDelim,String innerDelim, String... remove) {
+        String[] temp = TestUtils.StringToStringArray(stringMatrix, outerDelim);
+        int[][] matrix = new int[temp.length][];
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = TestUtils.removeSubStrings(temp[i], remove);
+            int[] subArray = TestUtils.StringToIntArray(temp[i], innerDelim);
+            matrix[i] = subArray;
+        }
+
+        return matrix;
+    }
+
     public static int[][] copy2DArray(int[][] matrix) {
         int[][] copy = new int[matrix.length][];
         for (int i = 0; i < matrix.length; i++) {
