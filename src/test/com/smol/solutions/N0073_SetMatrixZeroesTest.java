@@ -60,8 +60,14 @@ class N0073_SetMatrixZeroesTest {
         int[][] actual;
 
         actual = TestUtils.copy2DArray(matrix);
+        obj.setZeroesArr(actual);
+        Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), "\nArray \nmatrix\n" + Arrays.deepToString(matrix) + "\n");
+
+        actual = TestUtils.copy2DArray(matrix);
         obj.setZeroes(actual);
-        Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), "\nmatrix\n" + Arrays.deepToString(matrix) + "\n");
+        Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), "\nArray \nmatrix\n" + Arrays.deepToString(matrix) + "\n");
+
+
     }
 
 

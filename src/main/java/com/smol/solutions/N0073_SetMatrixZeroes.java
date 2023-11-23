@@ -1,8 +1,5 @@
 package com.smol.solutions;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * <h1>73. Set Matrix Zeroes</h1>
  * Medium
@@ -49,33 +46,106 @@ import java.util.Set;
  */
 public class N0073_SetMatrixZeroes {
 
+
     /**
-     * <h1>Seen rows and columns</h1>
-     * Uses Set to save non-duplicated rows and columns  <p>
+     * <h2>Seen rows and columns</h2>
+     * Uses array to save rows and columns with "0". It saves both to same array to optimize performance<p>
      * Then zeroes saved rows and columns <p>
+     *
      * <pre>
-     * Runtime 2 ms Beats 23.16% of users with Java
-     * Memory 44.83 MB Beats 15.19% of users with Java
+     * Runtime 1ms Beats 90.22% of users with Java
+     * Memory 44.78MB Beats 23.87% of users with Java
      * </pre>
      */
-    public void setZeroes(int[][] matrix) {
-        Set<Integer> iSeen = new HashSet<>();
-        Set<Integer> jSeen = new HashSet<>();
+    public void setZeroesArr(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[] seen = new int[matrix.length + n];
 
         for (int i = 0; i < matrix.length; i++) {
-            if (iSeen.contains(i)) continue;
-            for (int j = 0; j < matrix[i].length; j++) {
-//                if (jSeen.contains(j)) continue;
+            if (seen[i] != 0) continue;
+            for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
-                    iSeen.add(i);
-                    jSeen.add(j);
+                    seen[i] = i + 1;
+                    seen[j + m] = j + 1;
                 }
             }
         }
 
-        for (int i : iSeen) matrix[i] = new int[matrix[i].length];
-        for (int j : jSeen) {
-            for (int i = 0; i < matrix.length; i++) matrix[i][j] = 0;
+        for (int i = 0; i < seen.length - n; i++) {
+            if (seen[i] != 0) matrix[i] = new int[n];
+        }
+        for (int j = seen.length - n; j < seen.length; j++) {
+            if (seen[j] != 0) {
+                for (int i = 0; i < matrix.length; i++) matrix[i][j - m] = 0;
+            }
+        }
+    }
+
+    /**
+     * <h2>0th row and column marks zeroing </h2>
+     * <h3>Looking for zeros:</h3>
+     * if there is "0" in 0th row -> mark it down and go to next phase (break) <p>
+     * if there is "0" in 0th column -> mark it down and go to next phase <p>
+     * If there is "0" anywhere else: <p>
+     * - change value to zero in same column in 0th row  <p>
+     * - change value to zero in same row in 0th column  <p>
+     * <p>
+     * <h3>Zeroing</h3>
+     * if there is "0" in 0th row -> all elements in row = "0" <p>
+     * if there is "0" in 0th column -> all elements in column = "0" <p>
+     * if 0th row was zero at beginning -> zero 0th row fully
+     * if 0th column was zero at beginning -> zero 0th column fully
+     *
+     * <pre>
+     * Runtime 1ms Beats 90.22% of users with Java
+     * Memory 44.84MB Beats 15.19% of users with Java
+     * </pre>
+     */
+    public void setZeroes(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        boolean isRow0 = false, isCol0 = false;
+
+        //check 0th row & 0th column
+        for (int i = 0; i < m; i++) {
+            if (matrix[i][0] == 0) {
+                isCol0 = true;
+                break;
+            }
+        }
+
+        for (int j = 0; j < n; j++) {
+            if (matrix[0][j] == 0) {
+                isRow0 = true;
+                break;
+            }
+        }
+
+        //check rest of the array
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
+                }
+            }
+        }
+
+        //zero inner matrix
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (matrix[i][0] == 0 || matrix[0][j] == 0) matrix[i][j] = 0;
+            }
+        }
+
+        //zero 0th row and column
+        if (isRow0) matrix[0] = new int[n];
+
+        if (isCol0) {
+            for (int i = 0; i < m; i++) {
+                matrix[i][0] = 0;
+            }
         }
 
     }
