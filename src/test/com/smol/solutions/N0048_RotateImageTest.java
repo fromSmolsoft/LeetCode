@@ -58,31 +58,16 @@ class N0048_RotateImageTest {
             input[i] = TestUtils.StringToIntArray(temp, ",");
         }
 
-        int[][] actual = new int[input.length][];
+        //testing
+        int[][] actual;
 
-
-//        actual = Arrays.copyOf(input, input.length);
-        System.arraycopy(input,0,actual,0,input.length);
-
+        actual = TestUtils.copy2DArray(input);
         obj.rotate(actual);
-        assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), """
-                 \nmirroring
-                 inp: %s
-                 exp: %s
-                 act: %s
+        assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), Arrays.deepToString(actual));
 
-                """.formatted(Arrays.deepToString(input), Arrays.deepToString(expected), Arrays.deepToString(actual)));
-
-
-        System.arraycopy(input,0,actual,0,input.length);
+        actual = TestUtils.copy2DArray(input);
         obj.rotate4W(actual);
-        assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), """
-                 \n4-ways
-                 inp: %s
-                 exp: %s
-                 act: %s
-                                
-                """.formatted(Arrays.deepToString(input), Arrays.deepToString(expected), Arrays.deepToString(actual)));
+        assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), Arrays.deepToString(actual));
     }
 
 
