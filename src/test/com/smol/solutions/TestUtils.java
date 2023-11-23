@@ -6,6 +6,16 @@ import java.util.List;
 public class TestUtils {
 
 
+    public static int[][] copy2DArray(int[][] matrix) {
+        int[][] copy = new int[matrix.length][];
+        for (int i = 0; i < matrix.length; i++) {
+            copy[i] = new int[matrix[i].length];
+
+            for (int j = 0; j < matrix[i].length; j++) copy[i][j] = matrix[i][j];
+        }
+        return copy;
+    }
+
     /** Trims then removes either single or double quotes from each String [] strings */
     private static void removeQuotesStrArr(String[] strings) {
         for (int i = 0; i < strings.length; i++) {
