@@ -6,7 +6,7 @@ import java.util.List;
 public class TestUtils {
 
 
-    public static int[][] stringToMatrix(String stringMatrix,String outerDelim,String innerDelim, String... remove) {
+    public static int[][] stringToMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
         String[] temp = TestUtils.StringToStringArray(stringMatrix, outerDelim);
         int[][] matrix = new int[temp.length][];
         for (int i = 0; i < temp.length; i++) {
@@ -27,6 +27,49 @@ public class TestUtils {
         }
         return copy;
     }
+
+    /**
+     * Prints single digits 2d array.
+     * @return 2D integer array as matrix without brackets and other symbols etc
+     */
+    public static String print2DArray(int[][] matrix) {
+        int m = matrix.length;
+        StringBuilder builder = new StringBuilder(m * matrix[0].length * 2 + m);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < matrix[i].length; j++) builder.append(" ").append(matrix[i][j]);
+            builder.append("\n");
+        }
+        return builder.substring(0, builder.length() - 1);
+    }
+
+    /**
+     * @param listOfMatrices suitable only for single digit values within matrices. Too many matrices may lead to console wrapping.
+     * @return String with matrices printed side by side
+     */
+    public static String printMatricesHorisont(List<int[][]> listOfMatrices) {
+
+        int length = 0;
+        for (int[][] r : listOfMatrices) {
+            length = Math.max(length, r.length);
+        }
+
+        int i = 0;
+        StringBuilder bd = new StringBuilder();
+        while (length > i) {
+            for (int[][] m : listOfMatrices) {
+                if (i < m.length) {
+                    for (int j = 0; j < m[i].length; j++) bd.append(" ").append(m[i][j]);
+                    bd.append("\t");
+                } else bd.append("  ".repeat(m[0].length)).append("\t");
+            }
+            i++;
+            bd.append("\n");
+        }
+        return bd.substring(0, bd.length() - 1);
+
+
+    }
+
 
     /** Trims then removes either single or double quotes from each String [] strings */
     private static void removeQuotesStrArr(String[] strings) {
