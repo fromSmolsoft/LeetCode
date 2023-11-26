@@ -1,4 +1,4 @@
-package com.smol.solutions.n0021_merge2sortedlists;
+package com.smol.solutions.N0021_merge2sortedlists;
 
 /**
  * 21. Merge Two Sorted Lists

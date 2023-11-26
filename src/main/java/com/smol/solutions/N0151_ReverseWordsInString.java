@@ -35,7 +35,7 @@ package com.smol.solutions;
  * Follow-up: If the string data type is mutable in your language, can you solve it in-place with O(1) extra space?
  * </pre>
  */
-public class N00151_ReverseWordsInString {
+public class N0151_ReverseWordsInString {
 
     /**
      * <h1>No `split()` & `trim()`</h1>

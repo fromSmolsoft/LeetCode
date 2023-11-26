@@ -13,6 +13,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/sonarlint/
+/.idea/codeStyles/codeStyleConfig.xml
 
 ### Eclipse ###
 .apt_generated
@@ -48,4 +49,5 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### Other ###
+
 
