@@ -64,7 +64,7 @@ class N0452_MinimumNumberOfArrowsToBurstBalloonsTest {
             if (m.getName().contains("findMinArrowShots")) {
                 int[][] temp = TestUtils.copy2DArray(input); // cloning input, tested method can change input in come cases
                 actual = (int) m.invoke(obj, (Object) temp);
-                Assertions.assertEquals(expected, actual, "\ninput    :" + Arrays.deepToString(input));
+                Assertions.assertEquals(expected, actual, "\nmethod: " + m.getName() + "\ninput    :" + Arrays.deepToString(input));
             }
         }
     }

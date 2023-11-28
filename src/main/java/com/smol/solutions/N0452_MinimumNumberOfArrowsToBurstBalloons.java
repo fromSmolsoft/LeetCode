@@ -2,11 +2,11 @@ package com.smol.solutions;
 
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * <h1>452. Minimum Number of Arrows to Burst Balloons</h1>
- * Medium
- * <p>
+ * Medium, #interval, #array, #2dArray    <p>
  * There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array points where points[i] = [xstart, xend] denotes a balloon whose horizontal diameter stretches between xstart and xend. You do not know the exact y-coordinates of the balloons.
  * <p>
  * Arrows can be shot up directly vertically (in the positive y-direction) from different points along the x-axis. A balloon with xstart and xend is burst by an arrow shot at x if xstart <= x <= xend. There is no limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.
@@ -60,18 +60,65 @@ import java.util.Arrays;
 public class N0452_MinimumNumberOfArrowsToBurstBalloons {
 
     /**
+     * <h2> Most right place that is common to intervals</h2>
+     * #interval, #array, #2DArray
+     * <p>
+     * intervals are sorted by their ends.
+     * <pre>
+     * Runtime    54 ms Beats 45.02% of users with Java
+     * Memory  76.08 MB Beats 76.58% of users with Java
+     * </pre>
+     */
+    public int findMinArrowShots(int[][] points) {
+        // sort arrays by their ends in acs order
+        Arrays.sort(points, Comparator.comparingInt(a -> a[1]));
+
+        // find Most right place that is common to intervals
+        int arrows = 1;
+        int position = points[0][1];
+        for (int i = 1; i < points.length; i++) {
+            if (position >= points[i][0]) continue;
+            arrows++;
+            position = points[i][1];
+        }
+        return arrows;
+    }
+
+    /**
+     * <h2> Most right place that is common to intervals</h2>
+     * intervals are sorted by their ends.
+     * <pre>
+     * Runtime 54 ms    Beats 45.02% of users with Java
+     * Memory 77.67 MB  Beats  7.11% of users with Java
+     * </pre>
+     */
+    public int findMinArrowShots02(int[][] points) {
+        // sort arrays by their ends in acs order
+        Arrays.sort(points, Comparator.comparingInt(a -> a[1]));
+
+        // find Most right place that is common to intervals
+        int arrows = 1;
+        int position = points[0][1];
+        for (int i = 1; i < points.length; i++) {
+            if (position < points[i][0]) {
+                arrows++;
+                position = points[i][1];
+            }
+        }
+        return arrows;
+    }
+
+    /**
+     * <h2>Intersection by intervals' common range </h2>
+     * intervals are sorted by their starts
      * <pre>
      * Runtime 57 ms    Beats 25.58% of users with Java
      * Memory 77.76 MB  Beats6.55% of users with Java
      * </pre>
      */
-    public int findMinArrowShots(int[][] points) {
+    public int findMinArrowShots01(int[][] points) {
         // sort arrays by their starts then ends in acs order
-        Arrays.sort(points, (a, b) -> {
-            if (a[0] == b[0]) return Integer.compare(a[1], b[1]);
-            return Integer.compare(a[0], b[0]);
-        });
-
+        Arrays.sort(points, Comparator.comparingInt(a -> a[0]));
         // find groups of intervals that all overlaps in single spot and count the groups aka arrows
         int i = 1, arrows = 1;
         int[] intersection = new int[2];
