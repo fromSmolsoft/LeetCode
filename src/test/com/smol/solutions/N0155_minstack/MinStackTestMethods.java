@@ -34,7 +34,7 @@ import java.util.Random;
  */
 class MinStackTestMethods {
 
-    protected static final int[] nums = genRandomInts(9, 9);
+    protected static final int[] nums = genRandomInts(5, 9);
 
     protected static void pushTopGetMin01(MinStackInterface obj) {
         obj.push(-1);
@@ -85,19 +85,27 @@ class MinStackTestMethods {
 
     protected static void pushPopGetMin(MinStackInterface obj) {
         int n = nums.length / 2;
-
         int expected = Integer.MAX_VALUE;
-        for (int i = n - 1; i >= 0; i--) expected = Math.min(expected, nums[i]);
 
-        for (int i = n - 1; i >= 0; i--) obj.push(nums[i]);
-
-        for (int i = n / 2 - 1; i >= 1; i--) {
-            if (obj.top() == expected) expected = Integer.MAX_VALUE;
-            obj.pop();
-            for (int j = 0; j < i; j++) {
-                expected = Math.min(expected, nums[j]);
-            }
+        //in reverse order so stack is not reversed
+        for (int i = n - 1; i >= 0; i--) {
+            expected = Math.min(expected, nums[i]); //find min
+            obj.push(nums[i]); // push into stack
         }
+
+        //peek and pop half of the stack
+        for (int i = n / 2 - 1; i >= 1; i--) {
+            if (obj.top() == expected) {
+                obj.pop();
+                expected = Integer.MAX_VALUE;
+
+                //update expected min
+                for (int j = i - 1; j > 0; j--) {
+                    expected = Math.min(expected, nums[j]);
+                }
+            } else obj.pop();
+        }
+
         Assertions.assertEquals(expected, obj.getMin(),
                 "\nnums = " + Arrays.toString(nums));
     }
