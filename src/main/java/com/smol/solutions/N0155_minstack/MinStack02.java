@@ -10,8 +10,8 @@ import java.util.Stack;
  */
 public class MinStack02 implements MinStackInterface {
 
-    Stack<Integer> stack = new Stack<>();
-    int min = Integer.MAX_VALUE;
+   private Stack<Integer> stack = new Stack<>();
+   private int min = Integer.MAX_VALUE;
 
     public void push(int x) {
         if (x <= min) {
