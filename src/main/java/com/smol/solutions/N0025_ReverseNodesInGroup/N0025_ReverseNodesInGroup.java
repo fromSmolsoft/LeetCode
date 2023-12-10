@@ -30,27 +30,30 @@ public class N0025_ReverseNodesInGroup {
     
     /**
      * Walks through linkedList and applies reverse function.
+     * <pre>
+     * Runtime 0 ms Beats 100.00% of users with Java
+     * Memory 44.08 MB Beats 5.41% of users with Java
+     * </pre>
      * @author <a href="https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/11423/short-but-recursive-java-code-with-comments/?envType=study-plan-v2&envId=top-interview-150">yellowstone</a>
      */
     public ListNode reverseKGroup00(ListNode head, int k) {
         ListNode begin;
         if (head == null || head.next == null || k == 1)
-            return head;
-        ListNode dummyhead = new ListNode(-1);
-        dummyhead.next = head;
-        begin = dummyhead;
+            return head;    // quick quit for edge cases
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        begin = dummy;
         int i = 0;
         while (head != null) {
             i++;
-            if (i % k == 0) {
-                begin = reverse(begin, head.next);
-                head = begin.next;
+            if (i % k == 0) {   // if k is multiple of current node index
+                begin = reverse(begin, head.next);  //reverse between begin - end (head.next)
+                head = begin.next;  // moves head after begin so possible end (head.next) is also updated
             } else {
-                head = head.next;
+                head = head.next;   // moves head so possible end (head.next) is also updated
             }
         }
-        return dummyhead.next;
-        
+        return dummy.next;
     }
     
     /**
@@ -76,16 +79,15 @@ public class N0025_ReverseNodesInGroup {
         ListNode prev = begin;
         first = curr;
         while (curr != end) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+            next = curr.next;   // save next node for later use
+            curr.next = prev;   // switch original next for previous node
+            prev = curr;        // switch previous for current
+            curr = next;        // switch current for next
         }
         begin.next = prev;
         first.next = curr;
         return first;
     }
-    
     
     /**
      * <h2>Concise</h2>
@@ -109,7 +111,6 @@ public class N0025_ReverseNodesInGroup {
         }
         return dmy.next;
     }
-    
     
     /**
      * <h2> Recursion</h2>
