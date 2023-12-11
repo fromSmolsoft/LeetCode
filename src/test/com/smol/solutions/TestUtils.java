@@ -9,7 +9,7 @@ public class TestUtils {
     
     public static List<Method> reflectMethods(Object obj, String filter) {
         return Arrays.stream(obj.getClass().getMethods())
-                .filter(m -> m.getName().contains("filter"))
+                .filter(m -> m.getName().contains(filter))
                 .toList();
     }
     
