@@ -21,7 +21,16 @@ public class TestUtils {
             int[] subArray = TestUtils.StringToIntArray(temp[i], innerDelim);
             matrix[i] = subArray;
         }
-        
+        return matrix;
+    }
+    public static String[][] stringToStringMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
+        String[] temp = TestUtils.StringToStringArray(stringMatrix, outerDelim);
+        String[][] matrix = new String[temp.length][];
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = TestUtils.removeSubStrings(temp[i], remove);
+            String[] subArray = TestUtils.StringToStringArray(temp[i], innerDelim);
+            matrix[i] = subArray;
+        }
         return matrix;
     }
     
