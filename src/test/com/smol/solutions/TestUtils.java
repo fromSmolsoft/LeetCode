@@ -23,6 +23,7 @@ public class TestUtils {
         }
         return matrix;
     }
+    
     public static String[][] stringToStringMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
         String[] temp = TestUtils.StringToStringArray(stringMatrix, outerDelim);
         String[][] matrix = new String[temp.length][];
@@ -180,6 +181,25 @@ public class TestUtils {
             String temp = strings[i];
             if (!temp.isEmpty())
                 result[i] = Integer.parseInt(temp);
+        }
+        return result;
+    }
+    
+    /**
+     * @return Integer array. Can include `null` values
+     * @throws NumberFormatException - if the string does not contain a parsable integer.
+     */
+    public static Integer[] StringToIntegerArray(String s, String delimiter) {
+        if (s == null || s.isEmpty()) return new Integer[]{};
+        String[] strings = s.split(delimiter, -1);
+        int l = strings.length;
+        Integer[] result = new Integer[l];
+        
+        for (int i = 0; i < l; i++) {
+            String temp = strings[i];
+            if (!temp.isEmpty())
+                if (temp.equals("null")) result[i] = null;
+                else result[i] = Integer.parseInt(temp);
         }
         return result;
     }
