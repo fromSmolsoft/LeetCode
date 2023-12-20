@@ -1,5 +1,7 @@
 package com.smol.solutions.N0104_MaximumDepthOfBinaryTree;
 
+import com.smol.solutions.utils.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;

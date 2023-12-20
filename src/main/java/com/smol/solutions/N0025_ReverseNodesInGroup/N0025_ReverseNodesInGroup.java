@@ -1,5 +1,7 @@
 package com.smol.solutions.N0025_ReverseNodesInGroup;
 
+import com.smol.solutions.utils.ListNode;
+
 /**
  * <h1>25. Reverse Nodes in k-Group</h1>
  * Hard, #LinkedList, #Recursion

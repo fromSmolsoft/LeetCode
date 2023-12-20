@@ -1,5 +1,7 @@
 package com.smol.solutions.N0061_RotateList;
 
+import com.smol.solutions.utils.ListNode;
+
 /**
  * <h1>61. Rotate List</h1>
  * Medium

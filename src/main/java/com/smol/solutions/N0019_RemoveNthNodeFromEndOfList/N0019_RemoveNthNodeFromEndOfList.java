@@ -1,5 +1,7 @@
 package com.smol.solutions.N0019_RemoveNthNodeFromEndOfList;
 
+import com.smol.solutions.utils.ListNode;
+
 /**
  * <h1>19. Remove Nth Node From End of List</h1>
  * Medium  <p>

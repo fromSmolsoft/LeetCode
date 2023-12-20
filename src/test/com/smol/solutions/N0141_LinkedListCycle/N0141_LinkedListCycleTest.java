@@ -3,6 +3,7 @@ package com.smol.solutions.N0141_LinkedListCycle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import com.smol.solutions.utils.ListNode;
 
 import java.util.Arrays;
 

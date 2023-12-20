@@ -1,5 +1,7 @@
 package com.smol.solutions.N0082_RemoveDuplicatesfromSortedListII;
 
+import com.smol.solutions.utils.ListNode;
+
 /**
  * <h1>82. Remove Duplicates from Sorted List II</h1>
  * Medium, #LinkedList #TwoPointers

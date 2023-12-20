@@ -1,6 +1,7 @@
 package com.smol.solutions.N0104_MaximumDepthOfBinaryTree;
 
 import com.smol.solutions.utils.TUtils;
+import com.smol.solutions.utils.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;

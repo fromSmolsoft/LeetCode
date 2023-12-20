@@ -1,4 +1,5 @@
 package com.smol.solutions.N0876_MiddleOfLinkedList;
+import com.smol.solutions.utils.ListNode;
 
 /**
  * <h1>876. Middle of the Linked List</h1>

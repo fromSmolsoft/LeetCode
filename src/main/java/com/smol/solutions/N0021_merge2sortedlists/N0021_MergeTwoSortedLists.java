@@ -1,5 +1,7 @@
 package com.smol.solutions.N0021_merge2sortedlists;
 
+import com.smol.solutions.utils.ListNode;
+
 /**
  * 21. Merge Two Sorted Lists
  * Easy <p>

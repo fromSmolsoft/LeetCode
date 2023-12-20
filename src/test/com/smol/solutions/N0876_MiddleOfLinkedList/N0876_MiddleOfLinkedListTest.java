@@ -1,23 +1,24 @@
 package com.smol.solutions.N0876_MiddleOfLinkedList;
 
+import com.smol.solutions.utils.ListNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class N0876_MiddleOfLinkedListTest {
-
-
+    
+    
     @ParameterizedTest
     @CsvSource(value = {
             "12345, 345",
             "123456, 456",
     })
     void test(String input, String expected) {
-        char[]                   iChars = input.toCharArray();
-        char[]                   eChars = expected.toCharArray();
-        N0876_MiddleOfLinkedList obj    = new N0876_MiddleOfLinkedList();
-        ListNode                 head   = new ListNode(Integer.parseInt(String.valueOf(iChars[0])));
+        char[] iChars = input.toCharArray();
+        char[] eChars = expected.toCharArray();
+        N0876_MiddleOfLinkedList obj = new N0876_MiddleOfLinkedList();
+        ListNode head = new ListNode(Integer.parseInt(String.valueOf(iChars[0])));
         for (int i = 1; i < iChars.length; i++) {
             int value = Integer.parseInt(String.valueOf(iChars[i]));
             head = new ListNode(value, head);

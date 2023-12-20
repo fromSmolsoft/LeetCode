@@ -1,5 +1,7 @@
 package com.smol.solutions.N0092_ReverseLinkedListII;
 
+import com.smol.solutions.utils.ListNode;
+
 /**
  * <h1>92. Reverse Linked List II</h1>
  * Medium, #LinkedList

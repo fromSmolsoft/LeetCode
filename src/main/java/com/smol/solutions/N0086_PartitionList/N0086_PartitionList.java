@@ -1,5 +1,7 @@
 package com.smol.solutions.N0086_PartitionList;
 
+import com.smol.solutions.utils.ListNode;
+
 /**
  * <h1>86. Partition List</h1>
  * Medium, #LinkedList
