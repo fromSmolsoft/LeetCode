@@ -3,7 +3,7 @@ package com.smol.solutions.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-class TreeFormatter {
+public class TreeFormatter {
     int padding = 2; // minimum number of horizontal spaces between two node data
     
     private int indent(List<String> lines, int margin) {

@@ -1,5 +1,6 @@
-package com.smol.solutions.N0021_merge2sortedlists;
+package com.smol.solutions;
 
+import com.smol.solutions.utils.ListNode;
 import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,4 +1,4 @@
-package com.smol.solutions.N0141_LinkedListCycle;
+package com.smol.solutions;
 import com.smol.solutions.utils.ListNode;
 
 import java.util.HashSet;

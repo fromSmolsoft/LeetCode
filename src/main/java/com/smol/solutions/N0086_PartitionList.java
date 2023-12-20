@@ -1,4 +1,4 @@
-package com.smol.solutions.N0086_PartitionList;
+package com.smol.solutions;
 
 import com.smol.solutions.utils.ListNode;
 

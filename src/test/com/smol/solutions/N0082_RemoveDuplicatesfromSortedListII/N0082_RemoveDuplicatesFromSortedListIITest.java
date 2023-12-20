@@ -1,5 +1,7 @@
 package com.smol.solutions.N0082_RemoveDuplicatesfromSortedListII;
 
+import com.smol.solutions.N0082_RemoveDuplicatesFromSortedListII;
+import com.smol.solutions.utils.ListNode;
 import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

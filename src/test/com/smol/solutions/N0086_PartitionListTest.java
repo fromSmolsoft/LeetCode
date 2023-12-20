@@ -1,5 +1,7 @@
-package com.smol.solutions.N0061_RotateList;
+package com.smol.solutions;
 
+import com.smol.solutions.N0086_PartitionList;
+import com.smol.solutions.utils.ListNode;
 import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,68 +12,65 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-class N0061_RotateListTest {
+class N0086_PartitionListTest {
     
-    private N0061_RotateList obj;
+    private N0086_PartitionList obj;
     
     @BeforeEach
     void setUp() {
-        obj = new N0061_RotateList();
+        obj = new N0086_PartitionList();
     }
     
     /**
      * <pre>{@code
      * Example 1:
-     * head    :    1->2->3->4->5
-     * rotate 1:    5->1->2->3->4
-     * rotate 2:    4->5->1->2->3
+     *         ▼  ▼     ▼
+     *      1->4->3->2->5->2
+     *             ↓
+     *               ▼  ▼  ▼
+     *      1->2->2->4->3->5
      *
-     * Input: head = [1,2,3,4,5], k = 2
-     * Output: [4,5,1,2,3]
+     * Input: head = [1,4,3,2,5,2], x = 3
+     * Output: [1,2,2,4,3,5]
      *
      * Example 2:
-     * Input: head = [0,1,2], k = 4
-     * Output: [2,0,1]
-     * }
+     * Input: head = [2,1], x = 2
+     * Output: [1,2]
      *
      * Constraints:
-     *     The number of nodes in the list is in the range [0, 500].
+     *     The number of nodes in the list is in the range [0, 200].
      *     -100 <= Node.val <= 100
-     *     0 <= k <= 2 * 109
-     * </pre>
+     *     -200 <= x <= 200
+     * }</pre>
      */
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
-            "4,5,1,2,3; 1,2,3,4,5;  2",
-            "4,5,1,2,3; 1,2,3,4,5;  7",
-            "1,2,3,4,5; 1,2,3,4,5;  5",
-            "1,2,3,4,5; 1,2,3,4,5;  1000",
-            "1,2,3,4,5; 1,2,3,4,5;  0",
-            "2,0,1;     0,1,2;      4",
-            ";              ;       1"
+            "1,2,2,4,3,5;   1,4,3,2,5,2;    3",
+            "1,4,3,2,5,2;   1,4,3,2,5,2;   -1",
+            "1,4,3,2,2,5;   1,4,3,2,5,2;    5",
+            "1,4,3,2,5,2;   1,4,3,2,5,2;    6",
+            "1,2;           2,1;            2",
+            "2,1;           2,1;            1",
     })
-    void rotateRight(String sExp, String sHead, int k) throws InvocationTargetException, IllegalAccessException {
-        List<Method> methods = TUtils.reflectMethods(obj, "rotateRight");
+    void partition(String sExp, String sHead, int x) throws InvocationTargetException, IllegalAccessException {
         
-        for (Method method : methods) {
+        List<Method> methods = TUtils.reflectMethods(obj, "partition");
+        
+        for (Method m : methods) {
+            ListNode actual = (ListNode) m.invoke(obj, stringToNode(sHead), x);
             ListNode expected = stringToNode(sExp);
-            ListNode head = stringToNode(sHead);
-            ListNode actual = (ListNode) method.invoke(obj, head, k);
-            
-            String message = getMessage(method, sHead, sExp, actual);
-            
-            if (expected == null) Assertions.assertNull(actual, "\nact: Expected to be null." + message);
+            String message = getMessage(m, sHead, sExp, actual);
             
             while (expected != null) {
-                
-                Assertions.assertNotNull(actual, "\nact: Shorter than expected." + message);
-                Assertions.assertEquals(expected.val, actual.val, message);
-                
+                Assertions.assertNotNull(actual, "\nact: Too short" + message);
+                Assertions.assertEquals(expected.val, actual.val, "\nact: val mismatch" + message);
                 actual = actual.next;
                 expected = expected.next;
             }
+            
         }
     }
+    
     
     private String getMessage(Method m, String input, String expected, ListNode actual) {
         return "\nmethod: " + m.getName() +

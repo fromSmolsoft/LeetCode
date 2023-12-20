@@ -1,4 +1,4 @@
-package com.smol.solutions.N0019_RemoveNthNodeFromEndOfList;
+package com.smol.solutions;
 
 import com.smol.solutions.utils.ListNode;
 

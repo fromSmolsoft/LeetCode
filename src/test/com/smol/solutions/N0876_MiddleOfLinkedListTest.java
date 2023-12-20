@@ -1,4 +1,4 @@
-package com.smol.solutions.N0876_MiddleOfLinkedList;
+package com.smol.solutions;
 
 import com.smol.solutions.utils.ListNode;
 import org.junit.jupiter.params.ParameterizedTest;

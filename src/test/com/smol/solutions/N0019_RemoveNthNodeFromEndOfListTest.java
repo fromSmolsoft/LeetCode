@@ -1,5 +1,7 @@
-package com.smol.solutions.N0019_RemoveNthNodeFromEndOfList;
+package com.smol.solutions;
 
+import com.smol.solutions.N0019_RemoveNthNodeFromEndOfList;
+import com.smol.solutions.utils.ListNode;
 import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
