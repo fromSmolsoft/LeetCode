@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,7 +11,7 @@ import java.util.List;
 
 class N0229_MajorityElement_IITest {
 
-    TestUtils                utils   = new TestUtils();
+    TUtils utils   = new TUtils();
     N0229_MajorityElement_II obj     = new N0229_MajorityElement_II();
     Method[]                 methods = N0229_MajorityElement_II.class.getDeclaredMethods();
 

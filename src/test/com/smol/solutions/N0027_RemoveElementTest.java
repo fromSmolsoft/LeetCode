@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,7 +11,7 @@ import static java.util.Arrays.sort;
 
 class N0027_RemoveElementTest {
 
-    TestUtils           utils = new TestUtils();
+    TUtils utils = new TUtils();
     N0027_RemoveElement obj   = new N0027_RemoveElement();
 
     @ParameterizedTest

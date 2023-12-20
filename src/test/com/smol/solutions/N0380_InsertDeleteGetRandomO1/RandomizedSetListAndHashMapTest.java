@@ -1,6 +1,6 @@
 package com.smol.solutions.N0380_InsertDeleteGetRandomO1;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -44,7 +44,7 @@ class RandomizedSetListAndHashMapTest {
 //            ";",
     })
     void getRandom(String input) {
-        int[] values = TestUtils.StringToIntArray(input, ",");
+        int[] values = TUtils.StringToIntArray(input, ",");
         int k = Math.max(4, values.length);
 
         for (int n : values) obj.insert(n);

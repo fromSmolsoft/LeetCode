@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -36,7 +37,7 @@ class N0219_ContainsDuplicateIITest {
     })
     void containsNearbyDuplicate(boolean exp, int k, String sNums) {
 
-        int[] nums = TestUtils.StringToIntArray(sNums, ",");
+        int[] nums = TUtils.StringToIntArray(sNums, ",");
         boolean act;
 
 

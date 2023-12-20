@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,7 +11,7 @@ import java.util.List;
 
 class N0068_TextJustificationTest {
 
-    private TestUtils               utils   = new TestUtils();
+    private TUtils utils   = new TUtils();
     private N0068_TextJustification obj     = new N0068_TextJustification();
     private Method[]                methods = obj.getClass().getDeclaredMethods();
 

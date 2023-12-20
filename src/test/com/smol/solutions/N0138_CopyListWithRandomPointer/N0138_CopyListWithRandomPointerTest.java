@@ -1,6 +1,6 @@
 package com.smol.solutions.N0138_CopyListWithRandomPointer;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -50,7 +50,7 @@ class N0138_CopyListWithRandomPointerTest {
     })
     void copyRandomList(String sExpected, String sInput) throws InvocationTargetException, IllegalAccessException {
         Node expected = parseStringToLinkedList(sExpected);
-        List<Method> methods = TestUtils.reflectMethods(obj, "copyRandomList");
+        List<Method> methods = TUtils.reflectMethods(obj, "copyRandomList");
         
         for (Method m : methods) {
             Node actual = (Node) m.invoke(obj, parseStringToLinkedList(sInput));
@@ -79,9 +79,9 @@ class N0138_CopyListWithRandomPointerTest {
      * @return Node as filled LinkedList
      */
     private Node parseStringToLinkedList(String text) {
-        String[] tempExpected = TestUtils.StringToStringArray(text, "\\],\\[");
+        String[] tempExpected = TUtils.StringToStringArray(text, "\\],\\[");
         if (tempExpected.length == 1 && tempExpected[0].contains("[]")) return null;
-        TestUtils.removeSubStringsFromArray(tempExpected, "\\[", "\\]");
+        TUtils.removeSubStringsFromArray(tempExpected, "\\[", "\\]");
         
         Node head = null;
         List<Node> stack = new ArrayList<>();

@@ -1,9 +1,8 @@
 package com.smol.solutions.N0082_RemoveDuplicatesfromSortedListII;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -54,7 +53,7 @@ class N0082_RemoveDuplicatesFromSortedListIITest {
     })
     void deleteDuplicates(String sExp, String sHead) throws InvocationTargetException, IllegalAccessException {
         
-        List<Method> methods = TestUtils.reflectMethods(obj, "deleteDuplicates");
+        List<Method> methods = TUtils.reflectMethods(obj, "deleteDuplicates");
         
         for (Method method : methods) {
             ListNode expected = stringToNode(sExp);
@@ -104,7 +103,7 @@ class N0082_RemoveDuplicatesFromSortedListIITest {
     private ListNode stringToNode(String sHead) {
         ListNode head = new ListNode(-1);
         ListNode temp = head;
-        for (int i : TestUtils.StringToIntArray(sHead, ",")) {
+        for (int i : TUtils.StringToIntArray(sHead, ",")) {
             temp.next = new ListNode(i);
             temp = temp.next;
         }

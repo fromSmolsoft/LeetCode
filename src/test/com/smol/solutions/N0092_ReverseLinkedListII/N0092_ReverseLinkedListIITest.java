@@ -1,6 +1,6 @@
 package com.smol.solutions.N0092_ReverseLinkedListII;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -46,7 +46,7 @@ class N0092_ReverseLinkedListIITest {
     })
     void reverseBetween(String sExp, String sHead, int left, int right) throws InvocationTargetException, IllegalAccessException {
         ListNode expected = stringToNode(sExp);
-        List<Method> methods = TestUtils.reflectMethods(obj, "reverseBetween");
+        List<Method> methods = TUtils.reflectMethods(obj, "reverseBetween");
         
         for (Method m : methods) {
             ListNode actual = (ListNode) m.invoke(obj, stringToNode(sHead), left, right);
@@ -79,7 +79,7 @@ class N0092_ReverseLinkedListIITest {
     private ListNode stringToNode(String sHead) {
         ListNode head = new ListNode(-1);
         ListNode temp = head;
-        for (int i : TestUtils.StringToIntArray(sHead, ",")) {
+        for (int i : TUtils.StringToIntArray(sHead, ",")) {
             temp.next = new ListNode(i);
             temp = temp.next;
         }

@@ -1,6 +1,6 @@
 package com.smol.solutions.N0019_RemoveNthNodeFromEndOfList;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -60,7 +60,7 @@ class N0019_RemoveNthNodeFromEndOfListTest {
         ListNode expected = stringToLinkedList(sExp);
         ListNode head = stringToLinkedList(sHead);
         
-        List<Method> methods = TestUtils.reflectMethods(obj, "removeNthFromEnd");
+        List<Method> methods = TUtils.reflectMethods(obj, "removeNthFromEnd");
         
         methods.forEach(method -> {
             ListNode actual = copyLinkedList(head);
@@ -101,7 +101,7 @@ class N0019_RemoveNthNodeFromEndOfListTest {
     }
     
     private ListNode stringToLinkedList(String head) {
-        int[] vals = TestUtils.StringToIntArray(head, ",");
+        int[] vals = TUtils.StringToIntArray(head, ",");
         
         ListNode dummy = new ListNode(-1);
         ListNode result = dummy;

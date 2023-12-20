@@ -1,6 +1,6 @@
 package com.smol.solutions.N0146_LRUCache;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -153,14 +153,14 @@ class LRUCache02Test {
     })
     void LRUCacheMassTest(String action, String sInputs, String sExpected) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         // CLeaning unwanted symbols (actions,input and expected)
-        action = TestUtils.removeSubStrings(action, "[", "\\]", " ", "\t");
-        sInputs = TestUtils.removeSubStrings(sInputs, " ", "\t");
-        sExpected = TestUtils.removeSubStrings(sExpected, "[", "\\]", " ", "\t");
+        action = TUtils.removeSubStrings(action, "[", "\\]", " ", "\t");
+        sInputs = TUtils.removeSubStrings(sInputs, " ", "\t");
+        sExpected = TUtils.removeSubStrings(sExpected, "[", "\\]", " ", "\t");
         
         // Parsing Strings to arrays (actions,input and expected )
-        String[] actions = TestUtils.StringToStringArray(action, ",");
-        String[][] inputs = TestUtils.stringToStringMatrix(sInputs, "],\\[", ",", "\\[", "\\]");
-        String[] expected = TestUtils.StringToStringArray(sExpected, ",");
+        String[] actions = TUtils.StringToStringArray(action, ",");
+        String[][] inputs = TUtils.stringToStringMatrix(sInputs, "],\\[", ",", "\\[", "\\]");
+        String[] expected = TUtils.StringToStringArray(sExpected, ",");
         
         for (int i = 0; i < actions.length; i++) {
             

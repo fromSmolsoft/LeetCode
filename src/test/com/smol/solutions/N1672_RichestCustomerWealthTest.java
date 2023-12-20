@@ -1,6 +1,7 @@
 package com.smol.solutions;
 
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -14,7 +15,7 @@ class N1672_RichestCustomerWealthTest {
     })
     void maximumWealth(String input1, String input2, int expected) {
         N1672_RichestCustomerWealth obj   = new N1672_RichestCustomerWealth();
-        TestUtils                   utils = new TestUtils();
+        TUtils utils = new TUtils();
         //todo make it work with j>2 in array [i][j]
         int[]                       nums1 = utils.StringToIntArray(input1, ";");
         int[]                       nums2 = utils.StringToIntArray(input2, ";");

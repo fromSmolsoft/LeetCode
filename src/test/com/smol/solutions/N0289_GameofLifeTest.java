@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -51,11 +52,11 @@ class N0289_GameofLifeTest {
     })
     void gameOfLife(String sExpected, String sInput) {
 
-        int[][] expected = TestUtils.stringToMatrix(sExpected, "],\\[", ",", "[", "\\]");
-        int[][] input = TestUtils.stringToMatrix(sInput, "],\\[", ",", "[", "\\]");
+        int[][] expected = TUtils.stringToMatrix(sExpected, "],\\[", ",", "[", "\\]");
+        int[][] input = TUtils.stringToMatrix(sInput, "],\\[", ",", "[", "\\]");
         int[][] actual;
 
-        actual = TestUtils.copy2DArray(input);
+        actual = TUtils.copy2DArray(input);
         obj.gameOfLifeBF(actual);
 
         List<int[][]> list;
@@ -65,11 +66,11 @@ class N0289_GameofLifeTest {
         list.add(actual);
 
         Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual),
-                "\n" + TestUtils.printMatricesHorisont(list) + "\n" +
+                "\n" + TUtils.printMatricesHorisont(list) + "\n" +
                 "\n\nInput    :" + Arrays.deepToString(input));
 
 
-        actual = TestUtils.copy2DArray(input);
+        actual = TUtils.copy2DArray(input);
         obj.gameOfLife(actual);
 
         list = new ArrayList<>();
@@ -78,7 +79,7 @@ class N0289_GameofLifeTest {
         list.add(actual);
 
         Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual),
-                "\n" + TestUtils.printMatricesHorisont(list) + "\n" +
+                "\n" + TUtils.printMatricesHorisont(list) + "\n" +
                 "\n\nInput    :" + Arrays.deepToString(input));
 
     }
@@ -92,7 +93,7 @@ class N0289_GameofLifeTest {
             "3; 1; 0; [[0,2,0],[0,0,1],[1,1,1],[0,0,0]]",
     })
     public void getLives(int exp, int i, int j,String sBoard) {
-        int[][] board = TestUtils.stringToMatrix(sBoard, "],\\[", ",", "[", "\\]");
+        int[][] board = TUtils.stringToMatrix(sBoard, "],\\[", ",", "[", "\\]");
         int m = board.length;
         int n = board[0].length;
         int act;
@@ -107,7 +108,7 @@ class N0289_GameofLifeTest {
             "3; 3; 1; [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]",
     })
     public void getLivesBF(int exp, int i, int j,String sBoard) {
-        int[][] board = TestUtils.stringToMatrix(sBoard, "],\\[", ",", "[", "\\]");
+        int[][] board = TUtils.stringToMatrix(sBoard, "],\\[", ",", "[", "\\]");
         int m = board.length;
         int n = board[0].length;
         int act;

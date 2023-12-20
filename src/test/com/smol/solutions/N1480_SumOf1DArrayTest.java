@@ -1,12 +1,13 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N1480_SumOf1DArrayTest {
 
-    TestUtils utils = new TestUtils();
+    TUtils utils = new TUtils();
 
     @ParameterizedTest
     @CsvSource(value = {

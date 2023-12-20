@@ -1,6 +1,6 @@
 package com.smol.solutions.N0086_PartitionList;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -52,7 +52,7 @@ class N0086_PartitionListTest {
     })
     void partition(String sExp, String sHead, int x) throws InvocationTargetException, IllegalAccessException {
         
-        List<Method> methods = TestUtils.reflectMethods(obj, "partition");
+        List<Method> methods = TUtils.reflectMethods(obj, "partition");
         
         for (Method m : methods) {
             ListNode actual = (ListNode) m.invoke(obj, stringToNode(sHead), x);
@@ -99,7 +99,7 @@ class N0086_PartitionListTest {
     private ListNode stringToNode(String sHead) {
         ListNode head = new ListNode(-1);
         ListNode temp = head;
-        for (int i : TestUtils.StringToIntArray(sHead, ",")) {
+        for (int i : TUtils.StringToIntArray(sHead, ",")) {
             temp.next = new ListNode(i);
             temp = temp.next;
         }

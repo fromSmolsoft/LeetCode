@@ -1,11 +1,11 @@
-package com.smol.solutions;
+package com.smol.solutions.utils;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TestUtils {
+public class TUtils {
     
     public static List<Method> reflectMethods(Object obj, String filter) {
         return Arrays.stream(obj.getClass().getMethods())
@@ -14,22 +14,22 @@ public class TestUtils {
     }
     
     public static int[][] stringToMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
-        String[] temp = TestUtils.StringToStringArray(stringMatrix, outerDelim);
+        String[] temp = TUtils.StringToStringArray(stringMatrix, outerDelim);
         int[][] matrix = new int[temp.length][];
         for (int i = 0; i < temp.length; i++) {
-            temp[i] = TestUtils.removeSubStrings(temp[i], remove);
-            int[] subArray = TestUtils.StringToIntArray(temp[i], innerDelim);
+            temp[i] = TUtils.removeSubStrings(temp[i], remove);
+            int[] subArray = TUtils.StringToIntArray(temp[i], innerDelim);
             matrix[i] = subArray;
         }
         return matrix;
     }
     
     public static String[][] stringToStringMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
-        String[] temp = TestUtils.StringToStringArray(stringMatrix, outerDelim);
+        String[] temp = TUtils.StringToStringArray(stringMatrix, outerDelim);
         String[][] matrix = new String[temp.length][];
         for (int i = 0; i < temp.length; i++) {
-            temp[i] = TestUtils.removeSubStrings(temp[i], remove);
-            String[] subArray = TestUtils.StringToStringArray(temp[i], innerDelim);
+            temp[i] = TUtils.removeSubStrings(temp[i], remove);
+            String[] subArray = TUtils.StringToStringArray(temp[i], innerDelim);
             matrix[i] = subArray;
         }
         return matrix;

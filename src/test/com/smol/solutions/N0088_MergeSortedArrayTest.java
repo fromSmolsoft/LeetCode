@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 
 class N0088_MergeSortedArrayTest {
 
-    private final TestUtils utils = new TestUtils();
+    private final TUtils utils = new TUtils();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {

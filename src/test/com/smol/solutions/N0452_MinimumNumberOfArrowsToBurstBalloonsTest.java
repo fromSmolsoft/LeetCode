@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -57,12 +58,12 @@ class N0452_MinimumNumberOfArrowsToBurstBalloonsTest {
             "2; [[9,12],[1,10],[4,11],[8,12],[3,9],[6,9],[6,7]]"
     })
     void findMinArrowShots(int expected, String sInput) throws InvocationTargetException, IllegalAccessException {
-        int[][] input = TestUtils.stringToMatrix(sInput, "\\],\\[", ",", "\\[", "\\]");
+        int[][] input = TUtils.stringToMatrix(sInput, "\\],\\[", ",", "\\[", "\\]");
         int actual;
         Method[] methods = N0452_MinimumNumberOfArrowsToBurstBalloons.class.getMethods();
         for (Method m : methods) {
             if (m.getName().contains("findMinArrowShots")) {
-                int[][] temp = TestUtils.copy2DArray(input); // cloning input, tested method can change input in come cases
+                int[][] temp = TUtils.copy2DArray(input); // cloning input, tested method can change input in come cases
                 actual = (int) m.invoke(obj, (Object) temp);
                 Assertions.assertEquals(expected, actual, "\nmethod: " + m.getName() + "\ninput    :" + Arrays.deepToString(input));
             }

@@ -1,6 +1,6 @@
 package com.smol.solutions.N0104_MaximumDepthOfBinaryTree;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,7 +20,7 @@ class N0104_MaximumDepthOfBinaryTreeTest {
     void setObj() {
         obj = new N0104_MaximumDepthOfBinaryTree();
         //obj = obj.getClass().getConstructor(int.class).newInstance(); // reflection
-        methods = TestUtils.reflectMethods(obj, "maxDepth");
+        methods = TUtils.reflectMethods(obj, "maxDepth");
         formatter = new TreeFormatter();
     }
     
@@ -54,7 +54,7 @@ class N0104_MaximumDepthOfBinaryTreeTest {
     })
     void maxDepth(int expected, String sRoot) throws InvocationTargetException, IllegalAccessException {
         
-        Integer[] vals = TestUtils.StringToIntegerArray(sRoot, ",");
+        Integer[] vals = TUtils.StringToIntegerArray(sRoot, ",");
         String message;
         TreeNode root = buildBiTree(vals);
         if (vals.length > 0) {

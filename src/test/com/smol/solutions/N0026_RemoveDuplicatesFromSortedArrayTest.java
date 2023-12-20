@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -11,7 +12,7 @@ import java.util.Arrays;
 class N0026_RemoveDuplicatesFromSortedArrayTest {
 
     N0026_RemoveDuplicatesFromSortedArray obj     = new N0026_RemoveDuplicatesFromSortedArray();
-    TestUtils                             utils   = new TestUtils();
+    TUtils utils   = new TUtils();
     Method[]                              methods = N0026_RemoveDuplicatesFromSortedArray.class.getDeclaredMethods();
 
     @ParameterizedTest

@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -42,30 +43,30 @@ class N0048_RotateImageTest {
     })
     void rotate(String sExpected, String sInput) {
 
-        String[] sExpTemp = TestUtils.StringToStringArray(sExpected, "],\\[");
-        String[] sInpTemp = TestUtils.StringToStringArray(sInput, "],\\[");
+        String[] sExpTemp = TUtils.StringToStringArray(sExpected, "],\\[");
+        String[] sInpTemp = TUtils.StringToStringArray(sInput, "],\\[");
 
         int[][] expected = new int[sExpTemp.length][];
         int[][] input = new int[sInpTemp.length][];
 
         for (int i = 0; i < sExpTemp.length; i++) {
-            String temp = TestUtils.removeSubStrings(sExpTemp[i], "\\[", "\\]");
-            expected[i] = TestUtils.StringToIntArray(temp, ",");
+            String temp = TUtils.removeSubStrings(sExpTemp[i], "\\[", "\\]");
+            expected[i] = TUtils.StringToIntArray(temp, ",");
         }
 
         for (int i = 0; i < sInpTemp.length; i++) {
-            String temp = TestUtils.removeSubStrings(sInpTemp[i], "\\[", "\\]");
-            input[i] = TestUtils.StringToIntArray(temp, ",");
+            String temp = TUtils.removeSubStrings(sInpTemp[i], "\\[", "\\]");
+            input[i] = TUtils.StringToIntArray(temp, ",");
         }
 
         //testing
         int[][] actual;
 
-        actual = TestUtils.copy2DArray(input);
+        actual = TUtils.copy2DArray(input);
         obj.rotate(actual);
         assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), Arrays.deepToString(actual));
 
-        actual = TestUtils.copy2DArray(input);
+        actual = TUtils.copy2DArray(input);
         obj.rotate4W(actual);
         assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), Arrays.deepToString(actual));
     }

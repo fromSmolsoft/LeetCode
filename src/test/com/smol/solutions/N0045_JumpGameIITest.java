@@ -1,12 +1,13 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N0045_JumpGameIITest {
 
-    TestUtils        utils = new TestUtils();
+    TUtils utils = new TUtils();
     N0045_JumpGameII obj   = new N0045_JumpGameII();
 
     @ParameterizedTest

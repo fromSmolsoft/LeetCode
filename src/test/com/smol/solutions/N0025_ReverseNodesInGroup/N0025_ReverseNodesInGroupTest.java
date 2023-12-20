@@ -1,6 +1,6 @@
 package com.smol.solutions.N0025_ReverseNodesInGroup;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -44,7 +44,7 @@ class N0025_ReverseNodesInGroupTest {
     })
     void reverseKGroup(String sExp, String sHead, int k) throws InvocationTargetException, IllegalAccessException {
         ListNode expected0 = stringToNode(sExp);
-        List<Method> methods = TestUtils.reflectMethods(obj, "reverseKGroup");
+        List<Method> methods = TUtils.reflectMethods(obj, "reverseKGroup");
         
         for (Method m : methods) {
             ListNode actual0 = (ListNode) m.invoke(obj, stringToNode(sHead), k);
@@ -84,7 +84,7 @@ class N0025_ReverseNodesInGroupTest {
     private ListNode stringToNode(String sHead) {
         ListNode head = new ListNode(-1);
         ListNode temp = head;
-        for (int i : TestUtils.StringToIntArray(sHead, ",")) {
+        for (int i : TUtils.StringToIntArray(sHead, ",")) {
             temp.next = new ListNode(i);
             temp = temp.next;
         }

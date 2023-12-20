@@ -1,6 +1,6 @@
 package com.smol.solutions.N0061_RotateList;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -51,7 +51,7 @@ class N0061_RotateListTest {
             ";              ;       1"
     })
     void rotateRight(String sExp, String sHead, int k) throws InvocationTargetException, IllegalAccessException {
-        List<Method> methods = TestUtils.reflectMethods(obj, "rotateRight");
+        List<Method> methods = TUtils.reflectMethods(obj, "rotateRight");
         
         for (Method method : methods) {
             ListNode expected = stringToNode(sExp);
@@ -102,7 +102,7 @@ class N0061_RotateListTest {
     private ListNode stringToNode(String sHead) {
         ListNode head = new ListNode(-1);
         ListNode temp = head;
-        for (int i : TestUtils.StringToIntArray(sHead, ",")) {
+        for (int i : TUtils.StringToIntArray(sHead, ",")) {
             temp.next = new ListNode(i);
             temp = temp.next;
         }

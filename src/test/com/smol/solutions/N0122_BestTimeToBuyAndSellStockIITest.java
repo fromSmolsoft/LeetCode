@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -7,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class N0122_BestTimeToBuyAndSellStockIITest {
 
     N0122_BestTimeToBuyAndSellStockII obj   = new N0122_BestTimeToBuyAndSellStockII();
-    TestUtils                         utils = new TestUtils();
+    TUtils utils = new TUtils();
 
     /**
      * <pre>

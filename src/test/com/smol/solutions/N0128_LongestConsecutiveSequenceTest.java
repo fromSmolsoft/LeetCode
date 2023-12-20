@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -34,7 +35,7 @@ class N0128_LongestConsecutiveSequenceTest {
             "3; 1,2,0,1"
     })
     void longestConsecutive(int exp, String sNums) {
-        int[] nums = TestUtils.StringToIntArray(sNums, ",");
+        int[] nums = TUtils.StringToIntArray(sNums, ",");
         int act;
 
 

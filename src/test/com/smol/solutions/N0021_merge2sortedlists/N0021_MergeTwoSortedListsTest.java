@@ -1,6 +1,6 @@
 package com.smol.solutions.N0021_merge2sortedlists;
 
-import com.smol.solutions.TestUtils;
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,7 +10,7 @@ import java.util.List;
 
 class N0021_MergeTwoSortedListsTest {
 
-    private static final TestUtils                 utils = new TestUtils();
+    private static final TUtils utils = new TUtils();
     private static final N0021_MergeTwoSortedLists obj   = new N0021_MergeTwoSortedLists();
 
     @ParameterizedTest

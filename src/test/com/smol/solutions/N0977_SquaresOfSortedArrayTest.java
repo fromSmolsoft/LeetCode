@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -7,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class N0977_SquaresOfSortedArrayTest {
 
 
-    TestUtils                  utils = new TestUtils();
+    TUtils utils = new TUtils();
     N0977_SquaresOfSortedArray obj   = new N0977_SquaresOfSortedArray();
 
     @ParameterizedTest

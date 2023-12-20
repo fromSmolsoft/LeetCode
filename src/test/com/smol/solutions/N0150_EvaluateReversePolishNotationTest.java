@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -54,7 +55,7 @@ class N0150_EvaluateReversePolishNotationTest {
             "0;     10,5,-,-5,+"
     })
     void evalRPN(int expected, String sTokens) throws InvocationTargetException, IllegalAccessException {
-        String[] tokens = TestUtils.StringToStringArray(sTokens, ",");
+        String[] tokens = TUtils.StringToStringArray(sTokens, ",");
 
         Method[] methods = obj.getClass().getMethods();
         for (Method m : methods) {
