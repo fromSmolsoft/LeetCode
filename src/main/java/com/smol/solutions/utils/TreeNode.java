@@ -1,4 +1,4 @@
-package com.smol.solutions.N0104_MaximumDepthOfBinaryTree;
+package com.smol.solutions.utils;
 
 /**
  * <h1>Binary tree node.</h1>
@@ -6,15 +6,15 @@ package com.smol.solutions.N0104_MaximumDepthOfBinaryTree;
  */
 public class TreeNode {
     
-   public int val;
+    public int val;
     public TreeNode left;
     public TreeNode right;
     
-    TreeNode() {}
+    public TreeNode() {}
     
-    TreeNode(int val) {this.val = val;}
+    public TreeNode(int val) {this.val = val;}
     
-    TreeNode(int val, TreeNode left, TreeNode right) {
+    public TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
