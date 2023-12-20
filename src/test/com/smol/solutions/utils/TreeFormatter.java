@@ -3,6 +3,20 @@ package com.smol.solutions.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <h1>BinaryTree printer</h1>
+ * "prints" nicely formatted BinaryTree.    <p>
+ * Requires TreeNode to include these fields :
+ * <pre>{@code
+ *   public class TreeNode {
+ *      public int val;
+ *      public TreeNode left;
+ *      public TreeNode right;
+ *      ...
+ *      }
+ *  }
+ * }</pre>
+ */
 public class TreeFormatter {
     int padding = 2; // minimum number of horizontal spaces between two node data
     
@@ -59,7 +73,11 @@ public class TreeFormatter {
         return lines;
     }
     
+    /**
+     * @return String with formatted BinaryTree
+     */
     public String topDown(TreeNode root) {
+        if (root == null) return "";
         List<String> lines = buildLines(root);
         return String.join("\n", lines.subList(1, lines.size()));
     }
