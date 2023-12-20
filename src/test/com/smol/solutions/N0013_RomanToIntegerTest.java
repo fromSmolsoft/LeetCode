@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class n13_RomanToIntegerTest {
+class N0013_RomanToIntegerTest {
     private N0013_RomanToInteger obj;
 
     @BeforeEach
