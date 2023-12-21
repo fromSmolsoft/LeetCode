@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -50,14 +51,14 @@ class N0056_MergeIntervalsTest {
             "[[1,3]];                   [[1,3]]"
     })
     void merge(String sExpected, String sIntervals) throws InvocationTargetException, IllegalAccessException {
-        int[][] expected = TestUtils.stringToMatrix(sExpected, "],\\[", ",", "\\[", "\\]");
-        int[][] intervals = TestUtils.stringToMatrix(sIntervals, "],\\[", ",", "\\[", "\\]");
+        int[][] expected = TUtils.stringToMatrix(sExpected, "],\\[", ",", "\\[", "\\]");
+        int[][] intervals = TUtils.stringToMatrix(sIntervals, "],\\[", ",", "\\[", "\\]");
         int[][] actual;
 
 
         for (Method m : methods) {
             if (m.getName().contains("merge")) {
-                actual = (int[][]) m.invoke(obj, (Object) TestUtils.copy2DArray(intervals));
+                actual = (int[][]) m.invoke(obj, (Object) TUtils.copy2DArray(intervals));
                 Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), m.getName() + "\n" + "\nInput    :" + Arrays.deepToString(intervals));
             }
         }

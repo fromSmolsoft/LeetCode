@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -54,17 +55,17 @@ class N0054_SpiralMatrixTest {
     void spiralOrder(String sExp, String sInput) {
 
         // prepare input data
-        String[] tempInput = TestUtils.StringToStringArray(sInput, "],\\[");
+        String[] tempInput = TUtils.StringToStringArray(sInput, "],\\[");
         int[][] input = new int[tempInput.length][];
         for (int i = 0; i < tempInput.length; i++) {
             String s = tempInput[i];
-            s = TestUtils.removeSubStrings(s, "\\[", "\\]");
-            int[] tempNums = TestUtils.StringToIntArray(s, ",");
+            s = TUtils.removeSubStrings(s, "\\[", "\\]");
+            int[] tempNums = TUtils.StringToIntArray(s, ",");
             input[i] = tempNums;
         }
 
         // prepare expected data
-        List<Integer> exp = TestUtils.StringToIntList(sExp, ",");
+        List<Integer> exp = TUtils.StringToIntList(sExp, ",");
 
         // get actual data
         List<Integer> act = obj.spiralOrder(input);

@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -48,10 +49,10 @@ class N0057_InsertIntervalTest {
             "[[1,5]];                   [[2,3]];                            [1,5]"
     })
     void insert(String sExpected, String sIntervals, String sNewInterval) throws InvocationTargetException, IllegalAccessException {
-        int[][] expected = TestUtils.stringToMatrix(sExpected, "],\\[", ",", "[", "\\]");
-        int[][] intervals = TestUtils.stringToMatrix(sIntervals, "],\\[", ",", "[", "\\]");
-        sNewInterval = TestUtils.removeSubStrings(sNewInterval, "[", "\\]");
-        int[] newInterval = TestUtils.StringToIntArray(sNewInterval, ",");
+        int[][] expected = TUtils.stringToMatrix(sExpected, "],\\[", ",", "[", "\\]");
+        int[][] intervals = TUtils.stringToMatrix(sIntervals, "],\\[", ",", "[", "\\]");
+        sNewInterval = TUtils.removeSubStrings(sNewInterval, "[", "\\]");
+        int[] newInterval = TUtils.StringToIntArray(sNewInterval, ",");
 
         int[][] actual;
         Method[] methods = N0057_InsertInterval.class.getMethods();

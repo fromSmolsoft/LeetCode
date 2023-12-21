@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -17,7 +18,7 @@ class N0022_GenerateParenthesesTest {
             "4 ,(((())));((()()));((())());((()))();(()(()));(()()());(()())();(())(());(())()();()((()));()(()());()(())();()()(());()()()()",
     })
     void generateParenthesis(int input, String expected) {
-        TestUtils                 utils = new TestUtils();
+        TUtils utils = new TUtils();
         N0022_GenerateParentheses obj   = new N0022_GenerateParentheses();
 
         List<String> expectedStrings = List.of(utils.StringToStringArray(expected, ";"));

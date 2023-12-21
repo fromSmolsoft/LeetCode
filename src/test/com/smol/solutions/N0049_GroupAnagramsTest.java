@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -43,20 +44,20 @@ class N0049_GroupAnagramsTest {
     void groupAnagrams(String expected, String input) throws InvocationTargetException, IllegalAccessException {
 
         //transform CSV string to data
-        String[] exp0 = TestUtils.StringToStringArray(expected, "],\\[");
+        String[] exp0 = TUtils.StringToStringArray(expected, "],\\[");
 
         List<List<String>> exp = new ArrayList<>();
         for (String s : exp0) {
             List<String> expSubList;
 
-            String[] temp = TestUtils.StringToStringArray(s, ",");
-            TestUtils.trimStrings(temp, "[", "\"", "]", "\"");
+            String[] temp = TUtils.StringToStringArray(s, ",");
+            TUtils.trimStrings(temp, "[", "\"", "]", "\"");
             expSubList = Arrays.stream(temp).toList();
             exp.add(expSubList);
         }
 
-        String[] inp = TestUtils.StringToStringArray(input, ",");
-        TestUtils.trimStrings(inp, "[", "\"", "]", "\"");
+        String[] inp = TUtils.StringToStringArray(input, ",");
+        TUtils.trimStrings(inp, "[", "\"", "]", "\"");
 
 
         for (Method m : methods) {

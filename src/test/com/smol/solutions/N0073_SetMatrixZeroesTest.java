@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -59,11 +60,11 @@ class N0073_SetMatrixZeroesTest {
         int[][] matrix = stringToMatrix(sMatrix);
         int[][] actual;
 
-        actual = TestUtils.copy2DArray(matrix);
+        actual = TUtils.copy2DArray(matrix);
         obj.setZeroesArr(actual);
         Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), "\nArray \nmatrix\n" + Arrays.deepToString(matrix) + "\n");
 
-        actual = TestUtils.copy2DArray(matrix);
+        actual = TUtils.copy2DArray(matrix);
         obj.setZeroes(actual);
         Assertions.assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual), "\nArray \nmatrix\n" + Arrays.deepToString(matrix) + "\n");
 
@@ -72,11 +73,11 @@ class N0073_SetMatrixZeroesTest {
 
 
     private int[][] stringToMatrix(String stringMatrix) {
-        String[] temp = TestUtils.StringToStringArray(stringMatrix, "],\\[");
+        String[] temp = TUtils.StringToStringArray(stringMatrix, "],\\[");
         int[][] matrix = new int[temp.length][];
         for (int i = 0; i < temp.length; i++) {
-            temp[i] = TestUtils.removeSubStrings(temp[i], "[", "\\]");
-            int[] subArray = TestUtils.StringToIntArray(temp[i], ",");
+            temp[i] = TUtils.removeSubStrings(temp[i], "[", "\\]");
+            int[] subArray = TUtils.StringToIntArray(temp[i], ",");
             matrix[i] = subArray;
         }
 

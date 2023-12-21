@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -7,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class N0011_ContainerWithMostWaterTest {
 
-    private final TestUtils                    utils = new TestUtils();
+    private final TUtils utils = new TUtils();
     private final N0011_ContainerWithMostWater obj   = new N0011_ContainerWithMostWater();
 
     /**

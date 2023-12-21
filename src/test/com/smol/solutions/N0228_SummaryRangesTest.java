@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -49,8 +50,8 @@ class N0228_SummaryRangesTest {
             "0,2->4,6,8->9; 0,2,3,4,6,8,9"
     })
     void summaryRanges(String sExp, String sInp) {
-        List<String> expected = TestUtils.StringToStringList(sExp, ",");
-        int[] input = TestUtils.StringToIntArray(sInp, ",");
+        List<String> expected = TUtils.StringToStringList(sExp, ",");
+        int[] input = TUtils.StringToIntArray(sInp, ",");
         List<String> actual = obj.summaryRanges(input);
 
         Assertions.assertIterableEquals(expected, actual,

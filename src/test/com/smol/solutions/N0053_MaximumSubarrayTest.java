@@ -1,12 +1,13 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N0053_MaximumSubarrayTest {
 
-    TestUtils             utils = new TestUtils();
+    TUtils utils = new TUtils();
     N0053_MaximumSubarray obj   = new N0053_MaximumSubarray();
 
     @ParameterizedTest

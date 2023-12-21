@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,7 +12,7 @@ import java.util.Arrays;
 
 class N0189_RotateArrayTest {
 
-    TestUtils         utils   = new TestUtils();
+    TUtils utils   = new TUtils();
     N0189_RotateArray obj     = new N0189_RotateArray();
     Method[]          methods = N0189_RotateArray.class.getDeclaredMethods();
 

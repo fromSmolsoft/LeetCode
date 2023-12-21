@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -103,12 +104,12 @@ class N0036_ValidSudokuTest {
 
     })
     void isValidSudoku(boolean exp, String sChars2DArray) {
-        String[] lines = TestUtils.StringToStringArray(sChars2DArray, "],\\[");
-        TestUtils.removeSubStringsFromArray(lines, "\"", "[", "[", "\"", "\"", "]", "]", "\"");
+        String[] lines = TUtils.StringToStringArray(sChars2DArray, "],\\[");
+        TUtils.removeSubStringsFromArray(lines, "\"", "[", "[", "\"", "\"", "]", "]", "\"");
         char[][] board = new char[lines.length][];
         for (int i = 0; i < lines.length; i++) {
             String s = lines[i];
-            char[] chars = TestUtils.StringToCharArray(s, ",");
+            char[] chars = TUtils.StringToCharArray(s, ",");
             board[i] = chars;
         }
         boolean act;

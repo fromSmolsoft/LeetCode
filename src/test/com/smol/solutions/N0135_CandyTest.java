@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -7,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class N0135_CandyTest {
 
     private N0135_Candy obj   = new N0135_Candy();
-    private TestUtils   utils = new TestUtils();
+    private TUtils utils = new TUtils();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {

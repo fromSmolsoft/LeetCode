@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -11,7 +12,7 @@ import java.util.List;
 
 class N0015_3SumTest {
 
-    TestUtils  utils = new TestUtils();
+    TUtils utils = new TUtils();
     N0015_3Sum obj   = new N0015_3Sum();
 
     /**

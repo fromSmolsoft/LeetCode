@@ -1,5 +1,6 @@
 package com.smol.solutions;
 
+import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 class N0238_ProductOfArrayExceptSelfTest {
 
 
-    TestUtils                      utils = new TestUtils();
+    TUtils utils = new TUtils();
     N0238_ProductOfArrayExceptSelf obj   = new N0238_ProductOfArrayExceptSelf();
 
 
