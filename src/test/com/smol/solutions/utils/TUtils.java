@@ -7,6 +7,11 @@ import java.util.List;
 
 public class TUtils {
     
+    public static List<Method> reflectMethods(Class clazz, String filter) {
+        return Arrays.stream(clazz.getMethods())
+                .filter(m -> m.getName().contains(filter))
+                .toList();
+    }
     public static List<Method> reflectMethods(Object obj, String filter) {
         return Arrays.stream(obj.getClass().getMethods())
                 .filter(m -> m.getName().contains(filter))
