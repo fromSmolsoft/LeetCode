@@ -198,7 +198,7 @@ class LRUCache02Test {
             case "get" -> {
                 return Optional.of(obj.get(input[0]));
             }
-            default -> System.out.println("Unexpected value: " + action);
+            default -> {/*Do nothing*/}
         }
         return Optional.empty();
     }

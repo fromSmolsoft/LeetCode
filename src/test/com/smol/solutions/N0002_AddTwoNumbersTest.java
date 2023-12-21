@@ -23,11 +23,10 @@ class N0002_AddTwoNumbersTest {
     /** Tests the individual nodes */
     private static void testIndividualNodes(ListNode actual, int[] expectedArray) {
         for (int i = 0; i < expectedArray.length; i++) {
-            System.out.print("Node: " + i + "; ");
-            assertEquals(expectedArray[i], actual.val);
+            
+            assertEquals(expectedArray[i], actual.val,"Node: " + i + "; ");
             actual = actual.next;
         }
-        System.out.println("\n");
     }
     
     @BeforeEach

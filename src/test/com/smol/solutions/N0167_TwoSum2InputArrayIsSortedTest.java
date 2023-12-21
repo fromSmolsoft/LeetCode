@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 class N0167_TwoSum2InputArrayIsSortedTest {
     TUtils utils = new TUtils();
-
+    
     @ParameterizedTest
     @CsvSource(value = {
             " 9,  2|7|11|15, 1|2",
@@ -20,21 +20,19 @@ class N0167_TwoSum2InputArrayIsSortedTest {
     })
     void twoSum(int target, String numbers, String expected) throws InvocationTargetException, IllegalAccessException {
         N0167_TwoSum2InputArrayIsSorted obj = new N0167_TwoSum2InputArrayIsSorted();
-
-        int[] inputs        = utils.StringToIntArray(numbers, "\\|");
+        
+        int[] inputs = utils.StringToIntArray(numbers, "\\|");
         int[] expectedArray = utils.StringToIntArray(expected, "\\|");
-        int[] actual        = obj.twoSum(inputs, target);
-
+        
         Method[] methods = N0167_TwoSum2InputArrayIsSorted.class.getDeclaredMethods();
-
+        
         for (Method method : methods) {
             if (method.getName().startsWith("twoSum")) {
-                System.out.printf("method: " + method.getName());
                 int[] actuals = (int[]) method.invoke(obj, inputs, target);
-                System.out.printf("->expected: %s, actual: %s\n", Arrays.toString(expectedArray), Arrays.toString(actuals));
-                Assertions.assertArrayEquals(expectedArray, actuals);
+                String message = "\nmethod: " + method.getName() +
+                                 "\nexp: %s \nact: %s \n".formatted(Arrays.toString(expectedArray), Arrays.toString(actuals));
+                Assertions.assertArrayEquals(expectedArray, actuals, message);
             }
         }
-//        Assertions.assertArrayEquals(expectedArray, actual);
     }
 }
