@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0242_ValidAnagramTest {
 
-    private N0242_ValidAnagram obj = new N0242_ValidAnagram();
+    private final N0242_ValidAnagram obj = new N0242_ValidAnagram();
 
     /**
      * <pre>

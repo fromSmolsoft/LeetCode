@@ -159,7 +159,7 @@ public class N0036_ValidSudoku {
      * @author StefanPochmann @ <a href="https://leetcode.com/problems/valid-sudoku/solutions/15472/short-simple-java-using-strings/?envType=study-plan-v2&envId=top-interview-150">...</a>
      */
     public boolean isValidSudokuS(char[][] board) {
-        Set seen = new HashSet();
+        Set<String> seen = new HashSet<>();
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
                 char number = board[i][j];

@@ -11,11 +11,10 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 class N0189_RotateArrayTest {
-
-    TUtils utils   = new TUtils();
-    N0189_RotateArray obj     = new N0189_RotateArray();
-    Method[]          methods = N0189_RotateArray.class.getDeclaredMethods();
-
+    
+    final N0189_RotateArray obj = new N0189_RotateArray();
+    final Method[] methods = N0189_RotateArray.class.getDeclaredMethods();
+    
     /**
      * <pre>
      * Example 1:
@@ -43,17 +42,19 @@ class N0189_RotateArrayTest {
             " full rot.;1,2,3,4,5,6,7; 7; 1,2,3,4,5,6,7",
     })
     void rotate(String desc, String sExp, int k, String sNums) throws InvocationTargetException, IllegalAccessException {
-
-        int[] exp      = utils.StringToIntArray(sExp, ",");
-        int[] nums     = utils.StringToIntArray(sNums, ",");
+        
+        int[] exp = TUtils.StringToIntArray(sExp, ",");
+        int[] nums = TUtils.StringToIntArray(sNums, ",");
         int[] numsOrig = Arrays.copyOf(nums, nums.length);
-
+        
         String message = String.format(
-                "\nk:   %s" +
-                "\ninp: %s" +
-                "\nexp: %s "
+                """
+                        
+                        k:   %s
+                        inp: %s
+                        exp: %s\s"""
                 , k, Arrays.toString(nums), Arrays.toString(exp));
-
+        
         for (Method m : methods) {
             if (m.getName().startsWith("rotate")) {
                 nums = Arrays.copyOf(numsOrig, numsOrig.length);
@@ -61,7 +62,7 @@ class N0189_RotateArrayTest {
                 Assertions.assertArrayEquals(exp, nums, "method" + m + message + "\nout: " + Arrays.toString(nums));
             }
         }
-
-
+        
+        
     }
 }

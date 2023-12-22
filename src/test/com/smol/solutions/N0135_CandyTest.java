@@ -7,8 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0135_CandyTest {
 
-    private N0135_Candy obj   = new N0135_Candy();
-    private TUtils utils = new TUtils();
+    private final N0135_Candy obj   = new N0135_Candy();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -22,7 +21,7 @@ class N0135_CandyTest {
 
     })
     void candy(int exp, String sRatings) {
-        int[] ratings = utils.StringToIntArray(sRatings, ",");
+        int[] ratings = TUtils.StringToIntArray(sRatings, ",");
         int   act;
         act = obj.candy(ratings);
         Assertions.assertEquals(exp, act);

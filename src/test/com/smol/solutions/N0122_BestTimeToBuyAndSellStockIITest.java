@@ -6,10 +6,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N0122_BestTimeToBuyAndSellStockIITest {
-
-    N0122_BestTimeToBuyAndSellStockII obj   = new N0122_BestTimeToBuyAndSellStockII();
-    TUtils utils = new TUtils();
-
+    
+    private final N0122_BestTimeToBuyAndSellStockII obj = new N0122_BestTimeToBuyAndSellStockII();
+    
     /**
      * <pre>
      * Example 1:
@@ -42,16 +41,16 @@ class N0122_BestTimeToBuyAndSellStockIITest {
             "0; 7,6,4,3,1"
     })
     void maxProfit(int exp, String sInp) {
-        int[] prices = utils.StringToIntArray(sInp, ",");
-        int   actual;
-
+        int[] prices = TUtils.StringToIntArray(sInp, ",");
+        int actual;
+        
         actual = obj.maxProfit(prices);
-        Assertions.assertEquals(exp, actual,"00");
-
+        Assertions.assertEquals(exp, actual, "00");
+        
         actual = obj.maxProfit02(prices);
-        Assertions.assertEquals(exp, actual,"02");
-
+        Assertions.assertEquals(exp, actual, "02");
+        
         actual = obj.maxProfit03(prices);
-        Assertions.assertEquals(exp, actual,"03");
+        Assertions.assertEquals(exp, actual, "03");
     }
 }

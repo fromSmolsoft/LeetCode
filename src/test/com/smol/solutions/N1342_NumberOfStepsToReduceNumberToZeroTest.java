@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class n1342_NumberOfStepsToReduceNumberToZeroTest {
+class N1342_NumberOfStepsToReduceNumberToZeroTest {
 
     @ParameterizedTest
     @CsvSource(value = {

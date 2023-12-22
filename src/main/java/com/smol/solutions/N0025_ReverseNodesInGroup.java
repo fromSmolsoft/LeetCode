@@ -95,6 +95,7 @@ public class N0025_ReverseNodesInGroup {
      * <h2>Concise</h2>
      * @author <a href="https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/11423/short-but-recursive-java-code-with-comments/comments/12145">ofLucas</a>
      */
+    @SuppressWarnings("StatementWithEmptyBody")
     public ListNode reverseKGroup01(ListNode head, int k) {
         int n = 0;
         for (ListNode i = head; i != null; n++, i = i.next) ; //count nodes.

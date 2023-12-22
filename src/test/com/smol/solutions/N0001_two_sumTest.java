@@ -32,7 +32,7 @@ class N0001_two_sumTest {
             if (method.getName().startsWith("twoSum")) {
                 int[] actuals = (int[]) method.invoke(obj, nums, targetInt);
                 String message = "\nmethod: " + method.getName() + "\nexp: %s \nact: %s\n".formatted(Arrays.toString(expectedNumbers), Arrays.toString(actuals));
-                Assertions.assertArrayEquals(expectedNumbers, actuals);
+                Assertions.assertArrayEquals(expectedNumbers, actuals, message);
             }
         }
     }

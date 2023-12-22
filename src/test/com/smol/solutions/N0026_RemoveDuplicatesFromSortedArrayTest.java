@@ -11,9 +11,8 @@ import java.util.Arrays;
 
 class N0026_RemoveDuplicatesFromSortedArrayTest {
 
-    N0026_RemoveDuplicatesFromSortedArray obj     = new N0026_RemoveDuplicatesFromSortedArray();
-    TUtils utils   = new TUtils();
-    Method[]                              methods = N0026_RemoveDuplicatesFromSortedArray.class.getDeclaredMethods();
+  private final N0026_RemoveDuplicatesFromSortedArray obj     = new N0026_RemoveDuplicatesFromSortedArray();
+  private final Method[]                              methods = N0026_RemoveDuplicatesFromSortedArray.class.getDeclaredMethods();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -22,8 +21,8 @@ class N0026_RemoveDuplicatesFromSortedArrayTest {
             "5;         0,1,2,3,4,,,,,;     0,0,1,1,1,2,2,3,3,4;"
     })
     void removeDuplicates(int exp1, String exp2, String input) throws InvocationTargetException, IllegalAccessException {
-        int[] nums         = utils.StringToIntArray(input, ",");
-        int[] expectedNums = utils.StringToIntArray(exp2, ",");
+        int[] nums         = TUtils.StringToIntArray(input, ",");
+        int[] expectedNums = TUtils.StringToIntArray(exp2, ",");
         int[] numsTemp     = Arrays.copyOf(nums, nums.length);
 
         for (Method m : methods) {
@@ -33,7 +32,7 @@ class N0026_RemoveDuplicatesFromSortedArrayTest {
     }
 
     private void iterateArray(Method m, int exp1, int[] nums, int[] expectedNums) throws InvocationTargetException, IllegalAccessException {
-        int actual = (int) m.invoke(obj, nums);
+        int actual = (int) m.invoke(obj, (Object) nums);
         Assertions.assertEquals(exp1, actual);
         for (int i = 0; i < exp1; i++) {
             Assertions.assertEquals(expectedNums[i], nums[i], m.getName());

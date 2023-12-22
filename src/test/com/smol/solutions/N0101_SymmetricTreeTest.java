@@ -15,6 +15,7 @@ import java.util.List;
 
 class N0101_SymmetricTreeTest {
     
+    @SuppressWarnings("rawtypes")
     private final Class[] myTypes = {TreeNode.class};
     private final List<Method> methods = TUtils.reflectMethods(N0101_SymmetricTree.class, "isSymmetric", myTypes);
     private N0101_SymmetricTree obj;

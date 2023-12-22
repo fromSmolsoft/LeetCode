@@ -78,8 +78,7 @@ public class N0122_BestTimeToBuyAndSellStockII {
         if (day == 0) {
             // first element: buy on day_#0
             // second element: do nothing on day_#0
-            int[] res = {-prices[0], 0};
-            return res;
+            return new int[]{-prices[0], 0};
         }
 
         int[] prev     = trade(day - 1, prices);
@@ -87,8 +86,7 @@ public class N0122_BestTimeToBuyAndSellStockII {
 
         int hold    = Math.max(prevHold, prevNotHold - prices[day]);
         int notHold = Math.max(prevNotHold, prevHold + prices[day]);
-
-        int[] res = {hold, notHold};
-        return res;
+        
+        return new int[]{hold, notHold};
     }
 }

@@ -8,8 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class N0977_SquaresOfSortedArrayTest {
 
 
-    TUtils utils = new TUtils();
-    N0977_SquaresOfSortedArray obj   = new N0977_SquaresOfSortedArray();
+    final N0977_SquaresOfSortedArray obj   = new N0977_SquaresOfSortedArray();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -17,8 +16,8 @@ class N0977_SquaresOfSortedArrayTest {
             "4,9,9,49,121; -7,-3,2,3,11"
     })
     void sortedSquares(String exp, String nums) {
-        int[] expected = utils.StringToIntArray(exp, ",");
-        int[] numbers  = utils.StringToIntArray(nums, ",");
+        int[] expected = TUtils.StringToIntArray(exp, ",");
+        int[] numbers  = TUtils.StringToIntArray(nums, ",");
         int[] actual;
 
 

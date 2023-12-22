@@ -11,8 +11,8 @@ import java.util.*;
 
 class N0049_GroupAnagramsTest {
 
-    private N0049_GroupAnagrams obj = new N0049_GroupAnagrams();
-    private Method[] methods = obj.getClass().getDeclaredMethods();
+    private final N0049_GroupAnagrams obj = new N0049_GroupAnagrams();
+    private final Method[] methods = obj.getClass().getDeclaredMethods();
 
     /**
      * <pre>
@@ -34,6 +34,7 @@ class N0049_GroupAnagramsTest {
      *     strs[i] consists of lowercase English letters.
      * </pre>
      */
+    @SuppressWarnings("unchecked")
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             "[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]; [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
@@ -63,7 +64,6 @@ class N0049_GroupAnagramsTest {
         for (Method m : methods) {
             if (m.getName().contains("groupAnagrams")) {
                 //Actual data
-//            List<List<String>> act = obj.groupAnagrams(inp);
                 List<List<String>> act = (List<List<String>>) m.invoke(obj, new Object[]{inp});
 
 
@@ -100,7 +100,6 @@ class N0049_GroupAnagramsTest {
 
     }
 
-
     private boolean compareListContent(List<String> list1, List<String> list2) {
         for (String s : list1) {
             if (!list2.contains(s)) return false;
@@ -134,11 +133,5 @@ class N0049_GroupAnagramsTest {
         }
         return 0;
     }
-
-    private static <T> Comparator<List<T>> lexicographicalComparator(
-            Comparator<? super T> comparator) {
-        return (list0, list1) ->
-                compareLexicographically(list0, list1, comparator);
-    }
-
+    
 }

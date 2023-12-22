@@ -52,7 +52,7 @@ public class N0014_LongestCommonPrefix {
 
 
     /**
-     * Alphabetically sorting array, then comparing first and last string in array, because they have biggest differences.  It will reduces number of iterations.
+     * Alphabetically sorting array, then comparing first and last string in array, because they have the biggest differences.  It will reduces number of iterations.
      */
     public String longestCommonPrefix01(String[] strs) {
         Arrays.sort(strs);

@@ -103,7 +103,7 @@ public class N0006_ZigzagConversion {
     public String convertBF(String s, int numRows) {
         if (numRows <= 1) return s;
         char[] original   = s.toCharArray();
-        char   zigzag[][] = new char[numRows][s.length()];
+        char[][] zigzag = new char[numRows][s.length()];
 
         int     i          = 0, j = 0;
         boolean descending = true;
@@ -141,7 +141,7 @@ public class N0006_ZigzagConversion {
         char[] chars     = s.toCharArray();
         for (char c : chars) {
             sbs[idx].append(c);
-            if (idx == 0 || idx == numRows - 1) direction = 0 - direction;
+            if (idx == 0 || idx == numRows - 1) direction = -direction;
             idx += direction;
         }
         StringBuilder res = new StringBuilder();

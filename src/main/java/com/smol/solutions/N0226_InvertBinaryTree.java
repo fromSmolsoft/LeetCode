@@ -44,8 +44,9 @@ public class N0226_InvertBinaryTree {
      * Memory 40.75MB Beats 5.97% of users with Java
      * </pre>
      */
+    @SuppressWarnings("UnusedReturnValue")
     public TreeNode invertTreeR(TreeNode root) {
-        if (root == null) return root;
+        if (root == null) return null;
         
         invertTreeR(root.left);
         invertTreeR(root.right);

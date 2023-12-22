@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0219_ContainsDuplicateIITest {
 
-    private static N0219_ContainsDuplicateII obj = new N0219_ContainsDuplicateII();
+    private static final N0219_ContainsDuplicateII obj = new N0219_ContainsDuplicateII();
 
     /**
      * <pre>

@@ -8,10 +8,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Arrays;
 
 class N0066_PlusOneTest {
-
-    TUtils utils = new TUtils();
-    N0066_PlusOne obj   = new N0066_PlusOne();
-
+    
+    final N0066_PlusOne obj = new N0066_PlusOne();
+    
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             /*expected  input*/
@@ -21,10 +20,10 @@ class N0066_PlusOneTest {
             "2,0,0;     1,9,9",
     })
     void plusOne(String exp, String inp) {
-        int[] input    = utils.StringToIntArray(inp, ",");
-        int[] expected = utils.StringToIntArray(exp, ",");
-        int[] actual   = obj.plusOne(input);
-
+        int[] input = TUtils.StringToIntArray(inp, ",");
+        int[] expected = TUtils.StringToIntArray(exp, ",");
+        int[] actual = obj.plusOne(input);
+        
         Assertions.assertArrayEquals(expected, actual, "act:" + Arrays.toString(actual));
     }
 }

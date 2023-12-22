@@ -43,7 +43,7 @@ public class N0061_RotateList {
      * </pre>
      */
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null) return head;
+        if (head == null) return null;
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
         

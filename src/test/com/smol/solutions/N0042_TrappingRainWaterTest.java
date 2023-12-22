@@ -6,13 +6,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N0042_TrappingRainWaterTest {
-
-    TUtils utils = new TUtils();
-    N0042_TrappingRainWater obj   = new N0042_TrappingRainWater();
-
-
+    
+    private final N0042_TrappingRainWater obj = new N0042_TrappingRainWater();
+    
+    
     /**
-     * <pre>     *
+     * <pre>{@code
      * Example 1:
      * Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
      * Output: 6
@@ -26,6 +25,7 @@ class N0042_TrappingRainWaterTest {
      *     n == height.length
      *     1 <= n <= 2 * 104
      *     0 <= height[i] <= 105
+     * }</pre>
      */
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -39,17 +39,17 @@ class N0042_TrappingRainWaterTest {
             "0; 10,0,0",
             "0; 0,0,10",
             "0; 0,10,0",
-
+        
     })
     void trap(int exp, String sH) {
-        int[] heights = utils.StringToIntArray(sH, ",");
-        int   act;
-
+        int[] heights = TUtils.StringToIntArray(sH, ",");
+        int act;
+        
         act = obj.trap2P(heights);
         Assertions.assertEquals(exp, act, "2P ");
-
+        
         act = obj.trapSt(heights);
         Assertions.assertEquals(exp, act, "Stack ");
-
+        
     }
 }

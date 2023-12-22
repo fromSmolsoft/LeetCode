@@ -10,7 +10,6 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 class N0167_TwoSum2InputArrayIsSortedTest {
-    TUtils utils = new TUtils();
     
     @ParameterizedTest
     @CsvSource(value = {
@@ -21,8 +20,8 @@ class N0167_TwoSum2InputArrayIsSortedTest {
     void twoSum(int target, String numbers, String expected) throws InvocationTargetException, IllegalAccessException {
         N0167_TwoSum2InputArrayIsSorted obj = new N0167_TwoSum2InputArrayIsSorted();
         
-        int[] inputs = utils.StringToIntArray(numbers, "\\|");
-        int[] expectedArray = utils.StringToIntArray(expected, "\\|");
+        int[] inputs = TUtils.StringToIntArray(numbers, "\\|");
+        int[] expectedArray = TUtils.StringToIntArray(expected, "\\|");
         
         Method[] methods = N0167_TwoSum2InputArrayIsSorted.class.getDeclaredMethods();
         

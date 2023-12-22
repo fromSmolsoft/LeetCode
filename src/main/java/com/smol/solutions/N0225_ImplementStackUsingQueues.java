@@ -45,7 +45,7 @@ import java.util.Deque;
 public class N0225_ImplementStackUsingQueues {
     //0ms
     //Beats 100.00%of users with Java
-    Deque<Integer> stack;
+    final Deque<Integer> stack;
 
     public N0225_ImplementStackUsingQueues() {
         stack = new java.util.ArrayDeque<>();

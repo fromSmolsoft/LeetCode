@@ -11,8 +11,7 @@ import static java.util.Arrays.sort;
 
 class N0027_RemoveElementTest {
     
-    TUtils utils = new TUtils();
-    N0027_RemoveElement obj = new N0027_RemoveElement();
+    private final N0027_RemoveElement obj = new N0027_RemoveElement();
     
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -28,8 +27,8 @@ class N0027_RemoveElementTest {
     })
     void removeElement(int exp, String seNums, String sNums, int val) {
         
-        int[] nums = utils.StringToIntArray(sNums, ",");
-        int[] expNums = utils.StringToIntArray(seNums, ",");
+        int[] nums = TUtils.StringToIntArray(sNums, ",");
+        int[] expNums = TUtils.StringToIntArray(seNums, ",");
         int actual = obj.removeElement(nums, val);
         
         String message =

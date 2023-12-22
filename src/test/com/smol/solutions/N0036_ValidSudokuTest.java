@@ -64,7 +64,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class N0036_ValidSudokuTest {
 
-    private N0036_ValidSudoku obj = new N0036_ValidSudoku();
+    private final N0036_ValidSudoku obj = new N0036_ValidSudoku();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {

@@ -95,7 +95,7 @@ public class N0049_GroupAnagrams {
                 frequencyArr[s.charAt(i) - 'a']++;
             }
             String key = Arrays.toString(frequencyArr);
-            List<String> tempList = map.getOrDefault(key, new LinkedList<String>());
+            List<String> tempList = map.getOrDefault(key, new LinkedList<>());
             tempList.add(s);
             map.put(key, tempList);
         }
@@ -123,7 +123,7 @@ public class N0049_GroupAnagrams {
             //17ms when use byte (-128 to 127) array and Arrays.toString(frequencyArr) method
             //29ms when use int(-2,147,483,648 to 2,147,483,647) and Arrays.toString(frequencyArr) method
             String key = new String(frequencyArr);
-            List<String> tempList = map.getOrDefault(key, new LinkedList<String>());
+            List<String> tempList = map.getOrDefault(key, new LinkedList<>());
             tempList.add(s);
             map.put(key, tempList);
         }

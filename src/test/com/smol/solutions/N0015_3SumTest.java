@@ -11,10 +11,9 @@ import java.util.List;
 
 
 class N0015_3SumTest {
-
-    TUtils utils = new TUtils();
-    N0015_3Sum obj   = new N0015_3Sum();
-
+    
+    private final N0015_3Sum obj = new N0015_3Sum();
+    
     /**
      * <pre>
      * Example 1:
@@ -55,22 +54,22 @@ class N0015_3SumTest {
             "-5,1,4],[-3,-1,4],[-3,0,3],[-2,-1,3],[-2,1,1],[-1,0,1],[0,0,0; -2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0"
     })
     public void threeSum(String sExp, String sInput) {
-        List<String>        listExp = utils.StringToStringList(sExp, "\\],\\[");
-        List<List<Integer>> exp     = new ArrayList<>();
-        for (String s : listExp) exp.add(utils.StringToIntList(s, ","));
-
-        int[] input = utils.StringToIntArray(sInput, ",");
-
+        List<String> listExp = TUtils.StringToStringList(sExp, "\\],\\[");
+        List<List<Integer>> exp = new ArrayList<>();
+        for (String s : listExp) exp.add(TUtils.StringToIntList(s, ","));
+        
+        int[] input = TUtils.StringToIntArray(sInput, ",");
+        
         List<List<Integer>> act = obj.threeSum(input);
-
+        
         String message =
                 "method :" +
                 "\ninput:" + Arrays.toString(input) +
                 "\nexp:  " + exp +
                 "\nact:  " + act +
                 "\n";
-
+        
         Assertions.assertEquals(exp, act, message);
     }
-
+    
 }

@@ -114,7 +114,7 @@ public class N0224_BasicCalculator {
     
     /** <h2>Recursion</h2> */
     public int calculate03(String s) {
-        if (s.length() == 0) return 0;
+        if (s.isEmpty()) return 0;
         s = "(" + s + ")";
         int[] p = {0};
         return eval(s, p);
@@ -155,7 +155,6 @@ public class N0224_BasicCalculator {
                 }
                 case ' ' -> {
                     i++;
-                    continue;
                 }
                 default -> {
                     num = num * 10 + c - '0';

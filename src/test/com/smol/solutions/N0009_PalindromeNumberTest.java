@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0009_PalindromeNumberTest {
 
-    N0009_PalindromeNumber obj = new N0009_PalindromeNumber();
+    final N0009_PalindromeNumber obj = new N0009_PalindromeNumber();
 
 
     @ParameterizedTest

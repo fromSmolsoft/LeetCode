@@ -43,15 +43,10 @@ public class N0541_ReverseStringII {
         char[] str = s.toCharArray();
         int    n   = str.length;
         for (int i = 0; i <= n - 1; i += 2 * k) {
-            if (i + k - 1 <= n - 1) {
-                reverseK(i, i + k - 1, str);
-            } else {
-                //for fewer than k characters left (edge case)
-                reverseK(i, n - 1, str);
-            }
+            //for fewer than k characters left (edge case)
+            reverseK(i, Math.min(i + k - 1, n - 1), str);
         }
-        String ans = new String(str);
-        return ans;
+        return new String(str);
     }
 
     /** Helper by by by deepVashisth */
