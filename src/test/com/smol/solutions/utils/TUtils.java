@@ -19,14 +19,23 @@ public class TUtils {
     
     /**
      * Uses Refection.
-     * Filters methods with according to the name and parameters.
+     * Filters methods with according to the name and number of parameters.
      * @param paramTypes Class[] types = array of classes that are used as params.
      * @param clazz      Class to look for methods in
      * @param filter     name of method contains
      */
-    public static List<Method> reflectMethods(Class clazz, String filter, Class[] paramTypes) {
+    public static List<Method> reflectMethods(Class clazz, String filter, Class<?>[] paramTypes) {
         return Arrays.stream(clazz.getMethods())
-                .filter(m -> m.getName().contains(filter)).filter(m -> Arrays.equals(m.getParameterTypes(), paramTypes))
+                .filter(m -> {
+                    if (m.getName().contains(filter)) {
+                        Class<?>[] mTypes = m.getParameterTypes();
+                        if (mTypes.length == paramTypes.length) {
+                            // return IntStream.range(0, mTypes.length).allMatch(i -> mTypes[i].equals(paramTypes[i]));
+                            return true;
+                        }
+                    }
+                    return false;
+                })
                 .toList();
     }
     
@@ -51,7 +60,8 @@ public class TUtils {
         return matrix;
     }
     
-    public static String[][] stringToStringMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
+    public static String[][] stringToStringMatrix(String stringMatrix, String outerDelim, String innerDelim, String...
+            remove) {
         String[] temp = TUtils.StringToStringArray(stringMatrix, outerDelim);
         String[][] matrix = new String[temp.length][];
         for (int i = 0; i < temp.length; i++) {
