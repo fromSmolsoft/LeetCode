@@ -7,11 +7,33 @@ import java.util.List;
 
 public class TUtils {
     
+    /**
+     * Uses Refection.
+     * Filters methods with according to the name.
+     */
     public static List<Method> reflectMethods(Class clazz, String filter) {
         return Arrays.stream(clazz.getMethods())
                 .filter(m -> m.getName().contains(filter))
                 .toList();
     }
+    
+    /**
+     * Uses Refection.
+     * Filters methods with according to the name and parameters.
+     * @param paramTypes Class[] types = array of classes that are used as params.
+     * @param clazz      Class to look for methods in
+     * @param filter     name of method contains
+     */
+    public static List<Method> reflectMethods(Class clazz, String filter, Class[] paramTypes) {
+        return Arrays.stream(clazz.getMethods())
+                .filter(m -> m.getName().contains(filter)).filter(m -> Arrays.equals(m.getParameterTypes(), paramTypes))
+                .toList();
+    }
+    
+    /**
+     * Uses Refection.
+     * Filters methods with according to the name.
+     */
     public static List<Method> reflectMethods(Object obj, String filter) {
         return Arrays.stream(obj.getClass().getMethods())
                 .filter(m -> m.getName().contains(filter))
