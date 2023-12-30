@@ -92,6 +92,7 @@ public class TreeFormatter {
         return lines;
     }
     
+    // === Generic getters
     private static <T> int getNodeValue(T node) {
         try {
             return (int) node.getClass().getField("val").get(node);
