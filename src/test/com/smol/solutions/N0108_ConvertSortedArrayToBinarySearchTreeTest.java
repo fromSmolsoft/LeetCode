@@ -68,7 +68,7 @@ class N0108_ConvertSortedArrayToBinarySearchTreeTest {
         for (Method m : methods) {
             TreeNode root = (TreeNode) m.invoke(obj, (Object) nums);
             String sRoot = formatter.topDown(root);
-            System.out.println(sRoot);
+            
             Assertions.assertTrue(sRoot.equals(sExpRoot1) || sRoot.equals(sExpRoot2),
                     "\nnums:" + sNums +
                     "\nexp1\n" + sExpRoot1 +

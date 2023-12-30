@@ -15,7 +15,6 @@ class N1672_RichestCustomerWealthTest {
     })
     void maximumWealth(String input1, String input2, int expected) {
         N1672_RichestCustomerWealth obj = new N1672_RichestCustomerWealth();
-        //todo make it work with j>2 in array [i][j]
         int[] nums1 = TUtils.StringToIntArray(input1, ";");
         int[] nums2 = TUtils.StringToIntArray(input2, ";");
         int[][] nums = new int[][]{nums1, nums2};
