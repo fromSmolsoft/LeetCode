@@ -18,4 +18,14 @@ public class Node {
             right = _right;
             next = _next;
         }
+    
+    @Override
+    public String toString() {
+        return "Node{" +
+               "val=" + val +
+               ", left=" + left +
+               ", right=" + right +
+               ", next=" + next +
+               '}';
+    }
 }

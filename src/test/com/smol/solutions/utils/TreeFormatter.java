@@ -67,6 +67,12 @@ public class TreeFormatter {
         return String.join("\n", lines.subList(1, lines.size()));
     }
     
+    public <T> String topDownConnected(T root) {
+        if (root == null) return "";
+        List<String> lines = buildLinesConnected(root);
+        return String.join("\n", lines.subList(1, lines.size()));
+    }
+    
     private <T> List<String> buildLines(T node) {
         if (node == null) return new ArrayList<>();
         List<String> lines = merge(buildLines(getLeftChild(node)), buildLines(getRightChild(node)));
@@ -92,6 +98,36 @@ public class TreeFormatter {
         return lines;
     }
     
+    private <T> List<String> buildLinesConnected(T node) {
+        if (node == null) return new ArrayList<>();
+        String next = ">";
+        List<String> lines = merge(buildLines(getLeftChild(node)), buildLines(getRightChild(node)));
+        int half = (String.valueOf(getNodeValue(node)).length() +
+                    next.length() +
+                    (getNext(node) != null ? String.valueOf(getNodeValue(getNext(node))).length() : 0)
+                   ) / 2;
+        int i = half;
+        if (lines.size() > 0) {
+            String line;
+            i = lines.get(0).indexOf("*"); // Find index of first subtree
+            if (getRightChild(node) == null) {
+                line = " ".repeat(i) + "┌─┘";
+                i += 2;
+            } else if (getLeftChild(node) == null) {
+                line = " ".repeat(i = indent(lines, i - 2)) + "└─┐";
+            } else {
+                int dist = lines.get(0).length() - 1 - i; // Find distance between subtree roots
+                line = String.format("%s┌%s┴%s┐", " ".repeat(i), "─".repeat(dist / 2 - 1), "─".repeat((dist - 1) / 2));
+                i += dist / 2;
+            }
+            lines.set(0, line);
+        }
+        String value = getNodeValue(node) + next + (getNext(node) != null ? getNodeValue(getNext(node)) : "");
+        lines.add(0, " ".repeat(indent(lines, i - half)) + value);
+        lines.add(0, " ".repeat(i + Math.max(0, half - i)) + "*"); // Add a marker for caller
+        return lines;
+    }
+    
     // === Generic getters
     private static <T> int getNodeValue(T node) {
         try {
@@ -112,6 +148,14 @@ public class TreeFormatter {
     private static <T> T getRightChild(T node) {
         try {
             return (T) node.getClass().getField("right").get(node);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    private static <T> T getNext(T node) {
+        try {
+            return (T) node.getClass().getField("next").get(node);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }

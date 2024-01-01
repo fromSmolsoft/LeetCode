@@ -7,7 +7,6 @@ import java.util.LinkedList;
 
 public class Trees<T> {
     
-    
     /**
      * Builds a Binary tree from Integer array.  <p>
      * Tree will be built from root on, in Level-traversal manner also known as  breadth-first.
@@ -52,8 +51,8 @@ public class Trees<T> {
      * }</pre>
      * @param values (Integer[]) array of integers or nulls.
      */
-    public static <T> T buildBiTree(Integer[] values,Class<T> nodeType) {
-        return createTreeNode(values,nodeType);
+    public static <T> T buildBiTree(Integer[] values, Class<T> nodeType) {
+        return createTreeNode(values, nodeType);
     }
     
     /**
@@ -133,7 +132,7 @@ public class Trees<T> {
      *        /  \
      *      (15) (7)
      * }</pre>
-     * @param input (Integer[]) array of integers or nulls.
+     * @param input    (Integer[]) array of integers or nulls.
      * @param nodeType is used to identify class (type) of the used node
      */
     private static <T> T createTreeNode(Integer[] input, Class<T> nodeType) {
@@ -250,6 +249,7 @@ public class Trees<T> {
         }
     }
     
+    // === Generic setters ===
     private static <T> void setNodeValue(T node, Object value) {
         try {
             Field valField = node.getClass().getField("val");
@@ -275,7 +275,9 @@ public class Trees<T> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    } private static <T> void setNext(T node, T next) {
+    }
+    
+    private static <T> void setNext(T node, T next) {
         try {
             Field rightField = node.getClass().getField("next");
             rightField.set(node, next);
@@ -284,5 +286,36 @@ public class Trees<T> {
         }
     }
     
+    // === Generic getters ===
+    private static <T> int getNodeValue(T node) {
+        try {
+            return (int) node.getClass().getField("val").get(node);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
     
+    private static <T> T getLeftChild(T node) {
+        try {
+            return (T) node.getClass().getField("left").get(node);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    private static <T> T getRightChild(T node) {
+        try {
+            return (T) node.getClass().getField("right").get(node);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    private static <T> T getNext(T node) {
+        try {
+            return (T) node.getClass().getField("next").get(node);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
