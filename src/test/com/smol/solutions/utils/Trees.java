@@ -56,6 +56,46 @@ public class Trees<T> {
     }
     
     /**
+     * Builds a Binary SubTree, where left nodes have link to their right nodes on same level, from Integer array, in Level Order Traversal using Queue.  <p>
+     * The binary tree has the following structure:
+     * <pre> {@code
+     * class Node {
+     *   int val;
+     *   Node *left;
+     *   Node *right;
+     *   Node *next;
+     * }                }</pre>
+     * Tree will be built from root on, in Level-traversal manner also known as breadth-first.
+     * <pre>{@code
+     * Lever order:
+     *     ┌────── (4)   .......... L0
+     *     │     /     \
+     *     └─►(2)──────►(6) ───┐ .. L1
+     *   ┌─── /──\ ──── /──\───┘
+     *   └─►(1)─►(3)─►(5)─►(7)   .. L2
+     * Input: root = [4,2,6,1,3,5,7]
+     * }</pre>
+     * Tree nodes include `next` pointer that should point to the right node in same level or null if there is no node
+     * <pre> {@code
+     * Assigning right nodes nodes as 'next':
+     * A) not connected |   B) connected
+     *         1        |        1 --------> null
+     *       /   \      |      /   \
+     *      2     3     |     2---->3 -----> null
+     *    / \     / \   |   / \     / \
+     *   4   5   6   7  |  4-->5-->6-->7 --> null
+     * Input: root = [1,2,3,4,5,6,7]
+     * Output: [1,#,2,3,#,4,5,6,7,#]
+     * }</pre>
+     * Explanation: Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
+     * <p>
+     * @param values (Integer[]) array of integers or nulls. Null represent "no child".
+     */
+    public static <T> T buildBiTreeRtNext(Integer[] values, Class<T> nodeType) {
+        return createNodeLvlConnected(values, nodeType);
+    }
+    
+    /**
      * Builds a Binary SubTree from Integer array in Level Order Traversal using Queue.  <p>
      * <p>
      * Tree will be built from root on, in Level-traversal manner also known as  breadth-first.
@@ -145,18 +185,19 @@ public class Trees<T> {
         int i = 0;
         
         while (i < input.length && !queue.isEmpty()) {
-            
             T tempNode = queue.poll();
             
             i++;
             if (i < input.length && input[i] != null) {
                 T leftChild = createNode(nodeType, input[i]);
                 setLeftChild(tempNode, leftChild);
+                queue.add(leftChild);
             }
             i++;
             if (i < input.length && input[i] != null) {
                 T rightChild = createNode(nodeType, input[i]);
                 setRightChild(tempNode, rightChild);
+                queue.add(rightChild);
             }
             
             
@@ -201,7 +242,7 @@ public class Trees<T> {
      * <p>
      * @param input (Integer[]) array of integers or nulls. Null represent "no child".
      */
-    public static Node createNodeLvlConnected(Integer[] input) {
+    private static Node createNodeLvlConnected(Integer[] input) {
         if (input == null || input.length == 0) return null;
         
         Deque<Node> queue = new LinkedList<>();
@@ -228,6 +269,80 @@ public class Trees<T> {
                 if (i < input.length && input[i] != null) {
                     tempNode.right = new Node(input[i]);
                     queue.add(tempNode.right);
+                }
+                
+            }
+            
+        }
+        
+        return root;
+    }
+    
+    /**
+     * Builds a Binary SubTree, where left nodes have link to their right nodes on same level, from Integer array, in Level Order Traversal using Queue.  <p>
+     * The binary tree has the following definition:
+     * <pre> {@code
+     * class Node {
+     *   int val;
+     *   Node *left;
+     *   Node *right;
+     *   Node *next;
+     * }                }</pre>
+     * Tree will be built from root on, in Level-traversal manner also known as breadth-first.
+     * <pre>{@code
+     * Lever order:
+     *     ┌────── (4)   .......... L0
+     *     │     /     \
+     *     └─►(2)──────►(6) ───┐ .. L1
+     *   ┌─── /──\ ──── /──\───┘
+     *   └─►(1)─►(3)─►(5)─►(7)   .. L2
+     * Input: root = [4,2,6,1,3,5,7]
+     * }</pre>
+     * Tree nodes include `next` pointer that should point to the right node in same level or null if there is no node
+     * <pre> {@code
+     * Assigning right nodes nodes as 'next':
+     * A) not connected |   B) connected
+     *         1        |        1 --------> null
+     *       /   \      |      /   \
+     *      2     3     |     2---->3 -----> null
+     *    / \     / \   |   / \     / \
+     *   4   5   6   7  |  4-->5-->6-->7 --> null
+     * Input: root = [1,2,3,4,5,6,7]
+     * Output: [1,#,2,3,#,4,5,6,7,#]
+     * }</pre>
+     * Explanation: Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
+     * <p>
+     * @param input (Integer[]) array of integers or nulls. Null represent "no child".
+     */
+    public static <T> T createNodeLvlConnected(Integer[] input, Class<T> nodeType) {
+        if (input == null || input.length == 0) return null;
+        
+        Deque<T> queue = new LinkedList<>();
+        T root = createNode(nodeType, input[0]);
+        queue.add(root);
+        int i = 0;
+    
+        while (i < input.length && !queue.isEmpty()) {
+            int size = queue.size();
+            T mostRight = null;
+            
+            for (int j = 0; j < size; j++) {
+                T tempNode = queue.poll();
+                
+                if (mostRight != null) setNext(mostRight, tempNode);
+                mostRight = tempNode;
+                
+                i++;
+                if (i < input.length && input[i] != null) {
+                    T left = createNode(nodeType, input[i]);
+                    setLeftChild(tempNode, left);
+                    queue.add(left);
+                }
+                i++;
+                if (i < input.length && input[i] != null) {
+                    T right = createNode(nodeType, input[i]);
+                    setRightChild(tempNode, right);
+                    queue.add(right);
                 }
                 
             }
