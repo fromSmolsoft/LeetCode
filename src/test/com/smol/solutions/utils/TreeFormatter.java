@@ -67,6 +67,18 @@ public class TreeFormatter {
         return String.join("\n", lines.subList(1, lines.size()));
     }
     
+    /**
+     * Requires special type of binary tree node.
+     * <pre>{@code
+     *  public class Node {
+     *      public int val;
+     *      public Node left;
+     *      public Node right;
+     *      public Node next;
+     *       // constructors
+     *  }
+     * }</pre>
+     */
     public <T> String topDownConnected(T root) {
         if (root == null) return "";
         List<String> lines = buildLinesConnected(root);
@@ -78,7 +90,7 @@ public class TreeFormatter {
         List<String> lines = merge(buildLines(getLeftChild(node)), buildLines(getRightChild(node)));
         int half = String.valueOf(getNodeValue(node)).length() / 2;
         int i = half;
-        if (lines.size() > 0) {
+        if (!lines.isEmpty()) {
             String line;
             i = lines.get(0).indexOf("*"); // Find index of first subtree
             if (getRightChild(node) == null) {
@@ -98,16 +110,27 @@ public class TreeFormatter {
         return lines;
     }
     
+    /**
+     * Requires special type of binary tree node.
+     * <pre>{@code
+     *  public class Node {
+     *      public int val;
+     *      public Node left;
+     *      public Node right;
+     *      public Node next;
+     *       // constructors,...
+     *  }
+     * }</pre>
+     */
     private <T> List<String> buildLinesConnected(T node) {
         if (node == null) return new ArrayList<>();
-        String next = ">";
-        List<String> lines = merge(buildLines(getLeftChild(node)), buildLines(getRightChild(node)));
+        String next = "→";
+        List<String> lines = merge(buildLinesConnected(getLeftChild(node)), buildLinesConnected(getRightChild(node)));
         int half = (String.valueOf(getNodeValue(node)).length() +
-                    next.length() +
-                    (getNext(node) != null ? String.valueOf(getNodeValue(getNext(node))).length() : 0)
+                    (getNext(node) != null ? next.length() + String.valueOf(getNodeValue(getNext(node))).length() : 0)
                    ) / 2;
         int i = half;
-        if (lines.size() > 0) {
+        if (!lines.isEmpty()) {
             String line;
             i = lines.get(0).indexOf("*"); // Find index of first subtree
             if (getRightChild(node) == null) {
@@ -122,8 +145,9 @@ public class TreeFormatter {
             }
             lines.set(0, line);
         }
-        String value = getNodeValue(node) + next + (getNext(node) != null ? getNodeValue(getNext(node)) : "");
-        lines.add(0, " ".repeat(indent(lines, i - half)) + value);
+        String value = String.valueOf(getNodeValue(node));
+        String nextVal = (getNext(node) != null ? next + getNodeValue(getNext(node)) : "");
+        lines.add(0, " ".repeat(indent(lines, i - half)) + value + nextVal);
         lines.add(0, " ".repeat(i + Math.max(0, half - i)) + "*"); // Add a marker for caller
         return lines;
     }
