@@ -1,23 +1,43 @@
 package com.smol.solutions.utils;
 
+/**
+ * Special type of binary tree node.
+ * <pre>{@code
+ *  public class Node {
+ *      public int val;
+ *      public Node left;
+ *      public Node right;
+ *      public Node next;
+ *       // constructors
+ *  }
+ * }</pre>
+ * Node next is meant to be pointed to the closest right neighbor in the same level of depth. e.g.:
+ * <pre>{@code
+ *            1----------→ null
+ *       ┌────┴────┐
+ *       2 ------→ 3 ----→ null
+ *     ┌─┴──┐    ┌─┴──┐
+ *     4 -→ 5 -→ 6 -→ 7 --→ null
+ * }</pre>
+ */
 public class Node {
-     public int val;
-        public Node left;
-        public Node right;
-        public Node next;
-        
-        public Node() {}
-        
-        public Node(int _val) {
-            val = _val;
-        }
-        
-        public Node(int _val, Node _left, Node _right, Node _next) {
-            val = _val;
-            left = _left;
-            right = _right;
-            next = _next;
-        }
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+    
+    public Node() {}
+    
+    public Node(int _val) {
+        val = _val;
+    }
+    
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
     
     @Override
     public String toString() {
