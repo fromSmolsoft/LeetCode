@@ -49,9 +49,9 @@ class N0057_InsertIntervalTest {
             "[[1,5]];                   [[2,3]];                            [1,5]"
     })
     void insert(String sExpected, String sIntervals, String sNewInterval) throws InvocationTargetException, IllegalAccessException {
-        int[][] expected = TUtils.stringToMatrix(sExpected, "],\\[", ",", "[", "\\]");
-        int[][] intervals = TUtils.stringToMatrix(sIntervals, "],\\[", ",", "[", "\\]");
-        sNewInterval = TUtils.removeSubStrings(sNewInterval, "[", "\\]");
+        int[][] expected = TUtils.stringToMatrix(sExpected, "\\],\\[", ",", "\\[", "\\]");
+        int[][] intervals = TUtils.stringToMatrix(sIntervals, "\\],\\[", ",", "\\[", "\\]");
+        sNewInterval = TUtils.removeSubStrings(sNewInterval, "\\[", "\\]");
         int[] newInterval = TUtils.StringToIntArray(sNewInterval, ",");
 
         int[][] actual;

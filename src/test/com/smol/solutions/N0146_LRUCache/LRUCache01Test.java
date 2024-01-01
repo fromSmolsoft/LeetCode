@@ -151,13 +151,13 @@ public class LRUCache01Test {
     })
     void LRUCacheMassTest(String action, String sInputs, String sExpected) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         // CLeaning unwanted symbols (actions,input and expected)
-        action = TUtils.removeSubStrings(action, "[", "\\]", " ", "\t");
+        action = TUtils.removeSubStrings(action, "\\[", "\\]", " ", "\t");
         sInputs = TUtils.removeSubStrings(sInputs, " ", "\t");
-        sExpected = TUtils.removeSubStrings(sExpected, "[", "\\]", " ", "\t");
+        sExpected = TUtils.removeSubStrings(sExpected, "\\[", "\\]", " ", "\t");
         
         // Parsing Strings to arrays (actions,input and expected )
         String[] actions = TUtils.StringToStringArray(action, ",");
-        String[][] inputs = TUtils.stringToStringMatrix(sInputs, "],\\[", ",", "\\[", "\\]");
+        String[][] inputs = TUtils.stringToStringMatrix(sInputs, "\\],\\[", ",", "\\[", "\\]");
         String[] expected = TUtils.StringToStringArray(sExpected, ",");
         
         for (int i = 0; i < actions.length; i++) {

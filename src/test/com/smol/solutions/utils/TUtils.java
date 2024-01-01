@@ -180,6 +180,9 @@ public class TUtils {
      * @param remove Character sequences to be removed. Multiple sequences can be added. Certain characters must be escaped according to the Java rules  \.[]{}()<>*+-=!?^$| <p>
      */
     public static String removeSubStrings(String from, String... remove) {
+        if (from == null) return null;
+        else if (remove == null) return from;
+        
         from = from.trim();
         for (String s : remove) {
             from = removeSubString(from, s);
@@ -195,15 +198,8 @@ public class TUtils {
      * @return new String without removed characters
      */
     public static String removeSubString(String from, String remove) {
-        StringBuilder builder = new StringBuilder(from.length());
-        for (int i = 0; i < from.length(); i++) {
-            if (remove.indexOf(from.charAt(i)) < 0) {
-                builder.append(from.charAt(i));
-            }
-        }
-        return builder.toString();
+        return from.replaceAll(remove, "");
     }
-    
     
     /**
      * @throws NumberFormatException - if the string does not contain a parsable integer.

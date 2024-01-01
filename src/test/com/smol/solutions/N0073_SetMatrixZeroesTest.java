@@ -73,10 +73,10 @@ class N0073_SetMatrixZeroesTest {
 
 
     private int[][] stringToMatrix(String stringMatrix) {
-        String[] temp = TUtils.StringToStringArray(stringMatrix, "],\\[");
+        String[] temp = TUtils.StringToStringArray(stringMatrix, "\\],\\[");
         int[][] matrix = new int[temp.length][];
         for (int i = 0; i < temp.length; i++) {
-            temp[i] = TUtils.removeSubStrings(temp[i], "[", "\\]");
+            temp[i] = TUtils.removeSubStrings(temp[i], "\\[", "\\]");
             int[] subArray = TUtils.StringToIntArray(temp[i], ",");
             matrix[i] = subArray;
         }
