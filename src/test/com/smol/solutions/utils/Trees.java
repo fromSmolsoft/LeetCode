@@ -91,7 +91,7 @@ public class Trees<T> {
      * <p>
      * @param values (Integer[]) array of integers or nulls. Null represent "no child".
      */
-    public static <T> T buildBiTreeRtNext(Integer[] values, Class<T> nodeType) {
+    public static <T> T buildBiTreeWithNext(Integer[] values, Class<T> nodeType) {
         return createNodeLvlConnected(values, nodeType);
     }
     
