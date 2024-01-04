@@ -3,7 +3,7 @@ package com.smol.solutions;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
 import com.smol.solutions.utils.TreeNode;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -58,7 +58,7 @@ class N0101_SymmetricTreeTest {
             "false; 1,2,2,3,4,4,3,5,6,7,8,8,7,6,5,9,10,11,12,13,14,15,16,16,15,14,13,12,11,10",
     })
     void isSymmetric(boolean exp, String sRoot) throws InvocationTargetException, IllegalAccessException {
-        TreeNode root = Trees.buildBiTree(TUtils.StringToIntegerArray(sRoot, ","));
+        TreeNode root = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sRoot, ","));
         
         for (Method m : methods) {
             boolean act = (boolean) m.invoke(obj, root);

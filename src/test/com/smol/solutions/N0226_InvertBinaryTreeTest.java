@@ -3,7 +3,7 @@ package com.smol.solutions;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
 import com.smol.solutions.utils.TreeNode;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -58,11 +58,11 @@ class N0226_InvertBinaryTreeTest {
         Integer[] expData = TUtils.StringToIntegerArray(sExp, ",");
         Integer[] rootData = TUtils.StringToIntegerArray(sRoot, ",");
         
-        TreeNode expected = Trees.buildBiTree(expData);
+        TreeNode expected = TreeBuilder.buildBiTree(expData);
         String messageExp = formatter.topDown(expected);
         
         for (Method m : methods) {
-            TreeNode root = Trees.buildBiTree(rootData);
+            TreeNode root = TreeBuilder.buildBiTree(rootData);
             String messageRoot = formatter.topDown(root);
             TreeNode actual = (TreeNode) m.invoke(obj, root);
             String messageActual = formatter.topDown(actual);

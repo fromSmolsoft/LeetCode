@@ -87,7 +87,7 @@ class N0068_TextJustificationTest {
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             
-            /*1*/ "'This    is    an', 'example  of text', 'justification.  '; 16; This,is,an,example,of,text,justification.; ",
+            /*1*/ "'This    is    an','example  of text','justification.  '; 16; This,is,an,example,of,text,justification.; ",
             /*2*/ "'What   must   be','acknowledgment  ','shall be        '; 16; What,must,be,acknowledgment,shall,be",
             /*3*/ "'Science  is  what we','understand      well','enough to explain to','a  computer.  Art is','everything  else  we','do                  '; 20; " +
                   "Science,is,what,we,understand,well,enough,to,explain,to,a,computer.,Art,is,everything,else,we,do,  "
@@ -95,7 +95,8 @@ class N0068_TextJustificationTest {
     })
     void fullJustify(String sExp, int maxWidth, String sWords) throws InvocationTargetException, IllegalAccessException {
         String[] words = TUtils.StringToStringArray(sWords, ",");
-        List<String> exp = TUtils.StringToStringList(sExp, ",", 1);
+        sExp = TUtils.removeSubStrings(sExp, "\"", "'");
+        List<String> exp = TUtils.StringToStringList(sExp, ",");
         List<String> act;
         
         

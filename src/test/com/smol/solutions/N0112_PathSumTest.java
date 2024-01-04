@@ -3,7 +3,7 @@ package com.smol.solutions;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
 import com.smol.solutions.utils.TreeNode;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -65,7 +65,7 @@ class N0112_PathSumTest {
             "true;  7; 8,9,-6,null,null,5,9"
     })
     void hasPathSum(boolean exp, int targetSum, String sRoot) throws InvocationTargetException, IllegalAccessException {
-        TreeNode root = Trees.buildBiTree(TUtils.StringToIntegerArray(sRoot, ","));
+        TreeNode root = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sRoot, ","));
         
         for (Method m : list) {
             boolean act = (boolean) m.invoke(obj, root, targetSum);

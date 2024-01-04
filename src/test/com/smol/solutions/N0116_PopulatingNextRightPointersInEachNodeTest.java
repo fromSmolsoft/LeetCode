@@ -3,7 +3,7 @@ package com.smol.solutions;
 import com.smol.solutions.utils.Node;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -59,8 +59,8 @@ class N0116_PopulatingNextRightPointersInEachNodeTest {
     })
     void connect(String sExp, String sRoot) {
         sExp = TUtils.removeSubStrings(sExp, ",#");
-        Node exp = Trees.buildBiTreeWithNext(TUtils.StringToIntegerArray(sExp, ","), Node.class);
-        Node root = Trees.buildBiTree(TUtils.StringToIntegerArray(sRoot, ","), Node.class); //Input `root` gets modified by tested methods
+        Node exp = TreeBuilder.buildBiTreeWithNext(TUtils.StringToIntegerArray(sExp, ","), Node.class);
+        Node root = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sRoot, ","), Node.class); //Input `root` gets modified by tested methods
         String expMessage = treeFormatter.topDownConnected(exp);
         
         methods.forEach(m -> {

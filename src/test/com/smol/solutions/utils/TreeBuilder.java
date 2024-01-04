@@ -5,7 +5,10 @@ import java.lang.reflect.Field;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class Trees<T> {
+/**
+ * Binary Tree Builder automates building of binary trees.
+ */
+public class TreeBuilder<T> {
     
     /**
      * Builds a Binary tree from Integer array.  <p>
@@ -321,7 +324,7 @@ public class Trees<T> {
         T root = createNode(nodeType, input[0]);
         queue.add(root);
         int i = 0;
-    
+        
         while (i < input.length && !queue.isEmpty()) {
             int size = queue.size();
             T mostRight = null;

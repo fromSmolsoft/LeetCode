@@ -3,7 +3,7 @@ package com.smol.solutions;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
 import com.smol.solutions.utils.TreeNode;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -31,7 +31,7 @@ class N0105_ConstructBinaryTreeFromPreorderInorderTest {
         
     })
     void buildTree(String sExp, String sPreorder, String sInorder) throws InvocationTargetException, IllegalAccessException {
-        TreeNode expected = Trees.buildBiTree(TUtils.StringToIntegerArray(sExp, ","));
+        TreeNode expected = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sExp, ","));
         int[] preorder = TUtils.StringToIntArray(sPreorder, ",");
         int[] inorder = TUtils.StringToIntArray(sInorder, ",");
         

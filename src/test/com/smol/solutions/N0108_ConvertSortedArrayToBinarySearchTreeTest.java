@@ -3,7 +3,7 @@ package com.smol.solutions;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
 import com.smol.solutions.utils.TreeNode;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -57,8 +57,8 @@ class N0108_ConvertSortedArrayToBinarySearchTreeTest {
         
     })
     void sortedArrayToBST(String sExp1, String sExp2, String sNums) throws InvocationTargetException, IllegalAccessException {
-        TreeNode exp1 = Trees.buildBiTree(TUtils.StringToIntegerArray(sExp1, ","));
-        TreeNode exp2 = Trees.buildBiTree(TUtils.StringToIntegerArray(sExp2, ","));
+        TreeNode exp1 = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sExp1, ","));
+        TreeNode exp2 = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sExp2, ","));
         int[] nums = TUtils.StringToIntArray(sNums, ",");
         
         TreeFormatter formatter = new TreeFormatter();

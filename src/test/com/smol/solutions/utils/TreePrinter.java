@@ -3,6 +3,7 @@ package com.smol.solutions.utils;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/** Collection of methods returning String representations of binary tree values */
 public class TreePrinter {
     
     /**

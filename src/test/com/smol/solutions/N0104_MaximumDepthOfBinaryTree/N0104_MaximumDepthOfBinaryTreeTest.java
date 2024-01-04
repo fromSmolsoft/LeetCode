@@ -3,7 +3,7 @@ package com.smol.solutions.N0104_MaximumDepthOfBinaryTree;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
 import com.smol.solutions.utils.TreeNode;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -60,7 +60,7 @@ class N0104_MaximumDepthOfBinaryTreeTest {
         
         Integer[] vals = TUtils.StringToIntegerArray(sRoot, ",");
         String message;
-        TreeNode root = Trees.buildBiTree(vals);
+        TreeNode root = TreeBuilder.buildBiTree(vals);
         if (vals.length > 0) {
             message = "\nRoot:" +
                       "\n" + formatter.topDown(root) +
