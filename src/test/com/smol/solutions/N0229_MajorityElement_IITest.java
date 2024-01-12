@@ -10,11 +10,11 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 class N0229_MajorityElement_IITest {
-
-    TUtils utils   = new TUtils();
-    N0229_MajorityElement_II obj     = new N0229_MajorityElement_II();
-    Method[]                 methods = N0229_MajorityElement_II.class.getDeclaredMethods();
-
+    
+    final N0229_MajorityElement_II obj = new N0229_MajorityElement_II();
+    final Method[] methods = N0229_MajorityElement_II.class.getDeclaredMethods();
+    
+    @SuppressWarnings("unchecked")
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             /*exp   nums    */
@@ -28,19 +28,19 @@ class N0229_MajorityElement_IITest {
             " ;      "
     })
     void majorityElement(String exp, String input) throws InvocationTargetException, IllegalAccessException {
-        int[] nums = utils.StringToIntArray(input, ",");
-
-        List<Integer> expected = utils.StringToIntList(exp, ",");
+        int[] nums = TUtils.StringToIntArray(input, ",");
+        
+        List<Integer> expected = TUtils.StringToIntList(exp, ",");
         List<Integer> actual;
-
+        
         for (Method m : methods) {
             String name = m.getName();
-
+            
             if (name.startsWith("majorityElement")) {
-                actual = (List<Integer>) m.invoke(obj, nums);
+                actual = (List<Integer>) m.invoke(obj, (Object) nums);
                 Assertions.assertIterableEquals(expected, actual, "\n" + name + "(...) ");
             }
         }
-
+        
     }
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class N0151_ReverseWordsInStringTest {
 
 
-    N0151_ReverseWordsInString obj = new N0151_ReverseWordsInString();
+    final N0151_ReverseWordsInString obj = new N0151_ReverseWordsInString();
 
     /**
      * <pre>

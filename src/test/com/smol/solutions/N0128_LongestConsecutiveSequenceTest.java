@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0128_LongestConsecutiveSequenceTest {
 
-    N0128_LongestConsecutiveSequence obj = new N0128_LongestConsecutiveSequence();
+    final N0128_LongestConsecutiveSequence obj = new N0128_LongestConsecutiveSequence();
 
     /**
      * <pre>

@@ -9,10 +9,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 class MyHashMapTest {
-
+    
     private static final MyHashMap obj = new MyHashMap();
-
-
+    
+    
     @DisplayName("All around test")
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -27,25 +27,22 @@ class MyHashMapTest {
             "-1;    get;      2;       ;",
     })
     void arrayVersion(String exp, String m, int key, Integer val) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        System.out.println(">" + m + "| " + key + "| " + val + "| " + exp + "<");
-
+        String message = ">" + m + "| " + key + "| " + val + "| " + exp + "<";
+        
         if (m.equals("put")) {
             obj.put(key, val);
-            Assertions.assertEquals(val, obj.get(key), "get(key) after put(key,val)");
+            Assertions.assertEquals(val, obj.get(key), "\n" + message + "\nget(key) after put(key,val)");
         }
-
+        
         if (m.equals("get")) {
-            int     actual   = obj.get(key);
+            int actual = obj.get(key);
             Integer expected = Objects.equals(exp, "null") ? null : Integer.valueOf(exp);
-            Assertions.assertEquals(expected, actual, "get(key)");
+            Assertions.assertEquals(expected, actual, "\n" + message + "\nget(key)");
         }
-
+        
         if (m.equals("remove")) {
             obj.remove(key);
-            Assertions.assertEquals(-1, obj.get(key), "get(key) after remove(key)");
+            Assertions.assertEquals(-1, obj.get(key), "\n" + message + "\nget(key) after remove(key)");
         }
-
     }
-
-
 }

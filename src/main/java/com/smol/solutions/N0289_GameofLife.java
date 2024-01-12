@@ -45,8 +45,8 @@ package com.smol.solutions;
  */
 public class N0289_GameofLife {
 
-    private int die = 2;
-    private int live = 3;
+    private final int die = 2;
+    private final int live = 3;
 
     /** <h2>Not "in place" solution</h2> */
     public void gameOfLifeBF(int[][] board) {

@@ -62,7 +62,7 @@ public class N0128_LongestConsecutiveSequence {
     public int longestConsecutiveHS(int[] nums) {
         int max = 0;
 
-        Set<Integer> set = new HashSet<Integer>();
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
         }

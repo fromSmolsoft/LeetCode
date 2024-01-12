@@ -7,9 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N1512_NumberOfGoodPairsTest {
 
-
-    private TUtils utils = new TUtils();
-    private N1512_NumberOfGoodPairs obj   = new N1512_NumberOfGoodPairs();
+    private final N1512_NumberOfGoodPairs obj   = new N1512_NumberOfGoodPairs();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -20,7 +18,7 @@ class N1512_NumberOfGoodPairsTest {
             "0;     1,2,3"
     })
     void numIdenticalPairs(int exp, String inp) {
-        int[] input  = utils.StringToIntArray(inp, ",");
+        int[] input  = TUtils.StringToIntArray(inp, ",");
 
         int   actual = obj.numIdenticalPairs(input);
         Assertions.assertEquals(exp, actual);

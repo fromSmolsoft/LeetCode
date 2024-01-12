@@ -58,7 +58,7 @@ public class N0238_ProductOfArrayExceptSelf {
      */
     public int[] productExceptSelfBF(int[] nums) {
         int n     = nums.length;
-        int ans[] = new int[n];
+        int[] ans = new int[n];
 
         for (int i = 0; i < n; i++) {
             int pro = 1;
@@ -78,7 +78,7 @@ public class N0238_ProductOfArrayExceptSelf {
      */
     public int[] productExceptSelfD(int[] nums) {
         int n     = nums.length;
-        int ans[] = new int[n];
+        int[] ans = new int[n];
         int pro   = 1;
         for (int i : nums) {
             pro *= i;

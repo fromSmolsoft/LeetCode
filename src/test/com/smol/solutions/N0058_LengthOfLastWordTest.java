@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0058_LengthOfLastWordTest {
 
-    N0058_LengthOfLastWord obj = new N0058_LengthOfLastWord();
+    final N0058_LengthOfLastWord obj = new N0058_LengthOfLastWord();
 
     /**
      * <pre>

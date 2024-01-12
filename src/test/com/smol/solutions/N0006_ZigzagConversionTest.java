@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0006_ZigzagConversionTest {
 
-    private N0006_ZigzagConversion obj = new N0006_ZigzagConversion();
+    private final N0006_ZigzagConversion obj = new N0006_ZigzagConversion();
 
     /**
      * <pre>

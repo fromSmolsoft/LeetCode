@@ -106,9 +106,8 @@ public class N0002_AddTwoNumbers {
             int sum   = digit1 + digit2 + carry;
             int digit = sum % 10;
             carry = sum / 10;
-
-            ListNode newNode = new ListNode(digit);
-            tail.next = newNode;
+            
+            tail.next = new ListNode(digit);
             tail = tail.next;
 
             l1 = (l1 != null) ? l1.next : null;

@@ -3,7 +3,7 @@ package com.smol.solutions;
 import com.smol.solutions.utils.TUtils;
 import com.smol.solutions.utils.TreeFormatter;
 import com.smol.solutions.utils.TreeNode;
-import com.smol.solutions.utils.Trees;
+import com.smol.solutions.utils.TreeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -66,8 +66,8 @@ class N0100_SameTreeTest {
             "false;     ;   1",
     })
     void isSameTree(boolean exp, String sLeftTree, String sRightTree) throws InvocationTargetException, IllegalAccessException {
-        TreeNode leftTree = Trees.buildBiTree(TUtils.StringToIntegerArray(sLeftTree, ","));
-        TreeNode rightTree = Trees.buildBiTree(TUtils.StringToIntegerArray(sRightTree, ","));
+        TreeNode leftTree = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sLeftTree, ","));
+        TreeNode rightTree = TreeBuilder.buildBiTree(TUtils.StringToIntegerArray(sRightTree, ","));
         
         for (Method m : methods) {
             Assertions.assertEquals(exp,

@@ -87,13 +87,12 @@ public class N0189_RotateArray {
                 nums[index] = curr; //set the value of loopHead.
                 loopHead++; //move 1 step further to jump out of loop
                 curr = nums[++index]; //This is the head of new loop
-                index = (index + k) % nums.length;
             } else { //each time go k steps further
                 int tmp = nums[index];
                 nums[index] = curr;
                 curr = tmp;
-                index = (index + k) % nums.length;
             }
+            index = (index + k) % nums.length;
         }
     }
 

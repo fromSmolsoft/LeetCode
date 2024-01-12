@@ -7,8 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0169_MajorityElementTest {
 
-    TUtils utils = new TUtils();
-    N0169_MajorityElement obj   = new N0169_MajorityElement();
+    final N0169_MajorityElement obj   = new N0169_MajorityElement();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -18,7 +17,7 @@ class N0169_MajorityElementTest {
     })
     void majorityElement(int exp, String sNums) {
 
-        int [] nums = utils.StringToIntArray(sNums, ",");
+        int [] nums = TUtils.StringToIntArray(sNums, ",");
         int actual = obj.majorityElement(nums);
         Assertions.assertEquals(exp, actual);
 

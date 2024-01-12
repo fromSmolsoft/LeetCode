@@ -50,11 +50,5 @@ class n0004_MedianOfTwoSortedArraysTest {
         int length = input.length;
         return length % 2 == 0 ? (double) (input[length / 2 - 1] + input[length / 2]) / 2 : input[length / 2];
     }
-
-    /** caclulate median of sorted array */
-    private double getMedian1(double[] input) {
-        int length = input.length;
-        return length % 2 == 0 ? (double) (input[length / 2 - 1] + input[length / 2]) / 2 : input[length / 2];
-    }
-
+    
 }

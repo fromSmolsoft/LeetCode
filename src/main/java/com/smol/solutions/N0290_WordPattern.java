@@ -35,8 +35,9 @@ import java.util.Set;
  *     All the words in s are separated by a single space.
  * </pre>
  */
+@SuppressWarnings("unchecked")
 public class N0290_WordPattern {
-
+    
     /**
      * <h2>Without Hashmap</h2>
      * ! Proof of concept, might require an optimization ! <p>
@@ -53,20 +54,20 @@ public class N0290_WordPattern {
         Set<String> seen = new HashSet<>();
         String[] words = new String[26];
         int j = 0;
-
+        
         // pattern iteration
         for (int i = 0; i < pattern.length(); i++) {
-
+            
             //if string is too short to reach end of the pattern (= not enough words)
             if (j >= s.length()) return false;
-
+            
             // Prepare next word by sub-string iteration
             StringBuilder newWord = new StringBuilder();
             while (j < s.length() && s.charAt(j) != ' ') newWord.append(s.charAt(j++));
             String nWord = newWord.toString();
-
+            
             int cIndex = pattern.charAt(i) - 97;
-
+            
             // if char  &&  word were not seen
             if (chars[cIndex] == 0) {
                 if (!seen.contains(nWord)) {
@@ -74,32 +75,33 @@ public class N0290_WordPattern {
                     chars[cIndex] = i + 1;
                     words[cIndex] = nWord;
                     seen.add(nWord);
-
+                    
                     // if char was not seen but word was seen
                 } else return false;
-
+                
                 // if char was seen but word was not seen
             } else if (chars[cIndex] != 0 && !seen.contains(nWord)) return false;
-
+                
                 // if word doesn't equal
             else if (!nWord.equals(words[cIndex])) return false;
-
+            
             // fill in the white spaces
             while (j < s.length() && s.charAt(j) == ' ') j++;
         }
         // if full string was processed == true / false
         return j == s.length();
     }
-
+    
+    @SuppressWarnings({"rawtypes", "WrapperTypeMayBePrimitive"})
     public boolean wordPatternHM(String pattern, String str) {
         String[] words = str.split(" ");
         if (words.length != pattern.length())
             return false;
-        Map index = new HashMap();
+        Map index = new HashMap(); //Raw use of parameterized class 'HashMap', Uncheked call because key can be either char and String
         for (Integer i = 0; i < words.length; ++i)
             if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
                 return false;
         return true;
     }
-
+    
 }

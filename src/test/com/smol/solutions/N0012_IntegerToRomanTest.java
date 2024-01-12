@@ -3,12 +3,12 @@ package com.smol.solutions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class N0012_IntegerToRomanTest {
-
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -36,24 +36,16 @@ class N0012_IntegerToRomanTest {
             "3, III",
             "1, I"
     })
-    void intToRoman(int num, String expected) {
+    void intToRoman(int num, String expected) throws InvocationTargetException, IllegalAccessException {
         N0012_IntegerToRoman obj = new N0012_IntegerToRoman();
-
         Method[] method = N0012_IntegerToRoman.class.getDeclaredMethods();
-
-       try {
-            for (Method m : method) {
-                if (m.getName().startsWith("intToRoman")) {
-                    System.out.printf("method: " + m.getName());
-                    String actual = (String) m.invoke(obj, num);
-                    System.out.printf("->expected: %s, actual: %s\n", expected, actual);
-                    assertEquals(expected, actual);
-                }
+        
+        for (Method m : method) {
+            if (m.getName().startsWith("intToRoman")) {
+                String actual = (String) m.invoke(obj, num);
+                String message = "method: " + m.getName() + "->expected: %s, actual: %s\n".formatted(expected, actual);
+                assertEquals(expected, actual, message);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-//        assertEquals(expected, obj.intToRoman(num));
-
     }
 }

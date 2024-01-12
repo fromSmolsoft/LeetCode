@@ -6,10 +6,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N0055_JumpGameTest {
-
-    TUtils utils = new TUtils();
-    N0055_JumpGame obj   = new N0055_JumpGame();
-
+    
+    private final N0055_JumpGame obj = new N0055_JumpGame();
+    
     /**
      * <pre>
      * Example 1:
@@ -33,20 +32,20 @@ class N0055_JumpGameTest {
             "true;  2,1,6,1,4",
             "true;  3,2,2,0,4",
             "true;  2,3,1,8,4",
-
+            
             "false; 3,2,1,0,4",
             "true; 0",
             "true; 3,0,8,2,0,0,1"
     })
     void canJump(boolean exp, String sInp) {
-        int[]   inputs  = utils.StringToIntArray(sInp, ",");
+        int[] inputs = TUtils.StringToIntArray(sInp, ",");
         boolean act;
-        String  message;
-
+        String message;
+        
         message = "M00";
         act = obj.canJump(inputs);
         Assertions.assertEquals(exp, act, message);
-
+        
         message = "M01";
         act = obj.canJump01(inputs);
         Assertions.assertEquals(exp, act, message);

@@ -10,7 +10,7 @@ import java.util.List;
 
 class N0054_SpiralMatrixTest {
 
-    private N0054_SpiralMatrix obj = new N0054_SpiralMatrix();
+    private final N0054_SpiralMatrix obj = new N0054_SpiralMatrix();
 
     /**
      * <pre>

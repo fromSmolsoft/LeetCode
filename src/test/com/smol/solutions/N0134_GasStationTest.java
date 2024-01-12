@@ -8,12 +8,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Arrays;
 
 class N0134_GasStationTest {
-
-
-    TUtils utils = new TUtils();
-    N0134_GasStation obj   = new N0134_GasStation();
-
-
+    
+    final N0134_GasStation obj = new N0134_GasStation();
+    
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             /*exp   gas         cost*/
@@ -25,11 +22,11 @@ class N0134_GasStationTest {
             " 0;    3,1,1;      1,2,2"
     })
     void canCompleteCircuit(int exp, String sGas, String sCost) {
-
-        int[] gas  = utils.StringToIntArray(sGas, ",");
-        int[] cost = utils.StringToIntArray(sCost, ",");
-        int   act  = obj.canCompleteCircuit(gas, cost);
-
+        
+        int[] gas = TUtils.StringToIntArray(sGas, ",");
+        int[] cost = TUtils.StringToIntArray(sCost, ",");
+        int act = obj.canCompleteCircuit(gas, cost);
+        
         String message =
                 "\ngas :" + Arrays.toString(gas) +
                 "\ncost:" + Arrays.toString(cost);

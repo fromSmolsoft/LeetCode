@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0028_FindIndexOfFirstOccurrenceInStringTest {
 
-    N0028_FindIndexOfFirstOccurrenceInString obj = new N0028_FindIndexOfFirstOccurrenceInString();
+    final N0028_FindIndexOfFirstOccurrenceInString obj = new N0028_FindIndexOfFirstOccurrenceInString();
 
 
     @ParameterizedTest

@@ -58,7 +58,7 @@ import java.util.Comparator;
  * </pre>
  */
 public class N0452_MinimumNumberOfArrowsToBurstBalloons {
-
+    
     /**
      * <h2> Most right place that is common to intervals</h2>
      * #interval, #array, #2DArray
@@ -72,7 +72,7 @@ public class N0452_MinimumNumberOfArrowsToBurstBalloons {
     public int findMinArrowShots(int[][] points) {
         // sort arrays by their ends in acs order
         Arrays.sort(points, Comparator.comparingInt(a -> a[1]));
-
+        
         // find Most right place that is common to intervals
         int arrows = 1;
         int position = points[0][1];
@@ -83,7 +83,7 @@ public class N0452_MinimumNumberOfArrowsToBurstBalloons {
         }
         return arrows;
     }
-
+    
     /**
      * <h2> Most right place that is common to intervals</h2>
      * intervals are sorted by their ends.
@@ -95,7 +95,7 @@ public class N0452_MinimumNumberOfArrowsToBurstBalloons {
     public int findMinArrowShots02(int[][] points) {
         // sort arrays by their ends in acs order
         Arrays.sort(points, Comparator.comparingInt(a -> a[1]));
-
+        
         // find Most right place that is common to intervals
         int arrows = 1;
         int position = points[0][1];
@@ -107,7 +107,7 @@ public class N0452_MinimumNumberOfArrowsToBurstBalloons {
         }
         return arrows;
     }
-
+    
     /**
      * <h2>Intersection by intervals' common range </h2>
      * intervals are sorted by their starts
@@ -124,7 +124,7 @@ public class N0452_MinimumNumberOfArrowsToBurstBalloons {
         int[] intersection = new int[2];
         intersection[0] = points[0][0];
         intersection[1] = points[0][1];
-
+        
         while (i < points.length) {
             if (intersection[0] <= intersection[1]) {
                 intersection[0] = Math.max(intersection[0], points[i][0]);

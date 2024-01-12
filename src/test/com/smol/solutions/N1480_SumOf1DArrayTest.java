@@ -7,8 +7,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N1480_SumOf1DArrayTest {
 
-    TUtils utils = new TUtils();
-
     @ParameterizedTest
     @CsvSource(value = {
             "1;2;3;4,    1;3;6;10",
@@ -16,8 +14,8 @@ class N1480_SumOf1DArrayTest {
             "3;1;2;10;1, 3;4;6;16;17"
     })
     void runningSumTest(String nums, String expected) {
-        int[]                numsArray     = utils.StringToIntArray(nums, ";");
-        int[]              expectedArray = utils.StringToIntArray(expected, ";");
+        int[]                numsArray     = TUtils.StringToIntArray(nums, ";");
+        int[]              expectedArray = TUtils.StringToIntArray(expected, ";");
         N1480_SumOf1DArray obj           = new N1480_SumOf1DArray();
         int[]              actualArray   = obj.runningSum(numsArray);
 

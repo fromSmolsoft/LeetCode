@@ -36,7 +36,7 @@ public class N0082_RemoveDuplicatesFromSortedListII {
     
     /***/
     public ListNode deleteDuplicates00(ListNode head) {
-        if (head == null) return head;
+        if (head == null) return null;
         ListNode result = new ListNode(-1);
         ListNode slow = result;
         ListNode fast = head;
@@ -66,7 +66,7 @@ public class N0082_RemoveDuplicatesFromSortedListII {
      * </pre>
      */
     public ListNode deleteDuplicates01(ListNode head) {
-        if (head == null) return head;
+        if (head == null) return null;
         ListNode result = new ListNode(-1);
         ListNode slow = result;
         ListNode fast = head;
@@ -98,13 +98,12 @@ public class N0082_RemoveDuplicatesFromSortedListII {
             
             if (curr.val != curr.next.val) {
                 pre = curr;
-                curr = curr.next;
             } else {
                 while (curr.next != null && curr.next.val == curr.val) curr = curr.next;
                 if (pre != null) pre.next = curr.next;
                 else head = curr.next;   /* when head was dupe */
-                curr = curr.next;
             }
+            curr = curr.next;
         }
         return head;
     }

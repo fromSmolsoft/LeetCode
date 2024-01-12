@@ -1,6 +1,5 @@
 package com.smol.solutions;
 
-import com.smol.solutions.N0061_RotateList;
 import com.smol.solutions.utils.ListNode;
 import com.smol.solutions.utils.TUtils;
 import org.junit.jupiter.api.Assertions;
@@ -79,14 +78,6 @@ class N0061_RotateListTest {
         return "\nmethod: " + m.getName() +
                "\ninp : " + input +
                "\nexp : " + expected +
-               "\nact : " + nodeToString(actual) +
-               "\n";
-    }
-    
-    private String getMessage(Method m, ListNode input, ListNode expected, ListNode actual) {
-        return "\nmethod: " + m.getName() +
-               "\ninp : " + nodeToString(input) +
-               "\nexp : " + nodeToString(expected) +
                "\nact : " + nodeToString(actual) +
                "\n";
     }

@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0125_ValidPalindromeTest {
 
-    private static N0125_ValidPalindrome obj = new N0125_ValidPalindrome();
+    private static final N0125_ValidPalindrome obj = new N0125_ValidPalindrome();
 
     /**
      * <pre>

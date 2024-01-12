@@ -68,14 +68,14 @@ import java.util.List;
 public class N0068_TextJustification {
 
     public List<String> fullJustify02(String[] words, int maxWidth) {
-        List<String> lines = new ArrayList<String>();
+        List<String> lines = new ArrayList<>();
         int          index = 0;
         while (index < words.length) {
             int count = words[index].length();
             int last  = index + 1;
             while (last < words.length) {
                 if (words[last].length() + count + 1 > maxWidth) break;
-                //plus one for the space, if its a perfect fit it will fit
+                //plus one for the space, if it's a perfect fit it will fit
                 count += 1 + words[last].length();
                 last++;
             }

@@ -38,9 +38,6 @@ public class N0392_IsSubsequence {
      * </pre>
      */
     public boolean isSubsequence(String s, String t) {
-        // There won't be null input in this case, no need for null check
-        //  if (s == null) return true;
-        //  else if (t == null) return false;
 
         int m = t.length(), n = s.length();
 

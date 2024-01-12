@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0343_IntegerBreakTest {
 
-    N0343_IntegerBreak obj = new N0343_IntegerBreak();
+    final N0343_IntegerBreak obj = new N0343_IntegerBreak();
 
     @ParameterizedTest
     @CsvSource(value = {

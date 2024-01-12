@@ -1,19 +1,13 @@
 package com.smol.solutions;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class N0273_IntegerToEnglishWordsTest {
-
-
-    @BeforeEach
-    void setUp() {
-
-    }
-
+    
+    
     @ParameterizedTest
     @CsvSource(value = {
             "0, Zero",

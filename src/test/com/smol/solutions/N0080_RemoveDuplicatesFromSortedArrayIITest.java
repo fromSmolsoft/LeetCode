@@ -8,11 +8,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Arrays;
 
 class N0080_RemoveDuplicatesFromSortedArrayIITest {
-
-
-    TUtils utils = new TUtils();
-    N0080_RemoveDuplicatesFromSortedArrayII obj   = new N0080_RemoveDuplicatesFromSortedArrayII();
-
+    
+    final N0080_RemoveDuplicatesFromSortedArrayII obj = new N0080_RemoveDuplicatesFromSortedArrayII();
+    
     /**
      * <pre>
      * Example 1:
@@ -40,37 +38,37 @@ class N0080_RemoveDuplicatesFromSortedArrayIITest {
             "1; 1;              1",
             "4; 1,2,3,4;        1,2,3,4",
             "5; 1,2,2,3,4;      1,2,2,2,2,2,3,4"
-
+        
     })
     void removeDuplicates(int expK, String sExpOutput, String sInput) {
-
-        int[] expOut  = utils.StringToIntArray(sExpOutput, ",");
-        int[] nums    = utils.StringToIntArray(sInput, ",");
+        
+        int[] expOut = TUtils.StringToIntArray(sExpOutput, ",");
+        int[] nums = TUtils.StringToIntArray(sInput, ",");
         int[] numsOrg = Arrays.copyOf(nums, nums.length);
-
-       //method 1
-        int   actual  = obj.removeDuplicates(nums);
-
+        
+        //method 1
+        int actual = obj.removeDuplicates(nums);
+        
         Assertions.assertEquals(expK, actual, "number of elements");
-
+        
         for (int i = 0; i < expOut.length; i++) {
             Assertions.assertEquals(expOut[i], nums[i], "\nexp" + Arrays.toString(expOut) +
                                                         "\nact" + Arrays.toString(nums) +
                                                         "\nmismatch at index " + i);
         }
-
+        
         //method 2
         nums = Arrays.copyOf(numsOrg, numsOrg.length);
         actual = obj.removeDuplicates02(nums);
-
+        
         Assertions.assertEquals(expK, actual, "number of elements");
-
+        
         for (int i = 0; i < expOut.length; i++) {
             Assertions.assertEquals(expOut[i], nums[i], "\nexp" + Arrays.toString(expOut) +
                                                         "\nact" + Arrays.toString(nums) +
                                                         "\nmismatch at index " + i);
         }
-
-
+        
+        
     }
 }

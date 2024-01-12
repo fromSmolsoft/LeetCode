@@ -5,19 +5,61 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Allows parsing of Strings into their corresponding values and related operations.
+ */
 public class TUtils {
     
+    /**
+     * Uses Refection.
+     * Filters methods with according to the name.
+     */
     public static List<Method> reflectMethods(Class clazz, String filter) {
         return Arrays.stream(clazz.getMethods())
                 .filter(m -> m.getName().contains(filter))
                 .toList();
     }
+    
+    /**
+     * Uses Refection.
+     * Filters methods with according to the name and number of parameters.
+     * @param paramTypes Class[] types = array of classes that are used as params.
+     * @param clazz      Class to look for methods in
+     * @param filter     name of method contains
+     */
+    public static List<Method> reflectMethods(Class clazz, String filter, Class<?>[] paramTypes) {
+        return Arrays.stream(clazz.getMethods())
+                .filter(m -> {
+                    if (m.getName().contains(filter)) {
+                        Class<?>[] mTypes = m.getParameterTypes();
+                        if (mTypes.length == paramTypes.length) {
+                            // return IntStream.range(0, mTypes.length).allMatch(i -> mTypes[i].equals(paramTypes[i]));
+                            return true;
+                        }
+                    }
+                    return false;
+                })
+                .toList();
+    }
+    
+    /**
+     * Uses Refection.
+     * Filters methods with according to the name.
+     */
     public static List<Method> reflectMethods(Object obj, String filter) {
         return Arrays.stream(obj.getClass().getMethods())
                 .filter(m -> m.getName().contains(filter))
                 .toList();
     }
     
+    /**
+     * Converts a string representation of a matrix into a 2D integer array.
+     * @param stringMatrix the string representation of the matrix
+     * @param outerDelim   the delimiter used to separate the outer elements of the matrix
+     * @param innerDelim   the delimiter used to separate the inner elements of the matrix
+     * @param remove       the substrings to be removed from each element of the matrix
+     * @return the 2D integer array representation of the matrix
+     */
     public static int[][] stringToMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
         String[] temp = TUtils.StringToStringArray(stringMatrix, outerDelim);
         int[][] matrix = new int[temp.length][];
@@ -29,7 +71,16 @@ public class TUtils {
         return matrix;
     }
     
-    public static String[][] stringToStringMatrix(String stringMatrix, String outerDelim, String innerDelim, String... remove) {
+    /**
+     * Converts a string representation of a matrix into a two-dimensional string array.
+     * @param stringMatrix the string representation of the matrix
+     * @param outerDelim   the delimiter used to separate outer elements of the matrix
+     * @param innerDelim   the delimiter used to separate inner elements of the matrix
+     * @param remove       the substrings to be removed from each outer element of the matrix
+     * @return the two-dimensional string array representation of the matrix
+     */
+    public static String[][] stringToStringMatrix(String stringMatrix, String outerDelim, String innerDelim, String...
+            remove) {
         String[] temp = TUtils.StringToStringArray(stringMatrix, outerDelim);
         String[][] matrix = new String[temp.length][];
         for (int i = 0; i < temp.length; i++) {
@@ -40,6 +91,11 @@ public class TUtils {
         return matrix;
     }
     
+    /**
+     * Copies a 2D array.
+     * @param matrix the matrix to be copied
+     * @return the copy of the matrix
+     */
     public static int[][] copy2DArray(int[][] matrix) {
         int[][] copy = new int[matrix.length][];
         for (int i = 0; i < matrix.length; i++) {
@@ -65,7 +121,10 @@ public class TUtils {
     }
     
     /**
-     * @param listOfMatrices suitable only for single digit values within matrices. Too many matrices may lead to console wrapping.
+     *Generates a string representation of matrices from a list of matrices, side by side in horizontal .   <p>
+     * Suitable only for single digit values within matrices.   <p>
+     * Too many matrices may lead to console wrapping.  <p>
+     * @param listOfMatrices  a list of matrices
      * @return String with matrices printed side by side
      */
     public static String printMatricesHorisont(List<int[][]> listOfMatrices) {
@@ -91,7 +150,6 @@ public class TUtils {
         
         
     }
-    
     
     /** Trims then removes either single or double quotes from each String [] strings */
     private static void removeQuotesStrArr(String[] strings) {
@@ -148,13 +206,15 @@ public class TUtils {
      * @param remove Character sequences to be removed. Multiple sequences can be added. Certain characters must be escaped according to the Java rules  \.[]{}()<>*+-=!?^$| <p>
      */
     public static String removeSubStrings(String from, String... remove) {
+        if (from == null) return null;
+        else if (remove == null) return from;
+        
         from = from.trim();
         for (String s : remove) {
             from = removeSubString(from, s);
         }
         return from;
     }
-    
     
     /**
      * Removes characters sequence (String) from a String
@@ -163,15 +223,8 @@ public class TUtils {
      * @return new String without removed characters
      */
     public static String removeSubString(String from, String remove) {
-        StringBuilder builder = new StringBuilder(from.length());
-        for (int i = 0; i < from.length(); i++) {
-            if (remove.indexOf(from.charAt(i)) < 0) {
-                builder.append(from.charAt(i));
-            }
-        }
-        return builder.toString();
+        return from.replaceAll(remove, "");
     }
-    
     
     /**
      * @throws NumberFormatException - if the string does not contain a parsable integer.
@@ -228,30 +281,34 @@ public class TUtils {
         return result;
     }
     
+    /**
+     * Convert a given string to a string array using a specified delimiter.
+     * @param s         the string to be converted
+     * @param delimiter the delimiter to split the string
+     * @return the resulting string array
+     */
     public static String[] StringToStringArray(String s, String delimiter) {
         if (s == null) return new String[]{};
         return s.split(delimiter, -1);
     }
     
+    /**
+     * Converts a string into a list of strings using a delimiter.
+     * @param s         the string to be converted
+     * @param delimiter the delimiter used to split the string
+     * @return a list of strings obtained by splitting the input string using the delimiter
+     */
     public static List<String> StringToStringList(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new ArrayList<>();
         return List.of(s.split(delimiter, -1));
-        
     }
     
     /**
-     * @param s            string to be split
-     * @param delimiter
-     * @param removeQuotes any value triggers removal of either single or double quotes
-     * @return list of strings
+     * Converts a given string into a list of integers using a specified delimiter.
+     * @param s         the string to be converted
+     * @param delimiter the delimiter used to split the string
+     * @return the list of integers extracted from the string
      */
-    public static List<String> StringToStringList(String s, String delimiter, int removeQuotes) {
-        if (s == null || s.isEmpty()) return new ArrayList<>();
-        String[] split = StringToStringArray(s, delimiter);
-        removeQuotesStrArr(split);
-        return List.of(split);
-    }
-    
     public static List<Integer> StringToIntList(String s, String delimiter) {
         if (s == null || s.isEmpty()) return new ArrayList<>();
         String[] strings = s.split(delimiter, -1);
@@ -267,6 +324,5 @@ public class TUtils {
         
         
     }
-    
     
 }

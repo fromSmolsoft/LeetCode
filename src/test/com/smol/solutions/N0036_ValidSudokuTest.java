@@ -64,7 +64,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class N0036_ValidSudokuTest {
 
-    private N0036_ValidSudoku obj = new N0036_ValidSudoku();
+    private final N0036_ValidSudoku obj = new N0036_ValidSudoku();
 
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
@@ -104,8 +104,8 @@ class N0036_ValidSudokuTest {
 
     })
     void isValidSudoku(boolean exp, String sChars2DArray) {
-        String[] lines = TUtils.StringToStringArray(sChars2DArray, "],\\[");
-        TUtils.removeSubStringsFromArray(lines, "\"", "[", "[", "\"", "\"", "]", "]", "\"");
+        String[] lines = TUtils.StringToStringArray(sChars2DArray, "\\],\\[");
+        TUtils.removeSubStringsFromArray(lines, "\"", "\\[", "\\[", "\"", "\"", "\\]", "\\]", "\"");
         char[][] board = new char[lines.length][];
         for (int i = 0; i < lines.length; i++) {
             String s = lines[i];

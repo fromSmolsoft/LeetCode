@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N0392_IsSubsequenceTest {
 
-    N0392_IsSubsequence obj = new N0392_IsSubsequence();
+    final N0392_IsSubsequence obj = new N0392_IsSubsequence();
 
     /**
      * <pre>

@@ -7,10 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class N0011_ContainerWithMostWaterTest {
-
-    private final TUtils utils = new TUtils();
-    private final N0011_ContainerWithMostWater obj   = new N0011_ContainerWithMostWater();
-
+    
+    private final N0011_ContainerWithMostWater obj = new N0011_ContainerWithMostWater();
+    
     /**
      * <pre>
      * Example 1:
@@ -49,12 +48,12 @@ class N0011_ContainerWithMostWaterTest {
             " 0; 0,5,0"
     })
     void maxArea(int exp, String sHeights) {
-        int[] heights = utils.StringToIntArray(sHeights, ",");
-        int   act;
-
+        int[] heights = TUtils.StringToIntArray(sHeights, ",");
+        int act;
+        
         act = obj.maxAreaBF(heights);
         assertEquals(exp, act, "BF");
-
+        
         act = obj.maxArea(heights);
         assertEquals(exp, act);
     }

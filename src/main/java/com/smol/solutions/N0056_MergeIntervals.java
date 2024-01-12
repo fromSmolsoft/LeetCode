@@ -87,7 +87,7 @@ public class N0056_MergeIntervals {
 
     /**
      * Concise but slower
-     * @autor isalonisharma @ <a href="https://leetcode.com/problems/merge-intervals/?envType=study-plan-v2&envId=top-interview-150">lnk</a>
+     * @author isalonisharma @ <a href="https://leetcode.com/problems/merge-intervals/?envType=study-plan-v2&envId=top-interview-150">lnk</a>
      */
     public int[][] merge01(int[][] intervals) {
         List<int[]> answer = new ArrayList<>();

@@ -6,10 +6,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N0045_JumpGameIITest {
-
-    TUtils utils = new TUtils();
-    N0045_JumpGameII obj   = new N0045_JumpGameII();
-
+    
+    private final N0045_JumpGameII obj = new N0045_JumpGameII();
+    
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             "2;  2,3,1,1,4",
@@ -22,9 +21,9 @@ class N0045_JumpGameIITest {
             "2; 7,0,9,6,9,6,1,7,9,0,1,2,9,0,3",
     })
     void jump(int exp, String sIpn) {
-        int[] nums = utils.StringToIntArray(sIpn, ",");
-        int   act  = obj.jump(nums);
+        int[] nums = TUtils.StringToIntArray(sIpn, ",");
+        int act = obj.jump(nums);
         Assertions.assertEquals(exp, act);
-
+        
     }
 }

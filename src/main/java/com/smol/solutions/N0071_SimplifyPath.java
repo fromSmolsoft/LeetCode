@@ -62,6 +62,17 @@ public class N0071_SimplifyPath {
         String[] dirs = path.split("/");
 
         // restructure path's segments to fit simple canonical path
+        Deque<String> cPath = getPath(dirs);
+        
+        // turn elements into returned String
+        int l = cPath.size();
+        if (l == 0) return "/";
+        StringBuilder res = new StringBuilder(l * 2);
+        for (int i = 0; i < l; i++) res.append('/').append(cPath.removeLast());
+        return res.toString();
+    }
+    
+    private  Deque<String> getPath(String[] dirs) {
         Deque<String> cPath = new ArrayDeque<>();
         for (int i = 0; i < dirs.length; i++) {
 
@@ -69,17 +80,11 @@ public class N0071_SimplifyPath {
             if (dirs[i].equals(".") || dirs[i].isEmpty()) continue;
 
                 // ".." => remove previous path segment, aka go to parent dir
-            else if (dirs[i].equals("..")) cPath.pollFirst();
+             if (dirs[i].equals("..")) cPath.pollFirst();
 
                 // anything else => add as path segment
             else cPath.addFirst(dirs[i]);
         }
-
-        // turn elements into returned String
-        int l = cPath.size();
-        if (l == 0) return "/";
-        StringBuilder res = new StringBuilder(l * 2);
-        for (int i = 0; i < l; i++) res.append('/').append(cPath.removeLast());
-        return res.toString();
+        return cPath;
     }
 }

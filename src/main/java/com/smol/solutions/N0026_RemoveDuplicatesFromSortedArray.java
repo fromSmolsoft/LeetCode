@@ -12,7 +12,6 @@ import java.util.Set;
  * <p>
  * - Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
  * Return k.
- *
  * <h2>Custom Judge:</h2>
  * <pre>
  * The judge will test your solution with the following code:
@@ -50,8 +49,8 @@ import java.util.Set;
  * </pre>
  */
 public class N0026_RemoveDuplicatesFromSortedArray {
-
-
+    
+    
     /**
      * <h1>Two pointers - sorted array</h1><pre>
      * left pointer to overwrite values with originals
@@ -71,8 +70,8 @@ public class N0026_RemoveDuplicatesFromSortedArray {
         }
         return left;
     }
-
-
+    
+    
     /**
      * <h1>Two pointers - non-sorted array</h1>
      * <pre>
@@ -87,17 +86,15 @@ public class N0026_RemoveDuplicatesFromSortedArray {
      */
     public int removeDuplicates01(int[] nums) {
         Set<Integer> seen = new HashSet<>();
-        int          l    = nums.length;
-        int          left = 0;
+        int l = nums.length;
+        int left = 0;
         for (int right = 0; right < l; right++) {
             int num = nums[right];
-            if (seen.contains(num)) {
-            } else {
+            if (!seen.contains(num)) {
                 seen.add(num);
                 nums[left++] = num;
             }
         }
         return left;
     }
-
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class N1420_ArrayMaximumExactlyKComparisonsTest {
 
-    N1420_ArrayMaximumExactlyKComparisons obj = new N1420_ArrayMaximumExactlyKComparisons();
+    final N1420_ArrayMaximumExactlyKComparisons obj = new N1420_ArrayMaximumExactlyKComparisons();
 
     @DisplayName("There are/is:")
     @ParameterizedTest

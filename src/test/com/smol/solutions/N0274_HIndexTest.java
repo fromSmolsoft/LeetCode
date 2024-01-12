@@ -6,9 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class N0274_HIndexTest {
-    TUtils utils = new TUtils();
-    N0274_HIndex obj   = new N0274_HIndex();
-
+    private final N0274_HIndex obj = new N0274_HIndex();
+    
     /**
      * <pre>
      * Example 1:
@@ -37,12 +36,12 @@ class N0274_HIndexTest {
             "2; 11,15"
     })
     void hIndex(int exp, String sInp) {
-        int[] input = utils.StringToIntArray(sInp, ",");
-        int   act;
+        int[] input = TUtils.StringToIntArray(sInp, ",");
+        int act;
         act = obj.hIndex(input);
-        Assertions.assertEquals(exp, act,"00");
-
+        Assertions.assertEquals(exp, act, "00");
+        
         act = obj.hIndex01(input);
-        Assertions.assertEquals(exp, act,"01");
+        Assertions.assertEquals(exp, act, "01");
     }
 }
